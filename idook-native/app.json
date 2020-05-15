@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "IDook",
+    "slug": "IDDook",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/idook.png",
+    "splash": {
+      "image": "./assets/splash-idook.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#702f8a"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}
