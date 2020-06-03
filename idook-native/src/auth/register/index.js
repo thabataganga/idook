@@ -47,7 +47,7 @@ export default class RegisterScreen extends React.Component {
                 </View>
 
                 <View style={styles.form}>
-                     <View  style={{ marginTop: 20 }}>
+                    <View style={{ marginTop: 20 }}>
                         <Text style={styles.inputTitle}>CPF</Text>
                         <TextInput
                             style={styles.input}
@@ -82,7 +82,7 @@ export default class RegisterScreen extends React.Component {
                 <View style={styles.errorMessage}>
                     {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
                 </View>
-                
+
 
                 <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
                     <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign up</Text>
@@ -97,9 +97,9 @@ export default class RegisterScreen extends React.Component {
                     </Text>
                 </TouchableOpacity>
 
-            <View style={{alignItems:'flex-end'}}>
-                <Image style={styles.logo2} source={logoImg} />
-            </View>
+                <View style={{ alignItems: 'flex-end' }}>
+                    <Image style={styles.logo2} source={logoImg} />
+                </View>
             </View>
         );
     }

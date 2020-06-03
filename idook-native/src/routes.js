@@ -17,6 +17,8 @@ import Settings from './pages/settings';
 import LoadingScreen from './screens'
 import RegisterScreen from './auth/register'
 import LoginScreen from './auth/login'
+import Token from './auth/token'
+import EditID from './pages/id/editid'
 
 
 
@@ -27,6 +29,8 @@ export default function Routes() {
             <AppStack.Screen name="Loading" component={LoadingScreen} />
                 <AppStack.Screen name="Login" component={LoginScreen} />
                 <AppStack.Screen name="Register" component={RegisterScreen} />
+                <AppStack.Screen name="Token" component={Token} />
+                <AppStack.Screen name="EditID" component={EditID} />
                 
                 <AppStack.Screen name="Inicial" component={Inicial} />
                 <AppStack.Screen name="Detail" component={Detail} />

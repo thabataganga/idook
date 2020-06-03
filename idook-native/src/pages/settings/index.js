@@ -15,6 +15,10 @@ export default function Incidents() {
         navigation.navigate('Inicial');
     }
 
+    function navigateToIdEdit() {
+        navigation.navigate('EditID');
+    }
+
     function navigateToFeed() {
         navigation.navigate('Feed');
     }
@@ -56,7 +60,7 @@ export default function Incidents() {
                 <View style={styles.menuBox}>
                     <TouchableOpacity
                         style={styles.detailButton}
-                        onPress={()=> {}}
+                        onPress={navigateToIdEdit}
                     >
                         <FontAwesome name="align-justify" style={styles.icon} />
                         <Text style={styles.detailButtonText}>Dados do ID</Text>
@@ -73,15 +77,6 @@ export default function Incidents() {
                     </TouchableOpacity>
                 </View>
 
-                <View style={styles.menuBox}>
-                    <TouchableOpacity
-                        style={styles.detailButton}
-                        onPress={()=> {}}
-                    >
-                        <FontAwesome name="dollar" style={styles.icon} />
-                        <Text style={styles.detailButtonText}>Pagamentos</Text>
-                    </TouchableOpacity>
-                </View>
 
 
             </View>
