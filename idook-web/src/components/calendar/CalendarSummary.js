@@ -9,7 +9,7 @@ const CalendarSummary = ({calendar}) => {
         
             <span className='black-text card-title'>{calendar.title}</span>
    
-            <p className='black-text'><Moment format="DD/MM/YYYY">{calendar.date}</Moment> às {calendar.ini_time}</p> 
+            <p className='black-text'>{calendar.init_date} às {calendar.init_time}</p> 
         </div>
     </div>
   );

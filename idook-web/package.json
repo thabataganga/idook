@@ -7,12 +7,15 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
     "cldr-data": "^36.0.0",
     "firebase": "^7.14.3",
     "firebase-tools": "^8.2.0",
     "materialize-css": "^1.0.0-rc.2",
     "moment": "^2.25.3",
+    "qrcode.react": "^1.0.0",
     "react": "^16.13.1",
+    "react-color": "^2.18.1",
     "react-dom": "^16.13.1",
     "react-materialize": "^3.9.0",
     "react-moment": "^0.9.7",
@@ -22,7 +25,8 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-firestore": "^0.13.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "semantic-ui-react": "^0.88.2"
   },
   "scripts": {
     "start": "react-scripts start",

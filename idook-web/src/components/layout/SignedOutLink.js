@@ -14,7 +14,6 @@ class SignedOutLinks extends Component {
           <li><NavLink className='black-text' to='/'>Institucional</NavLink></li>
           <li><NavLink className='black-text'  to='/'>Produtos</NavLink></li>
           <li><NavLink className='black-text'  to='/'>Segmentos</NavLink></li>
-          <li><NavLink className='black-text'  to='/'>Planos</NavLink></li>
           <li><NavLink className='black-text'  to='/'>Contato</NavLink></li>
           <li><NavLink className='black-text'  to='/signup'>Sign Up</NavLink></li>
           <li><NavLink className='black-text'  to='/signin'>Sign In</NavLink></li>      

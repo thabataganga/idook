@@ -23,3 +23,48 @@ export const signIn = (credentials) => {
       });
     }
   }
+
+  export const signUp = (newUser) => {
+    return (dispatch, getState, {getFirebase, getFirestore}) => {
+      const firebase = getFirebase();
+      const firestore = getFirestore();
+  
+      firebase.auth().createUserWithEmailAndPassword(
+        newUser.email, 
+        newUser.password
+      ).then(resp => {
+        return firestore.collection('users').doc(resp.user.uid).set({
+          ...newUser,
+      createdAt: new Date(),
+      website:'Não configurado',
+      facebook:'Não configurado',
+      whatsapp:'Não configurado',
+      linkedin: 'Não configurado',
+      instagram:'Não configurado',
+      twitter:'Não configurado'
+        });
+      }).then(() => {
+        dispatch({ type: 'SIGNUP_SUCCESS' });
+      }).catch((err) => {
+        dispatch({ type: 'SIGNUP_ERROR', err});
+      });
+    }
+  }
+
+  export const editUser = (ids,id) => {
+    return (dispatch, getState, { getFirestore }) => {
+      // make async call to database
+      const firestore = getFirestore();
+  
+      firestore.collection('users').doc(id)
+        .update({
+          ...ids
+        })
+        .then(() => {
+          dispatch({ type: 'EDIT_USER', ids })
+        }).catch(err => {
+          dispatch({ type: 'EDIT_USER_ERROR', err })
+        })
+  
+    }
+  };

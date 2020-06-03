@@ -1,9 +1,4 @@
 const initState = {
-  calendar: [
-    {id: '1', title: 'lalala', link: 'lalala', content: "lalala", photo: 'lalala'},
-    {id: '2', title: 'lalala', link: 'lalala', content: "lalala", photo: 'lalala'},
-    {id: '3', title: 'lalala', link: 'lalala', content: "lalala", photo: 'lalala'},
-  ]
 }
 
 

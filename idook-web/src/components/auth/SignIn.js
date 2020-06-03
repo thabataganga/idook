@@ -1,12 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { signIn } from '../../store/actions/authActions'
+import M from "materialize-css";
+import { Redirect } from 'react-router-dom';
+
 
 export class SignIn extends Component {
     state = {
         email:'',
         password: ''
     }
+
+    componentDidMount() {
+        // Auto initialize all the things!
+        M.AutoInit();
+    }
+
     handleChange = (e) => {
         this.setState({
             [e.target.id]:e.target.value
@@ -15,10 +24,14 @@ export class SignIn extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.signIn(this.state)
+        //this.props.history.push('/');
         //console.log(this.state);
     }
     render() {
-        const { authError } = this.props;
+        const { authError, auth } = this.props;
+        if (auth.uid) {
+            return <Redirect to="/" />;
+          }
         return (
             <div className="container center">
                 
@@ -52,7 +65,8 @@ export class SignIn extends Component {
 
 const mapStateToProps = (state) => {
     return{
-      authError: state.auth.authError
+      authError: state.auth.authError,
+      auth: state.firebase.auth,
     }
   }
   

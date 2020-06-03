@@ -8,6 +8,11 @@ import SignUp from './components/auth/SignUp';
 
 import IdDetail from './components/ids/IdDetails';
 import CreateId from './components/ids/CreateId';
+import EditId from './components/ids/EditId';
+
+import UserDetail from './components/personalization/UserDetails';
+import EditUser from './components/personalization/EditUser';
+import ColorPicker from './components/personalization/ColorPicker';
 
 import CreateNews from './components/news/CreateNews';
 import NewsDetail from './components/news/NewsDetails';
@@ -16,29 +21,45 @@ import CreateCalendar from './components/calendar/CreateCalendar';
 import CalendarDetail from './components/calendar/CalendarDetails';
 
 import 'materialize-css/dist/css/materialize.min.css';
+import { useSelector } from 'react-redux'
+import { isLoaded } from 'react-redux-firebase'
+
+function AuthIsLoaded({ children }) {
+  const auth = useSelector(state => state.firebase.auth)
+  if (!isLoaded(auth)) return (
+    <div className='container center'>
+        <p>Carregando...</p>
+    </div>
+)
+  return children
+}
+
 
 
 function App() {
   return (
     <BrowserRouter>
+    <AuthIsLoaded>
       <div >
         <Navbar/>
         <Switch>
           <Route exact path='/' component={Dashboard}/>
-          <Route path='/signin' component={SignIn}/>
-          <Route path='/signup' component={SignUp}/>
+          <Route exact path='/signin' component={SignIn}/>
+          <Route exact path='/signup' component={SignUp}/>
 
-          <Route path='/id/:id' component={IdDetail}/>
-          <Route path='/createid' component={CreateId}/>
+          <Route exact path='/id/:id' component={IdDetail}/>
+          <Route exact path='/editid/:id' component={EditId}/>
+          <Route exact path='/createid' component={CreateId}/>
 
-          <Route path='/createnews' component={CreateNews}/>
-          <Route path='/news/:id' component={NewsDetail}/>
+          <Route exact path='/userdetail' component={UserDetail}/>
+          <Route exact path='/edituser' component={EditUser}/>
+          <Route exact path='/colorpicker' component={ColorPicker}/>
 
-          <Route path='/createcalendar' component={CreateCalendar}/>
-          <Route path='/calendar/:id' component={CalendarDetail}/>
+          
 
         </Switch>
       </div>
+      </AuthIsLoaded>
     </BrowserRouter>
   );
 }

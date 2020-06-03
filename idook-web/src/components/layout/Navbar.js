@@ -1,41 +1,40 @@
 import React, { Component } from "react";
-import M from "materialize-css/dist/js/materialize.min.js";
+import M from "materialize-css";
 import { Link } from 'react-router-dom';
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLink';
 import SignedInMenu from './SignedInMenu';
 import SignedOutMenu from './SignedOutMenu';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { firebaseConnect } from 'react-redux-firebase';
 
 import "./css/Navbar.css"
 
-import ClientLogo from '../../assets/sindpd.png'
 
 class Navbar extends Component {
   componentDidMount() {
-    const M = window.M;
-    document.addEventListener("DOMContentLoaded", function () {
-      var elems = document.querySelectorAll(".sidenav");
-      var instances = M.Sidenav.init(elems, {edge:'left'});
-    });
-  }
+    // Auto initialize all the things!
+    M.AutoInit();
+}
 
   render() {
-    const { auth } = this.props;
+    const { auth, profile } = this.props;
     //console.log(auth)
-    const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
-    const menus = auth.uid ? <SignedInMenu /> : <SignedOutMenu />;
+    const links = auth.uid ? <SignedInLinks profile={profile} /> : <SignedOutLinks />;
+    const menus = auth.uid ? <SignedInMenu profile={profile} /> : <SignedOutMenu />;
     return (
       <div>
         <nav className="grey lighten-5">
           <div className="container nav-wrapper grey lighten-5">
           <Link to='/' data-target="slide-out" className='sidenav-trigger show-on-large black-text'><i className="material-icons">menu</i></Link>              
             <Link to="/"className="brand-logo black-text text-darken-2" >IDook</Link>
-            <SignedInLinks/>
+            {auth.isLoaded && links}
           </div>
         </nav>
         <ul id="slide-out" className="sidenav">
-        {menus}
+        {auth.isLoaded && menus}
+
 
         </ul>
       </div>
@@ -46,8 +45,12 @@ class Navbar extends Component {
 const mapStateToProps = (state) => {
   //console.log(state);
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    profile: state.firebase.profile,
   }
 }
 
-export default connect(mapStateToProps )(Navbar)
+export default compose(
+  firebaseConnect(),
+  connect(mapStateToProps),
+)(Navbar);
