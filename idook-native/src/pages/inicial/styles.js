@@ -97,7 +97,7 @@ export default StyleSheet.create({
       logo2:{
         marginTop: 15,
         
-        height: 30,
+        height: 50,
         resizeMode: 'contain'
 
       }

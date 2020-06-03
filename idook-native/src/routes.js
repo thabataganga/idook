@@ -14,11 +14,20 @@ import Play from './pages/events/play';
 import Poll from './pages/poll';
 import Social from './pages/social';
 import Settings from './pages/settings';
+import LoadingScreen from './screens'
+import RegisterScreen from './auth/register'
+import LoginScreen from './auth/login'
+
+
 
 export default function Routes() {
     return (
         <NavigationContainer>
             <AppStack.Navigator screenOptions={{ headerShown: false }}>
+            <AppStack.Screen name="Loading" component={LoadingScreen} />
+                <AppStack.Screen name="Login" component={LoginScreen} />
+                <AppStack.Screen name="Register" component={RegisterScreen} />
+                
                 <AppStack.Screen name="Inicial" component={Inicial} />
                 <AppStack.Screen name="Detail" component={Detail} />
                 <AppStack.Screen name="Feed" component={Feed} />

@@ -1,16 +1,28 @@
-import React from 'react';
-import { FontAwesome } from '@expo/vector-icons';
+import React, {setState} from 'react';
+import { Feather, FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { View, ScrollView, Image, Text, TouchableOpacity } from 'react-native';
+import * as firebase from "firebase";
 
 
-
-import logoImg from '../../assets/logo2.png';
-import logoClient from '../../assets/sindpd2.png'
+import logoImg from '../../assets/idook.png';
+import logoClient from '../../assets/sindpd.png'
 import styles from './styles';
+
+
 
 export default function Incidents() {
     const navigation = useNavigation();
+    
+    const {email, displayName} = firebase.auth().currentUser;
+
+    console.log(email, displayName)
+
+    
+
+    function signOutUser() {
+        firebase.auth().signOut();
+    };
 
     function navigateToDetail() {
         navigation.navigate('Detail');
@@ -38,9 +50,16 @@ export default function Incidents() {
 
     return (
         <View style={styles.container}>
-            <View style={{alignItems:'flex-start'}}>
-                <Image style={styles.logo} source={logoClient} />
+            <View style={styles.header}>
+            <Image style={styles.logo} source={logoClient} />
+            <TouchableOpacity style={styles.headerText} onPress={signOutUser}>
+            <Feather name="log-out" size={20} color="#91bd36"
+                    />
+                    <Text>Sair</Text>
+                </TouchableOpacity>
             </View>
+
+            
 
             <View style={{alignItems:'flex-start'}}>
             <Text style={styles.title}>Bem-vindo,</Text>
@@ -94,11 +113,15 @@ export default function Incidents() {
                     </TouchableOpacity>
                 </View>
 
+                
+
             </View>
 
             <View style={{alignItems:'flex-end'}}>
                 <Image style={styles.logo2} source={logoImg} />
             </View>
+
+            
 
 
 
