@@ -47,14 +47,24 @@ code {
     monospace;
 }
 
+
+
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
   margin-top: 20px;
-  width: 100%;
-  height: auto;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.centermenu {
+  display: block;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
 }
 
 .center2 {

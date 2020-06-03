@@ -23,7 +23,7 @@ class SignedInMenu extends Component {
               <img src="https://elements-cover-images-0.imgix.net/386f6039-5d38-4f48-ace5-16145e58d20f?auto=compress%2Cformat&fit=max&w=710&s=da4f8cfd9edba101af54c0d33aa1217a" />
             </div>
             <a href="#user">
-              <img class="circle" src={profile.url} />
+              <img class="circle centermenu" object-fit='cover' src={profile.url} />
             </a>
             <a href="#name">
               <span className="white-text name">{profile.socialreason}</span>

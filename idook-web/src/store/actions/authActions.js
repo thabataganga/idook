@@ -36,6 +36,7 @@ export const signIn = (credentials) => {
         return firestore.collection('users').doc(resp.user.uid).set({
           ...newUser,
       createdAt: new Date(),
+      url:"https://ipc.digital/wp-content/uploads/2016/07/icon-user-default.png",
       website:'Não configurado',
       facebook:'Não configurado',
       whatsapp:'Não configurado',

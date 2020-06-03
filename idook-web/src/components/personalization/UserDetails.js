@@ -65,7 +65,7 @@ const IdDetail = (props) => {
 
                                 <div className='row'>
                                     <div className='col s12 m6'>
-                                        <img src={profile.url} object-fit='cover' class="circle center2" />
+                                        <img src={profile.url} object-fit='cover' class="circle center" />
                                     </div>
                                     <div className='col s12 m5 offset-m1 center2'>
                                         <p>Segmento: {profile.setor}  </p>

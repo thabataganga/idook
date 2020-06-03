@@ -31,7 +31,7 @@ class Dashboard extends Component {
                 
                 <div className='row'>
                     <div className='col s12 m4'>
-                        <IdData ids={filteredId}/>
+                        <IdData ids={filteredId} profile={profile}/>
                     </div>
                     <div className='col s12 m7 offset-m1'>
                         <IdList ids={filteredId}/>

@@ -1,8 +1,13 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import * as moment from 'moment'; import 'moment/locale/pt-br'
 
 
-const IdData = ({ ids }) => {
+const IdData = ({ ids, profile }) => {
+
+  console.log(profile)
+
+  
   if (ids) {
     //console.log(ids)
     var idcad = ids.length
@@ -10,7 +15,9 @@ const IdData = ({ ids }) => {
     const filteredVenc = ids.filter(id => id.validade < 1);
     var idconf = idcad - filteredId.length;
     var idvenc = filteredVenc.length;
-    //console.log(idvenc)
+
+    //const {profile} = this.props
+    //console.log(profile)
 
     //console.log(ids[0].createdAt)
 
@@ -55,9 +62,13 @@ const IdData = ({ ids }) => {
     <div className="project-list section">
       <div className='card z-depth-0 news-summary'>
         <div className='card-content text-darken-3'>
-          <span className='black-text card-title'>Estatísticas</span>
+        <span className='black-text card-title'>Idook de {profile.socialreason}</span>
 
         </div>
+        <div className='card-action'>
+          <img src={profile.url} object-fit='cover' class="circle center" />
+        </div>
+        
         <div className='card-action'>
           <p>IDs cadastrados: {idcad} </p>
           <p>IDs confirmados: {idconf} </p>
@@ -68,4 +79,13 @@ const IdData = ({ ids }) => {
   )
 }
 
-export default IdData
+const mapStateToProps = (state) => {
+  console.log(state.firebase.profile)
+  return {
+      authError: state.auth.authError,
+      auth: state.firebase.auth,
+      profile: state.firebase.profile,
+  }
+}
+
+export default connect(mapStateToProps, null) (IdData)
