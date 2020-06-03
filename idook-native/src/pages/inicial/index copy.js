@@ -6,7 +6,6 @@ import { View, ScrollView, Image, Text, TouchableOpacity } from 'react-native';
 
 
 import logoImg from '../../assets/logo2.png';
-import logoClient from '../../assets/sindpd2.png'
 import styles from './styles';
 
 export default function Incidents() {
@@ -38,16 +37,14 @@ export default function Incidents() {
 
     return (
         <View style={styles.container}>
-            <View style={{alignItems:'flex-start'}}>
-                <Image style={styles.logo} source={logoClient} />
+            <View style={styles.header}>
+                <Image source={logoImg} />
+               <Text style={styles.headerText}>
+                    <Text style={styles.headerTextBold}>21/04/2020</Text>
+                </Text> 
             </View>
-
-            <View style={{alignItems:'flex-start'}}>
             <Text style={styles.title}>Bem-vindo,</Text>
             <Text style={styles.description}>Fique por dentro do Sindpd!</Text>
-
-            </View>
-            
 
             <ScrollView 
             showsVerticalScrollIndicator = {false}>
@@ -73,6 +70,25 @@ export default function Incidents() {
                     </TouchableOpacity>
                 </View>
 
+                <View style={styles.menuBox}>
+                    <TouchableOpacity
+                        style={styles.detailButton}
+                        onPress={navigateToEvents}
+                    >
+                        <FontAwesome name="qrcode" style={styles.icon} />
+                        <Text style={styles.detailButtonText}>Eventos</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.menuBox}>
+                    <TouchableOpacity
+                        style={styles.detailButton}
+                        onPress={navigateToPoll}
+                    >
+                        <FontAwesome name="comments-o" style={styles.icon} />
+                        <Text style={styles.detailButtonText}>Pesquisas</Text>
+                    </TouchableOpacity>
+                </View>
 
                 <View style={styles.menuBox}>
                     <TouchableOpacity
@@ -94,10 +110,6 @@ export default function Incidents() {
                     </TouchableOpacity>
                 </View>
 
-            </View>
-
-            <View style={{alignItems:'flex-end'}}>
-                <Image style={styles.logo2} source={logoImg} />
             </View>
 
 
