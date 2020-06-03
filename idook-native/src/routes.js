@@ -14,13 +14,11 @@ import Play from './pages/events/play';
 import Poll from './pages/poll';
 import Social from './pages/social';
 import Settings from './pages/settings';
-import LoadingScreen from './screens/LoadingScreen'
 
 export default function Routes() {
     return (
         <NavigationContainer>
             <AppStack.Navigator screenOptions={{ headerShown: false }}>
-                <AppStack.Screen name="LoadingScreen" component={LoadingScreen} />
                 <AppStack.Screen name="Inicial" component={Inicial} />
                 <AppStack.Screen name="Detail" component={Detail} />
                 <AppStack.Screen name="Feed" component={Feed} />
