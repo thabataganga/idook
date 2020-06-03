@@ -3,38 +3,45 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 import { SketchPicker } from 'react-color'
+import { connect } from 'react-redux'
+import { editUser } from '../../store/actions/authActions'
+import { compose } from 'redux';
+import { firebaseConnect, firestoreConnect } from 'react-redux-firebase';
+import { Redirect } from 'react-router-dom';
 
 class SketchExample extends React.Component {
     state = {
         displayColorPicker: false,
         color: {
-            r: '94',
-            g: '167',
-            b: '11',
-            a: '1',
+            r: '',
+            g: '',
+            b: '',
+            a: '',
         },
         displayColorPicker2: false,
         color2: {
-            r: '241',
-            g: '112',
-            b: '19',
-            a: '1',
+            r: '',
+            g: '',
+            b: '',
+            a: '',
         },
         displayColorPicker3: false,
         color3: {
-            r: '0',
-            g: '0',
-            b: '0',
-            a: '1',
+            r: '',
+            g: '',
+            b: '',
+            a: '',
         },
         displayColorPicker4: false,
         color4: {
-            r: '0',
-            g: '0',
-            b: '0',
-            a: '1',
+            r: '',
+            g: '',
+            b: '',
+            a: '',
         },
     };
+
+    
 
     handleClick = () => {
         this.setState({ displayColorPicker: !this.state.displayColorPicker })
@@ -84,8 +91,38 @@ class SketchExample extends React.Component {
         this.setState({ color4: color4.rgb })
     };
 
+    handleEdit = (e) => {
+        e.preventDefault();
+        const { profile, auth } = this.props;
+    
+        //console.log(url);
+    
+       //console.log(this.state);
+    
+        //this.state.image = 'false';
+
+
+    
+        this.props.editUser(this.state, auth.uid)
+
+        //console.log(this.state.color);
+    
+        //console.log(key)
+    
+        //this.props.editId(ids, key)
+        //this.props.history.push('/');
+    }
+
     render() {
 
+
+        const { authError, auth, profile } = this.props;
+        if (!auth.uid) {
+            return <Redirect to="/signin" />;
+        }
+
+
+       
         const styles = reactCSS({
             'default': {
                 color: {
@@ -146,102 +183,264 @@ class SketchExample extends React.Component {
             },
         });
 
-        return (
+        if(profile.color){
+            return (
 
-            <div className="dashboard section container">
-
-                <div className='row'>
-                    <div className='col s12 m4'>
+                <div className="dashboard section container">
+    
+                    <div className='row'>
+                        <div className='col s12 m4'>
+                            
+                            <div className='card z-depht-0'>
+                                <div className='card-content'>
+                                    <span className='card-title'>Paleta de cores do Idook </span>
+                                </div>
+    
+                                <div className='card-action'>
+                                    <p> Cor primária</p>
+    
+                                    <div>
+                                        <div style={styles.swatch} onClick={this.handleClick}>
+                                            <div style={styles.color} />
+                                        </div>
+                                        {this.state.displayColorPicker ? <div style={styles.popover}>
+                                            <div style={styles.cover} onClick={this.handleClose} />
+                                            <SketchPicker color={this.state.color} onChange={this.handleChange} />
+                                        </div> : null}
+    
+                                    </div>
+                                </div>
+    
+                                <div className='card-action'>
+                                    <p> Fonte primária</p>
+    
+                                    <div>
+                                        <div style={styles.swatch} onClick={this.handleClick3}>
+                                            <div style={styles.color3} />
+                                        </div>
+                                        {this.state.displayColorPicker3 ? <div style={styles.popover}>
+                                            <div style={styles.cover} onClick={this.handleClose3} />
+                                            <SketchPicker color={this.state.color3} onChange={this.handleChange3} />
+                                        </div> : null}
+    
+                                    </div>
+                                </div>
+    
+                                <div className='card-action'>
+                                    <p> Cor secundária</p>
+    
+                                    <div>
+                                        <div style={styles.swatch} onClick={this.handleClick2}>
+                                            <div style={styles.color2} />
+                                        </div>
+                                        {this.state.displayColorPicker2 ? <div style={styles.popover}>
+                                            <div style={styles.cover} onClick={this.handleClose2} />
+                                            <SketchPicker color={this.state.color2} onChange={this.handleChange2} />
+                                        </div> : null}
+    
+                                    </div>
+                                </div>
+    
+                                <div className='card-action'>
+                                    <p> Fonte secundária</p>
+    
+                                    <div>
+                                        <div style={styles.swatch} onClick={this.handleClick4}>
+                                            <div style={styles.color4} />
+                                        </div>
+                                        {this.state.displayColorPicker4 ? <div style={styles.popover}>
+                                            <div style={styles.cover} onClick={this.handleClose4} />
+                                            <SketchPicker color={this.state.color4} onChange={this.handleChange4} />
+                                        </div> : null}
+    
+                                    </div>
+                                </div>
+    
+                                <div className='card-action'>
+                                <button className="btn z-depth-0" onClick={this.handleEdit}>Salvar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col s12 m5 offset-m2'>
                         <div className='card z-depht-0'>
-                            <div className='card-content'>
-                                <span className='card-title'>Paleta de cores do Idook </span>
-                            </div>
-
-                            <div className='card-action'>
-                                <p> Cor primária</p>
-
-                                <div>
-                                    <div style={styles.swatch} onClick={this.handleClick}>
-                                        <div style={styles.color} />
-                                    </div>
-                                    {this.state.displayColorPicker ? <div style={styles.popover}>
-                                        <div style={styles.cover} onClick={this.handleClose} />
-                                        <SketchPicker color={this.state.color} onChange={this.handleChange} />
-                                    </div> : null}
-
+                                <div className='card-content'>
+                                    <span className='card-title'>Pré-visualização </span>
                                 </div>
-                            </div>
-
-                            <div className='card-action'>
-                                <p> Fonte primária</p>
-
-                                <div>
-                                    <div style={styles.swatch} onClick={this.handleClick3}>
-                                        <div style={styles.color3} />
-                                    </div>
-                                    {this.state.displayColorPicker3 ? <div style={styles.popover}>
-                                        <div style={styles.cover} onClick={this.handleClose3} />
-                                        <SketchPicker color={this.state.color3} onChange={this.handleChange3} />
-                                    </div> : null}
-
+    
+                                <div style={styles.colorprim} className='card-action'>
+                                    <p style={styles.fontprim}> Cor primária</p> 
                                 </div>
-                            </div>
-
-                            <div className='card-action'>
-                                <p> Cor secundária</p>
-
-                                <div>
-                                    <div style={styles.swatch} onClick={this.handleClick2}>
-                                        <div style={styles.color2} />
-                                    </div>
-                                    {this.state.displayColorPicker2 ? <div style={styles.popover}>
-                                        <div style={styles.cover} onClick={this.handleClose2} />
-                                        <SketchPicker color={this.state.color2} onChange={this.handleChange2} />
-                                    </div> : null}
-
+    
+                                <div style={styles.colorsec} className='card-action'>
+                                    <p style={styles.fontsec}> Cor secundária</p> 
                                 </div>
+    
+    
                             </div>
-
-                            <div className='card-action'>
-                                <p> Fonte secundária</p>
-
-                                <div>
-                                    <div style={styles.swatch} onClick={this.handleClick4}>
-                                        <div style={styles.color4} />
-                                    </div>
-                                    {this.state.displayColorPicker4 ? <div style={styles.popover}>
-                                        <div style={styles.cover} onClick={this.handleClose4} />
-                                        <SketchPicker color={this.state.color4} onChange={this.handleChange4} />
-                                    </div> : null}
-
+    
+                 
+                            
+    
+                        <div className='card z-depht-0'>
+                            
+                                <div className='card-content'>
+                                    <span className='card-title'>Esquema atual </span>
                                 </div>
+    
+                                <div style={{
+                                    background: `rgba(${profile.color.r}, ${profile.color.g}, ${profile.color.b}, ${profile.color.a})`
+                                }} className='card-action'>
+                                    <p style={{
+                                    color: `rgba(${profile.color3.r}, ${profile.color3.g}, ${profile.color3.b}, ${profile.color3.a})`
+                                }}> Cor primária</p> 
+                                </div>
+    
+                                <div style={{
+                                    background: `rgba(${profile.color2.r}, ${profile.color2.g}, ${profile.color2.b}, ${profile.color2.a})`
+                                }} className='card-action'>
+                                    <p style={{
+                                    color: `rgba(${profile.color4.r}, ${profile.color4.g}, ${profile.color4.b}, ${profile.color4.a})`
+                                }}> Cor secundária</p> 
+                                </div>
+    
+    
                             </div>
+    
                         </div>
-                    </div>
-                    <div className='col s12 m5 offset-m2'>
-
-                    <div className='card z-depht-0'>
-                            <div className='card-content'>
-                                <span className='card-title'>Idook </span>
-                            </div>
-
-                            <div style={styles.colorprim} className='card-action'>
-                                <p style={styles.fontprim}> Cor primária</p> 
-                            </div>
-
-                            <div style={styles.colorsec} className='card-action'>
-                                <p style={styles.fontsec}> Cor secundária</p> 
-                            </div>
-
-
-                        </div>
-
+    
+                        
                     </div>
                 </div>
-            </div>
+    
+            )
+        }
 
-        )
+
+        else{
+
+            return (
+
+                <div className="dashboard section container">
+    
+                    <div className='row'>
+                        <div className='col s12 m4'>
+                            <div className='card z-depht-0'>
+                                <div className='card-content'>
+                                    <span className='card-title'>Paleta de cores do Idook </span>
+                                </div>
+    
+                                <div className='card-action'>
+                                    <p> Cor primária</p>
+    
+                                    <div>
+                                        <div style={styles.swatch} onClick={this.handleClick}>
+                                            <div style={styles.color} />
+                                        </div>
+                                        {this.state.displayColorPicker ? <div style={styles.popover}>
+                                            <div style={styles.cover} onClick={this.handleClose} />
+                                            <SketchPicker color={this.state.color} onChange={this.handleChange} />
+                                        </div> : null}
+    
+                                    </div>
+                                </div>
+    
+                                <div className='card-action'>
+                                    <p> Fonte primária</p>
+    
+                                    <div>
+                                        <div style={styles.swatch} onClick={this.handleClick3}>
+                                            <div style={styles.color3} />
+                                        </div>
+                                        {this.state.displayColorPicker3 ? <div style={styles.popover}>
+                                            <div style={styles.cover} onClick={this.handleClose3} />
+                                            <SketchPicker color={this.state.color3} onChange={this.handleChange3} />
+                                        </div> : null}
+    
+                                    </div>
+                                </div>
+    
+                                <div className='card-action'>
+                                    <p> Cor secundária</p>
+    
+                                    <div>
+                                        <div style={styles.swatch} onClick={this.handleClick2}>
+                                            <div style={styles.color2} />
+                                        </div>
+                                        {this.state.displayColorPicker2 ? <div style={styles.popover}>
+                                            <div style={styles.cover} onClick={this.handleClose2} />
+                                            <SketchPicker color={this.state.color2} onChange={this.handleChange2} />
+                                        </div> : null}
+    
+                                    </div>
+                                </div>
+    
+                                <div className='card-action'>
+                                    <p> Fonte secundária</p>
+    
+                                    <div>
+                                        <div style={styles.swatch} onClick={this.handleClick4}>
+                                            <div style={styles.color4} />
+                                        </div>
+                                        {this.state.displayColorPicker4 ? <div style={styles.popover}>
+                                            <div style={styles.cover} onClick={this.handleClose4} />
+                                            <SketchPicker color={this.state.color4} onChange={this.handleChange4} />
+                                        </div> : null}
+    
+                                    </div>
+                                </div>
+    
+                                <div className='card-action'>
+                                <button className="btn z-depth-0" onClick={this.handleEdit}>Salvar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col s12 m5 offset-m2'>
+    
+                        <div className='card z-depht-0'>
+                                <div className='card-content'>
+                                    <span className='card-title'>Idook </span>
+                                </div>
+    
+                                <div style={styles.colorprim} className='card-action'>
+                                    <p style={styles.fontprim}> Cor primária</p> 
+                                </div>
+    
+                                <div style={styles.colorsec} className='card-action'>
+                                    <p style={styles.fontsec}> Cor secundária</p> 
+                                </div>
+    
+    
+                            </div>
+    
+                        </div>
+    
+                        
+                    </div>
+                </div>
+    
+            )
+
+
+        }
+
+
+
+        
     }
 }
 
-export default SketchExample
+const mapStateToProps = (state) => {
+    return {
+        authError: state.auth.authError,
+        auth: state.firebase.auth,
+        profile: state.firebase.profile,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        editUser: (ids,id) => dispatch(editUser(ids,id))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SketchExample)
