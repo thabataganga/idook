@@ -67,6 +67,7 @@ const IdData = ({ ids, profile }) => {
         </div>
         <div className='card-action'>
           <img src={profile.url} object-fit='cover' class="circular--portraitM" />
+          <br/>
         </div>
         
         <div className='card-action'>
