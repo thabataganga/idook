@@ -77,7 +77,7 @@ export class ImageUpload extends Component {
 
     return (
       <div>
-          <img src={this.state.url || profile.url} object-fit='cover' class="circle center" />
+          <img src={this.state.url || profile.url} object-fit='cover' class="circular--portraitM" />
       <progress value={this.state.progress} max="100"/>
       <br/>
         <input 

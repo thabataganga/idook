@@ -62,11 +62,11 @@ const IdData = ({ ids, profile }) => {
     <div className="project-list section">
       <div className='card z-depth-0 news-summary'>
         <div className='card-content text-darken-3'>
-        <span className='black-text card-title'>Idook de {profile.socialreason}</span>
+        <span className='black-text card-title center'>Idook de {profile.socialreason}</span>
 
         </div>
         <div className='card-action'>
-          <img src={profile.url} object-fit='cover' class="circle center" />
+          <img src={profile.url} object-fit='cover' class="circular--portraitM" />
         </div>
         
         <div className='card-action'>

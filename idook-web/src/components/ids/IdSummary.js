@@ -37,7 +37,7 @@ const IDSummary = ({ ids }) => {
           <div className='row'>
             <div className='col s12 m3'>
   
-            <img src={ids.url} object-fit= 'cover' class="circle center2"/>
+            <img src={ids.url} object-fit= 'cover' class="circular--portrait"/>
   
             
   
@@ -70,7 +70,7 @@ const IDSummary = ({ ids }) => {
         <div className='row'>
           <div className='col s12 m3'>
 
-          <img src={ids.url} object-fit= 'cover' class="circle center2"/>
+          <img src={ids.url} object-fit= 'cover' class="circular--portrait"/>
 
           
 

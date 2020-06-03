@@ -176,7 +176,7 @@ const IdDetail = (props) => {
 
                                 <div className='row'>
                                     <div className='col s12 m6'>
-                                        <img src={sids.url} object-fit='cover' class="circle center" />
+                                        <img src={sids.url} object-fit='cover' class="center circular--portraitM" />
                                     </div>
                                     <div className='col s12 m5 offset-m1 center2'>
                                         <p>Matricula: {sids.matricula} </p>
