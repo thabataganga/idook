@@ -9,6 +9,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firebaseConnect } from 'react-redux-firebase';
 
+import Logo from './logo.png'
+
 import "./css/Navbar.css"
 
 
@@ -28,7 +30,11 @@ class Navbar extends Component {
         <nav className="grey lighten-5">
           <div className="container nav-wrapper grey lighten-5">
           <Link to='/' data-target="slide-out" className='sidenav-trigger show-on-large black-text'><i className="material-icons">menu</i></Link>              
-            <Link to="/"className="brand-logo black-text text-darken-2" >IDook</Link>
+            <Link to="/"className="brand-logo black-text text-darken-2">
+            <img class="brand-logo" src={Logo}/>
+             
+              
+              </Link>
             {auth.isLoaded && links}
           </div>
         </nav>

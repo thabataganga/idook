@@ -189,11 +189,11 @@ class SketchExample extends React.Component {
                 <div className="dashboard section container">
     
                     <div className='row'>
-                        <div className='col s12 m4'>
+                        <div className='col s6 m4'>
                             
                             <div className='card z-depht-0'>
                                 <div className='card-content'>
-                                    <span className='card-title'>Paleta de cores do Idook </span>
+                                    <span className='card-title'>Paleta </span>
                                 </div>
     
                                 <div className='card-action'>
@@ -261,10 +261,10 @@ class SketchExample extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className='col s12 m5 offset-m2'>
+                        <div className='col s6 m5 offset-m2'>
                         <div className='card z-depht-0'>
                                 <div className='card-content'>
-                                    <span className='card-title'>Pré-visualização </span>
+                                    <span className='card-title'>Preview</span>
                                 </div>
     
                                 <div style={styles.colorprim} className='card-action'>

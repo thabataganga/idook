@@ -30,10 +30,10 @@ class Dashboard extends Component {
             <div className="dashboard container">
                 
                 <div className='row'>
-                    <div className='col s12 m4'>
+                    <div className='col s12 m5'>
                         <IdData ids={filteredId} profile={profile}/>
                     </div>
-                    <div className='col s12 m7 offset-m1'>
+                    <div className='col s12 m7'>
                         <IdList ids={filteredId}/>
                     </div>
                 </div>

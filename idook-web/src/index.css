@@ -81,8 +81,8 @@ code {
   display: block;
   margin-left: auto;
   margin-right: auto; 
-  width: 7vw;
-  height: 7vw;
+  width: 16vh;
+  height: 16vh;
   overflow: hidden;
   border-radius: 50%;
   object-fit: cover;
@@ -90,8 +90,9 @@ code {
 .circular--portrait img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
+
 
 .circular--portraitM {
   margin-top: 20px;
@@ -99,8 +100,8 @@ code {
   display: block;
   margin-left: auto;
   margin-right: auto; 
-  width: 17vw;
-  height: 17vw;
+  width: 20vh;
+  height: 20vh;
   overflow: hidden;
   border-radius: 50%;
   object-fit: cover;

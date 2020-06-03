@@ -52,7 +52,7 @@ const IdDetail = (props) => {
 
                 <div className='row'>
 
-                    <div className='col s12 m7'>
+                    <div className='col s12 m8'>
 
                         <div className='card z-depht-0'>
                             <div className='card-content'>
@@ -64,10 +64,10 @@ const IdDetail = (props) => {
                             <div className='card-action'>
 
                                 <div className='row'>
-                                    <div className='col s12 m6'>
+                                    <div className='col s12 m7'>
                                         <img src={profile.url} object-fit='cover' class="circular--portraitM" />
                                     </div>
-                                    <div className='col s12 m5 offset-m1 center2'>
+                                    <div className='col s12 m5  center2'>
                                         <p>Segmento: {profile.setor}  </p>
                                         <p>CNPJ: {profile.cnpj}  </p>
                                         <p>Email: {auth.email}  </p>
@@ -110,7 +110,7 @@ const IdDetail = (props) => {
 
 
                     </div>
-                    <div className='col s12 m4 offset-m1'>
+                    <div className='col s12 m4 '>
                         <div className='card z-depht-0'>
                             <div className='card-content'>
 

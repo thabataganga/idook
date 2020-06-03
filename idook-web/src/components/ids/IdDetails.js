@@ -78,7 +78,7 @@ const IdDetail = (props) => {
 
                     <div className='row'>
 
-                        <div className='col s12 m7'>
+                        <div className='col s12 m8'>
 
                             <div className='card z-depht-0'>
                                 <div className='card-content'>
@@ -89,10 +89,10 @@ const IdDetail = (props) => {
                                 <div className='card-action'>
 
                                     <div className='row'>
-                                        <div className='col s12 m6'>
+                                        <div className='col s12 m7'>
                                             <img src={sids.url} object-fit='cover' class="circle center" />
                                         </div>
-                                        <div className='col s12 m5 offset-m1 center2'>
+                                        <div className='col s12 m5 center2'>
                                             <p>Matricula: {sids.matricula} </p>
                                             <p>Cargo: {sids.cargo} </p>
                                             <p>Empresa: {sids.empresa}</p>
@@ -114,7 +114,7 @@ const IdDetail = (props) => {
                             </div>
 
                         </div>
-                        <div className='col s12 m4 offset-m1'>
+                        <div className='col s12 m4'>
                             <div className='card z-depht-0'>
                                 <div className='card-content'>
 
@@ -164,7 +164,7 @@ const IdDetail = (props) => {
 
                 <div className='row'>
 
-                    <div className='col s12 m7 '>
+                    <div className='col s12 m8 '>
 
                         <div className='card z-depht-0'>
                             <div className='card-content'>
@@ -175,10 +175,10 @@ const IdDetail = (props) => {
                             <div className='card-action'>
 
                                 <div className='row'>
-                                    <div className='col s12 m6'>
+                                    <div className='col s12 m7'>
                                         <img src={sids.url} object-fit='cover' class="center circular--portraitM" />
                                     </div>
-                                    <div className='col s12 m5 offset-m1 center2'>
+                                    <div className='col s12 m5 center2'>
                                         <p>Matricula: {sids.matricula} </p>
                                         <p>Cargo: {sids.cargo} </p>
                                         <p>Empresa: {sids.empresa}</p>
@@ -200,7 +200,7 @@ const IdDetail = (props) => {
                         </div>
 
                     </div>
-                    <div className='col s12 m4 offset-m1'>
+                    <div className='col s12 m4 '>
                         <div className='card z-depht-0'>
                             <div className='card-content'>
 

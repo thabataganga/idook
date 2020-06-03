@@ -35,14 +35,14 @@ const IDSummary = ({ ids }) => {
       <div className='card z-depth-0 news-summary'>
         <div className='card-content text-darken-3'>
           <div className='row'>
-            <div className='col s12 m3'>
+            <div className='col s12 m6'>
   
             <img src={ids.url} object-fit= 'cover' class="circular--portrait"/>
   
             
   
             </div>
-            <div className='col s12 m9'>
+            <div className='col s12 m6'>
               <br/>
               <span className='black-text card-title'>{ids.firstName} {ids.lastName}</span>
               <p className='black-text'>Empresa: {ids.empresa}</p>
@@ -68,14 +68,14 @@ const IDSummary = ({ ids }) => {
     <div className='card z-depth-0 news-summary'>
       <div className='card-content text-darken-3'>
         <div className='row'>
-          <div className='col s12 m3'>
+          <div className='col s12 m6'>
 
           <img src={ids.url} object-fit= 'cover' class="circular--portrait"/>
 
           
 
           </div>
-          <div className='col s12 m9'>
+          <div className='col s12 m6'>
             <br/>
             <span className='black-text card-title'>{ids.firstName} {ids.lastName}</span>
             <p className='black-text'>Empresa: {ids.empresa}</p>

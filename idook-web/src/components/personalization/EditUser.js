@@ -101,7 +101,7 @@ export class EditUser extends Component {
         return (
             <div className="container section center">
                 <div className='row'>
-                    <div className='col s12 m4'>
+                    <div className='col s12 m5'>
                         <div className='card z-depht-0'>
                             <div className='card-content'>
                                 <span className='card-title'>Alterar foto </span>
@@ -112,7 +112,7 @@ export class EditUser extends Component {
 
                         </div>
                     </div>
-                    <div className='col s12 m7 offset-m1'>
+                    <div className='col s12 m7 '>
                         <form onSubmit={this.handleEdit} className='white form2'>
                             <h5 className="grey-text text-darken-3">Editar usuário</h5>
                             <div className="input-field">

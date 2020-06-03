@@ -23,7 +23,7 @@ export class EditId extends Component {
         uf: "Não configurado",
         empresa: "Não configurado",
         cargo: 'Não configurado',
-        url: ''
+
     }
 
     componentDidMount() {
@@ -93,7 +93,7 @@ export class EditId extends Component {
                 <div className="container section center">
 
                     <div className='row'>
-                        <div className='col s12 m4'>
+                        <div className='col s12 m5'>
 
                         <div className='card z-depht-0'>
                                 <div className='card-content'>
@@ -114,7 +114,7 @@ export class EditId extends Component {
                             </div>
                             
                         </div>
-                        <div className='col s12 m7 offset-m1'>
+                        <div className='col s12 m7'>
 
                         <form onSubmit={this.handleEdit} className='white form2'>
                         <h5 className="grey-text text-darken-3">Editar ID</h5>
@@ -165,11 +165,6 @@ export class EditId extends Component {
                             <label class="active" htmlFor='cargo'>Cargo</label>
                             <input defaultValue={sids.cargo} type='text' id="cargo" onChange={this.handleChange} />
                         </div>
-                        <div className="input-field">
-                            <label class="active" htmlFor='url'>url</label>
-                            <input defaultValue={sids.url} type='text' id="url" onChange={this.handleChange} />
-                        </div>
-
                         <div className="input-field">
                             <button className="btn z-depth-0">Editar ID</button>
                         </div>
