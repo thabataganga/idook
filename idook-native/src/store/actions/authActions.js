@@ -31,10 +31,12 @@ export const signIn = (credentials) => {
   
       firebase.auth().createUserWithEmailAndPassword(
         newUser.email, 
-        newUser.password
+        newUser.password,
       ).then(resp => {
-        return firestore.collection('associados').doc(resp.user.uid).set({
-          ...newUser,
+        return firestore.collection('users').doc(resp.user.uid).set({
+      cpf: newUser.cpf,
+      email: newUser.email,
+      type: "associado",
       createdAt: new Date(),
         });
       }).then(() => {

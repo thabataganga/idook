@@ -4,25 +4,42 @@ import * as firebase from "firebase";
 import styles from './styles';
 import { Feather } from '@expo/vector-icons';
 
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { firebaseConnect } from 'react-redux-firebase';
+
 import logoImg from '../../assets/idook.png';
 import logoCliente from '../../assets/sindpd.png';
 
 
-export default class RegisterScreen extends React.Component {
+ class Token extends React.Component {
     state = {
-        cpf: "",
-        email: "",
-        password: "",
-        errorMessage: null
+        token: ""
     };
 
     signOutUser() {
         firebase.auth().signOut();
     };
 
+    handleChange = (e) => {
+        this.setState({
+            [e.target.id]:e.target.value
+        })
+    };
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        //this.props.signIn(this.state)
+        //this.props.history.push('/');
+        console.log(this.state);
+    };
+    
+    
    
 
     render() {
+
+        console.log(this.state);
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
@@ -46,19 +63,14 @@ export default class RegisterScreen extends React.Component {
                         <TextInput
                             style={styles.input}
                             autoCapitalize="none"
-                            onChangeText={cpf => this.setState({ cpf })}
-                            value={this.state.cpf}
+                            onChange={this.handleChange}
+                            id='token'
                         ></TextInput>
                     </View>
 
                 </View>
 
-                <View style={styles.errorMessage}>
-                    {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
-                </View>
-
-
-                <TouchableOpacity style={styles.button} >
+                <TouchableOpacity onPress={this.handleSubmit} style={styles.button} >
                     <Text style={{ color: "#FFF", fontWeight: "500" }}>Confirmar Token</Text>
                 </TouchableOpacity>
 
@@ -71,3 +83,19 @@ export default class RegisterScreen extends React.Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+
+    console.log(state)
+    return{
+        auth: state.firebase.auth,
+        profile: state.firebase.profile,
+    }
+  }
+  
+
+  
+  export default compose(
+    firebaseConnect(),
+    connect(mapStateToProps),
+  )(Token);

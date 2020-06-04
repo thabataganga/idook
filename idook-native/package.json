@@ -15,7 +15,7 @@
     "expo-barcode-scanner": "~8.1.0",
     "expo-constants": "~9.0.0",
     "expo-image-picker": "^8.1.0",
-    "firebase": "^7.14.6",
+    "firebase": "7.9.0",
     "import": "^0.0.6",
     "prop-types": "^15.7.2",
     "react": "~16.9.0",

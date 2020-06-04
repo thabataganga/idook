@@ -7,15 +7,10 @@ import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk'
 
-import rootReducer from './src/store2/reducers/rootReducer';
 
 import * as serviceWorker from './serviceWorker';
 
-//import reducers from './src/store/reducers'
-
-//const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
-
-//console.log(store)
+import rootReducer from './src/store/reducers/rootReducer';
 
 // We enhance compose in order to use Redux DevTools extension
 // https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
@@ -24,6 +19,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // Create config for rrfProps object. We need this to pass it in the ReactReduxFirebaseProvider component
 const rrfConfig = {
   useFirestoreForProfile: true, // Firestore for Profile instead of Realtime DB
+  attachAuthIsReady: true,
   userProfile: 'users',
   attachAuthIsReady: true,
 };
@@ -42,6 +38,7 @@ const rrfProps = {
 };
 
 
+
 export default function App() {
   return (
     <Provider store={store}>
@@ -53,8 +50,7 @@ export default function App() {
   );
 }
 
-console.log('store', store);
-console.log('state', store.getState());
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
