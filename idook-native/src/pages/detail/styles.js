@@ -24,13 +24,13 @@ export default StyleSheet.create({
         fontWeight: 'bold'
     },
     card: {
-        backgroundColor: '#2561AB',
+        //backgroundColor: '#2561AB',
         marginVertical: 30,
         borderRadius: 8,
     },
 
     nomedocliente: {
-        color: '#FFF',
+        //color: '#FFF',
         margin: 10,
         fontSize: 20,
         paddingStart: 10,
