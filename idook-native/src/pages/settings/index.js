@@ -67,16 +67,6 @@ export default function Incidents() {
                     </TouchableOpacity>
                 </View>
 
-                <View style={styles.menuBox}>
-                    <TouchableOpacity
-                        style={styles.detailButton}
-                        onPress={()=> {}}
-                    >
-                        <FontAwesome name="bell" style={styles.icon} />
-                        <Text style={styles.detailButtonText}>Notificações</Text>
-                    </TouchableOpacity>
-                </View>
-
 
 
             </View>

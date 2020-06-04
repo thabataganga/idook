@@ -6,16 +6,37 @@ import * as firebase from 'firebase'
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { firebaseConnect } from 'react-redux-firebase';
+import { firestoreConnect } from 'react-redux-firebase';
 
 class LoadingScreen extends Component{
 
    
    render(){
 
-    const {auth, profile} = this.props;
+    const {auth, profile, ids} = this.props;
 
-    console.log(profile)
+    var confirm = '';
+
+    if(ids  && profile){
+        const token = profile.token
+
+        const filterToken = ids.filter(id => id.id === token);
+
+        if(filterToken.length != 0){
+            console.log(filterToken[0])
+            if(filterToken[0].empresa != "Não configurado"){
+                console.log(filterToken[0].empresa)
+                confirm = 1;
+            }
+    
+        }
+        
+        
+
+        
+    }
+
+    
 
 
 
@@ -25,8 +46,10 @@ class LoadingScreen extends Component{
         if(!profile.token){
             this.props.navigation.navigate("Token");
         } else{
-            if(!profile.confirm){
+            if(!confirm){
                 this.props.navigation.navigate("NewID");
+            } else {
+                this.props.navigation.navigate("Inicial");
             }
         }
 
@@ -51,9 +74,15 @@ const mapStateToProps = (state) => {
     return{
         auth: state.firebase.auth,
         profile: state.firebase.profile,
+        ids: state.firestore.ordered.ids,
     }
   }
   
 
-  export default connect(mapStateToProps, null) (LoadingScreen)
+  export default compose(
+    connect(mapStateToProps, null),
+    firestoreConnect([
+        { collection: 'ids' }
+    ])
+) (LoadingScreen)
 

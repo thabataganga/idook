@@ -17,7 +17,6 @@ import { editId } from '../../../store/actions/idActions'
 
 class NewId extends React.Component {
     state = {
-        errorMessage: null,
         firstName: '',
         lastName: '',
         phone: '',
@@ -38,9 +37,36 @@ class NewId extends React.Component {
     };
     handleSubmit = (e) => {
         e.preventDefault();
-        const {auth, profile} = this.props
-        console.log(profile)
+        const {auth, profile, ids} = this.props
+        const token = profile.token
+
+        const filterToken = ids.filter(id => id.id === token);
+
+        if(filterToken[0].firstName && !this.state.firstName ){
+            this.state.firstName = filterToken[0].firstName
+        }
+        if(filterToken[0].lastName && !this.state.lastName ){
+            this.state.lastName = filterToken[0].lastName
+        }
+        if(filterToken[0].phone && !this.state.phone ){
+            this.state.phone = filterToken[0].phone
+        }
+        if(filterToken[0].city && !this.state.city ){
+            this.state.city = filterToken[0].city
+        }
+        if(filterToken[0].uf && !this.state.uf ){
+            this.state.uf = filterToken[0].uf
+        }
+        if(filterToken[0].empresa && !this.state.empresa ){
+            this.state.empresa = filterToken[0].empresa
+        }
+        if(filterToken[0].cargo && !this.state.cargo ){
+            this.state.cargo = filterToken[0].cargo
+        }
+
         this.props.editId(this.state, profile.token)
+
+        this.props.navigation.navigate("Loading");
         //this.props.history.push('/');
         //console.log(this.state);
     };
