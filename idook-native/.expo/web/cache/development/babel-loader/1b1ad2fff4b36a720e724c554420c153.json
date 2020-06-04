@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var CHANGE_LOGIN_EMAIL = 'CHANGE_LOGIN_EMAIL';","map":{"version":3,"sources":["/home/thabataganga/Documentos/idook/idook-native/src/store/actions/types.js"],"names":["CHANGE_LOGIN_EMAIL"],"mappings":"AAAA,OAAO,IAAMA,kBAAkB,GAAG,oBAA3B","sourcesContent":["export const CHANGE_LOGIN_EMAIL = 'CHANGE_LOGIN_EMAIL';"]},"metadata":{},"sourceType":"module"}

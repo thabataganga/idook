@@ -1,28 +1,37 @@
-import React from "react";
+import React, { Component } from "react";
 import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
 import * as firebase from "firebase";
+
+import { connect } from 'react-redux'
+import { signIn } from '../../store/actions/authActions'
 
 import logoImg from '../../assets/idook.png';
 import logoCliente from '../../assets/sindpd.png';
 import styles from './styles';
 
-export default class LoginScreen extends React.Component {
+class LoginScreen extends Component {
     state = {
         email: "",
         password: "",
         errorMessage: null
     };
 
-    handleLogin = () => {
-        const { email, password } = this.state;
-
-        firebase
-            .auth()
-            .signInWithEmailAndPassword(email, password)
-            .catch(error => this.setState({ errorMessage: error.message }));
+    handleChange = (e) => {
+        this.setState({
+            [e.target.id]:e.target.value
+        })
+    };
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.signIn(this.state)
+        //this.props.history.push('/');
+        //console.log(this.state);
     };
 
+    
+
     render() {
+        //console.log(this.state)
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
@@ -41,8 +50,8 @@ export default class LoginScreen extends React.Component {
                         <TextInput
                             style={styles.input}
                             autoCapitalize="none"
-                            onChangeText={email => this.setState({ email })}
-                            value={this.state.email}
+                            onChange={this.handleChange}
+                            id='email'
                         ></TextInput>
                     </View>
 
@@ -52,17 +61,13 @@ export default class LoginScreen extends React.Component {
                             style={styles.input}
                             secureTextEntry
                             autoCapitalize="none"
-                            onChangeText={password => this.setState({ password })}
-                            value={this.state.password}
+                            onChange={this.handleChange}
+                            id='password'
                         ></TextInput>
                     </View>
                 </View>
 
-                <View style={styles.errorMessage}>
-                    {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
-                </View>
-
-                <TouchableOpacity style={styles.button} onPress={this.handleLogin}>
+                <TouchableOpacity style={styles.button} onPress={this.handleSubmit}>
                     <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign in</Text>
                 </TouchableOpacity>
 
@@ -82,3 +87,17 @@ export default class LoginScreen extends React.Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    return{
+      authError: state.auth.authError,
+      auth: state.firebase.auth,
+    }
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      signIn: (creds) => dispatch(signIn(creds))
+    }
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps) (LoginScreen)

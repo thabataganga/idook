@@ -1,4 +1,6 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from 'react-redux'
+import { signUp } from '../../store/actions/authActions'
 import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
 import * as firebase from "firebase";
 import styles from './styles';
@@ -8,7 +10,7 @@ import logoImg from '../../assets/idook.png';
 import logoCliente from '../../assets/sindpd.png';
 
 
-export default class RegisterScreen extends React.Component {
+class RegisterScreen extends Component {
     state = {
         cpf: "",
         email: "",
@@ -16,17 +18,16 @@ export default class RegisterScreen extends React.Component {
         errorMessage: null
     };
 
-    handleSignUp = () => {
-        firebase
-            .auth()
-            .createUserWithEmailAndPassword(this.state.email, this.state.password)
-            .then(userCredentials => {
-                return userCredentials.user.updateProfile({
-                    displayName: this.state.name
-                });
-            })
-            .catch(error => this.setState({ errorMessage: error.message }));
-    };
+    handleChange = (e) => {
+        this.setState({
+            [e.target.id]: e.target.value
+        })
+    }
+    handleSubmit = (e) => {
+        e.preventDefault();
+        //  console.log(this.state);
+        this.props.signUp(this.state);
+    }
 
     render() {
         return (
@@ -52,8 +53,8 @@ export default class RegisterScreen extends React.Component {
                         <TextInput
                             style={styles.input}
                             autoCapitalize="none"
-                            onChangeText={cpf => this.setState({ cpf })}
-                            value={this.state.cpf}
+                            onChange={this.handleChange}
+                            id='cpf'
                         ></TextInput>
                     </View>
 
@@ -62,8 +63,8 @@ export default class RegisterScreen extends React.Component {
                         <TextInput
                             style={styles.input}
                             autoCapitalize="none"
-                            onChangeText={email => this.setState({ email })}
-                            value={this.state.email}
+                            onChange={this.handleChange}
+                            id='email'
                         ></TextInput>
                     </View>
 
@@ -73,18 +74,13 @@ export default class RegisterScreen extends React.Component {
                             style={styles.input}
                             secureTextEntry
                             autoCapitalize="none"
-                            onChangeText={password => this.setState({ password })}
-                            value={this.state.password}
+                            onChange={this.handleChange}
+                            id='password'
                         ></TextInput>
                     </View>
                 </View>
 
-                <View style={styles.errorMessage}>
-                    {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
-                </View>
-
-
-                <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
+                <TouchableOpacity style={styles.button} onPress={this.handleSubmit}>
                     <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign up</Text>
                 </TouchableOpacity>
 
@@ -104,3 +100,19 @@ export default class RegisterScreen extends React.Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        authError: state.auth.authError,
+        auth: state.firebase.auth,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signUp: (creds) => dispatch(signUp(creds))
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterScreen)
