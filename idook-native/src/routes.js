@@ -19,6 +19,7 @@ import RegisterScreen from './auth/register'
 import LoginScreen from './auth/login'
 import Token from './auth/token'
 import EditID from './pages/id/editid'
+import NewID from './pages/id/newid'
 
 
 
@@ -31,6 +32,8 @@ export default function Routes() {
                 <AppStack.Screen name="Register" component={RegisterScreen} />
                 <AppStack.Screen name="Token" component={Token} />
                 <AppStack.Screen name="EditID" component={EditID} />
+
+                <AppStack.Screen name="NewID" component={NewID} />
                 
                 <AppStack.Screen name="Inicial" component={Inicial} />
                 <AppStack.Screen name="Detail" component={Detail} />

@@ -17,22 +17,19 @@ class LoadingScreen extends Component{
 
     console.log(profile)
 
-    if(auth.uid){
-        if(profile.token){
-            if(profile.confirm){
-                this.props.navigation.navigate("Inicial");
-            }
-            else {
-                this.props.navigation.navigate("EditID");
-            }
-            
-        }
-        else{
-            this.props.navigation.navigate("Token");
-        }
-        
-    } else {
+
+
+    if(!profile.token){
         this.props.navigation.navigate("Login");
+    } else {
+        if(!profile.token){
+            this.props.navigation.navigate("Token");
+        } else{
+            if(!profile.confirm){
+                this.props.navigation.navigate("NewID");
+            }
+        }
+
     }
 
     return (
