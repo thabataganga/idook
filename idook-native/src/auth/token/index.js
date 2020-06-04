@@ -4,6 +4,11 @@ import * as firebase from "firebase";
 import styles from './styles';
 import { Feather } from '@expo/vector-icons';
 
+import { editUser } from '../../store/actions/authActions'
+
+import { firestoreConnect } from 'react-redux-firebase';
+
+
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firebaseConnect } from 'react-redux-firebase';
@@ -14,8 +19,17 @@ import logoCliente from '../../assets/sindpd.png';
 
  class Token extends React.Component {
     state = {
-        token: ""
+        token: "",
+        authorId: ""
     };
+
+    componentDidMount() {
+
+        console.log(this.props)
+        
+
+
+    }
 
     signOutUser() {
         firebase.auth().signOut();
@@ -29,9 +43,36 @@ import logoCliente from '../../assets/sindpd.png';
 
     handleSubmit = (e) => {
         e.preventDefault();
-        //this.props.signIn(this.state)
+        const {profile, ids, auth} = this.props
+
+        const uid = this.state.token
+
+        const uid_user = auth.uid
+
+        //console.log(ids);
+
+        const filterCPF = ids.filter(id => id.cpf === profile.cpf);
+
+        var hascpf = filterCPF.length;
+        //console.log(hascpf)
+
+        if(hascpf != 0){
+            console.log("CPF Cadastrado")
+            const filterToken = filterCPF.filter(id => id.id === uid);
+            var hastoken = filterToken.length;
+           // console.log(hastoken)
+            if(hastoken > 0){
+                console.log(filterToken[0].authorId);
+                this.state.authorId = filterToken[0].authorId
+                this.props.editUser(this.state, uid_user )
+            } else console.log("Tente novamente")
+        } else {console.log("CPF não cadastrado")}
+        
+
+
+        //this.props.editUser(this.state, uid_user )
         //this.props.history.push('/');
-        console.log(this.state);
+       
     };
     
     
@@ -39,7 +80,7 @@ import logoCliente from '../../assets/sindpd.png';
 
     render() {
 
-        console.log(this.state);
+//        console.log(this.state);
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
@@ -90,12 +131,21 @@ const mapStateToProps = (state) => {
     return{
         auth: state.firebase.auth,
         profile: state.firebase.profile,
+        ids: state.firestore.ordered.ids,
     }
   }
   
+  const mapDispatchToProps = (dispatch) => {
+    return {
+        editUser: (ids, id) => dispatch(editUser(ids, id))
+    }
+  }
 
-  
   export default compose(
-    firebaseConnect(),
-    connect(mapStateToProps),
-  )(Token);
+    connect(mapStateToProps, mapDispatchToProps),
+    firestoreConnect([
+        { collection: 'ids' }
+    ])
+)(Token)
+
+
