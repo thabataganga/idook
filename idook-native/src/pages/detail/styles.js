@@ -76,6 +76,7 @@ export default StyleSheet.create({
         borderRadius: 8,
         backgroundColor: '#fff',
         alignItems: 'center',
+        alignSelf: 'flex-start'
         
     },
 
