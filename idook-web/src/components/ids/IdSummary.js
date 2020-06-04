@@ -24,7 +24,7 @@ const IDSummary = ({ ids }) => {
 
   let result = duration.format("ddd")
 
-  const expira = validade - result;
+  const expira = validade - result+1;
 
   if (expira<=0){
     //console.log(diff)

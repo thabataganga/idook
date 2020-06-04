@@ -60,13 +60,13 @@ const IdDetail = (props) => {
         const validade = sids.validade;
       
       
-        let diff = moment(now, "DD/MM/YYYY").diff(moment(start, "DD/MM/YYYY"));
+        let diff = moment(now, "DD/MM/YYYY").diff(moment(start, "DD/MM/YYYY", 'days'));
       
         let duration = moment.duration(diff)
       
         let result = duration.format("ddd")
       
-        const expira = validade - result;
+        const expira = validade - result + 1;
 
         if (expira <= 0) {
             //console.log(expira)

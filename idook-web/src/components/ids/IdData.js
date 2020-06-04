@@ -42,7 +42,7 @@ const IdData = ({ ids, profile }) => {
     
         let result = duration.format("ddd")
     
-        const expira = validade - result;
+        const expira = validade - result + 1;
 
         if(expira<0)
         idvenc++

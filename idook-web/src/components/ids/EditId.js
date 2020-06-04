@@ -19,10 +19,10 @@ export class EditId extends Component {
         phone: '',
         matricula: '',
         validade: '',
-        city: "Não configurado",
-        uf: "Não configurado",
-        empresa: "Não configurado",
-        cargo: 'Não configurado',
+        city: "",
+        uf: "",
+        empresa: "",
+        cargo: '',
 
     }
 
@@ -65,6 +65,18 @@ export class EditId extends Component {
         }
         if (this.state.url === '') {
             this.state.url = sids.url
+        }
+        if (this.state.city === '') {
+            this.state.city = sids.city
+        }
+        if (this.state.uf === '') {
+            this.state.uf = sids.uf
+        }
+        if (this.state.empresa === '') {
+            this.state.empresa = sids.empresa
+        }
+        if (this.state.cargo === '') {
+            this.state.cargo = sids.cargo
         }
 
 
