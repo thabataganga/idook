@@ -4,11 +4,18 @@ import * as firebase from "firebase";
 
 import { Feather } from '@expo/vector-icons';
 
+import { firestoreConnect } from 'react-redux-firebase';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+
 import logoImg from '../../../assets/idook.png';
 import logoCliente from '../../../assets/sindpd.png';
 import styles from './styles';
 
-export default class NewId extends React.Component {
+import { editId } from '../../../store/actions/idActions'
+
+
+class NewId extends React.Component {
     state = {
         errorMessage: null,
         firstName: '',
@@ -22,6 +29,20 @@ export default class NewId extends React.Component {
 
     signOutUser() {
         firebase.auth().signOut();
+    };
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.id]:e.target.value
+        })
+    };
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const {auth, profile} = this.props
+        console.log(profile)
+        this.props.editId(this.state, profile.token)
+        //this.props.history.push('/');
+        //console.log(this.state);
     };
 
 
@@ -51,9 +72,9 @@ export default class NewId extends React.Component {
                         <Text style={styles.inputTitle}>Nome</Text>
                         <TextInput
                             style={styles.input}
-                            autoCapitalize="none"
-                            onChangeText={cpf => this.setState({ cpf })}
-                            value={this.state.cpf}
+                            autoCapitalize="true"
+                            onChange={this.handleChange}
+                            id='firstName'
                         ></TextInput>
                     </View>
 
@@ -61,9 +82,9 @@ export default class NewId extends React.Component {
                         <Text style={styles.inputTitle}>Sobrenome</Text>
                         <TextInput
                             style={styles.input}
-                            autoCapitalize="none"
-                            onChangeText={email => this.setState({ email })}
-                            value={this.state.email}
+                            autoCapitalize="true"
+                            onChange={this.handleChange}
+                            id='lastName'
                         ></TextInput>
                     </View>
 
@@ -71,57 +92,57 @@ export default class NewId extends React.Component {
                         <Text style={styles.inputTitle}>Telefone</Text>
                         <TextInput
                             style={styles.input}
-                            secureTextEntry
+                            
                             autoCapitalize="none"
-                            onChangeText={password => this.setState({ password })}
-                            value={this.state.password}
+                            onChange={this.handleChange}
+                            id='phone'
                         ></TextInput>
                     </View>
                     <View style={{ marginTop: 20 }}>
                         <Text style={styles.inputTitle}>Cidade</Text>
                         <TextInput
                             style={styles.input}
-                            secureTextEntry
-                            autoCapitalize="none"
-                            onChangeText={password => this.setState({ password })}
-                            value={this.state.password}
+                            
+                            autoCapitalize="true"
+                            onChange={this.handleChange}
+                            id='city'
                         ></TextInput>
                     </View>
                     <View style={{ marginTop: 20 }}>
-                        <Text style={styles.inputTitle}>Estado</Text>
+                        <Text style={styles.inputTitle}>Estado/Sigla</Text>
                         <TextInput
                             style={styles.input}
-                            secureTextEntry
-                            autoCapitalize="none"
-                            onChangeText={password => this.setState({ password })}
-                            value={this.state.password}
+                            
+                            autoCapitalize="true"
+                            onChange={this.handleChange}
+                            id='uf'
                         ></TextInput>
                     </View>
                     <View style={{ marginTop: 20 }}>
                         <Text style={styles.inputTitle}>Empresa</Text>
                         <TextInput
                             style={styles.input}
-                            secureTextEntry
-                            autoCapitalize="none"
-                            onChangeText={password => this.setState({ password })}
-                            value={this.state.password}
+                            
+                            autoCapitalize="true"
+                            onChange={this.handleChange}
+                            id='empresa'
                         ></TextInput>
                     </View>
                     <View style={{ marginTop: 20 }}>
                         <Text style={styles.inputTitle}>Cargo</Text>
                         <TextInput
                             style={styles.input}
-                            secureTextEntry
-                            autoCapitalize="none"
-                            onChangeText={password => this.setState({ password })}
-                            value={this.state.password}
+                            
+                            autoCapitalize="true"
+                            onChange={this.handleChange}
+                            id='cargo'
                         ></TextInput>
                     </View>
                 </View>
 
 
 
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity onPress={this.handleSubmit} style={styles.button}>
                     <Text style={{ color: "#FFF", fontWeight: "500" }}>Salvar</Text>
                 </TouchableOpacity>
 
@@ -135,3 +156,26 @@ export default class NewId extends React.Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+
+    console.log(state)
+    return{
+        auth: state.firebase.auth,
+        profile: state.firebase.profile,
+        ids: state.firestore.ordered.ids,
+    }
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+        editId: (ids, id) => dispatch(editId(ids, id))
+    }
+  }
+
+  export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    firestoreConnect([
+        { collection: 'ids' }
+    ])
+)(NewId)

@@ -7,11 +7,8 @@ import { Feather } from '@expo/vector-icons';
 import { editUser } from '../../store/actions/authActions'
 
 import { firestoreConnect } from 'react-redux-firebase';
-
-
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { firebaseConnect } from 'react-redux-firebase';
 
 import logoImg from '../../assets/idook.png';
 import logoCliente from '../../assets/sindpd.png';
