@@ -64,11 +64,11 @@ class EditID extends React.Component {
             this.state.cargo = filterToken[0].cargo
         }
 
-        this.props.editId(this.state, profile.token)
+        //this.props.editId(this.state, profile.token)
 
-        this.props.navigation.navigate("Settings");
+        //this.props.navigation.navigate("Settings");
         //this.props.history.push('/');
-        //console.log(this.state);
+        console.log(this.state);
     };
 
 
@@ -104,10 +104,12 @@ class EditID extends React.Component {
                         <Text style={styles.inputTitle}>Nome</Text>
                         <TextInput
                             style={styles.input}
-                            autoCapitalize="true"
-                            onChange={this.handleChange}
+                            autoCapitalize="words"
+                            //onChange={this.handleChange}
+                            //defaultValue={filterToken[0].firstName}
+                            //id='firstName'
+                            onChangeText={firstName=> this.setState({firstName: firstName})}
                             defaultValue={filterToken[0].firstName}
-                            id='firstName'
                         ></TextInput>
                     </View>
 
@@ -115,10 +117,12 @@ class EditID extends React.Component {
                         <Text style={styles.inputTitle}>Sobrenome</Text>
                         <TextInput
                             style={styles.input}
-                            autoCapitalize="true"
-                            onChange={this.handleChange}
-                            defaultValue={filterToken[0].lastName}
-                            id='lastName'
+                            autoCapitalize="words"
+                            //onChange={this.handleChange}
+                            //defaultValue={filterToken[0].lastName}
+                            //id='lastName'
+                            onChangeText={firstName=> this.setState({firstName: firstName})}
+                            defaultValue={filterToken[0].firstName}
                         ></TextInput>
                     </View>
 
@@ -126,55 +130,61 @@ class EditID extends React.Component {
                         <Text style={styles.inputTitle}>Telefone</Text>
                         <TextInput
                             style={styles.input}
-                            
-                            autoCapitalize="none"
-                            onChange={this.handleChange}
+                            onChangeText={phone=> this.setState({phone: phone})}
                             defaultValue={filterToken[0].phone}
-                            id='phone'
+                            
+                            //autoCapitalize="none"
+                            //onChange={this.handleChange}
+                            //defaultValue={filterToken[0].phone}
+                            //id='phone'
                         ></TextInput>
                     </View>
                     <View style={{ marginTop: 20 }}>
                         <Text style={styles.inputTitle}>Cidade</Text>
                         <TextInput
                             style={styles.input}
-                            
-                            autoCapitalize="true"
-                            onChange={this.handleChange}
+                            onChangeText={city=> this.setState({city: city})}
                             defaultValue={filterToken[0].city}
-                            id='city'
+                            autoCapitalize="words"
+                            //onChange={this.handleChange}
+                            //defaultValue={filterToken[0].city}
+                            //id='city'
                         ></TextInput>
                     </View>
                     <View style={{ marginTop: 20 }}>
                         <Text style={styles.inputTitle}>Estado/Sigla</Text>
                         <TextInput
                             style={styles.input}
-                            
-                            autoCapitalize="true"
-                            onChange={this.handleChange}
+                            onChangeText={uf=> this.setState({uf: uf})}
                             defaultValue={filterToken[0].uf}
-                            id='uf'
+                            autoCapitalize="words"
+                            //onChange={this.handleChange}
+                            //defaultValue={filterToken[0].uf}
+                            //id='uf'
                         ></TextInput>
                     </View>
                     <View style={{ marginTop: 20 }}>
                         <Text style={styles.inputTitle}>Empresa</Text>
                         <TextInput
                             style={styles.input}
-                            
-                            autoCapitalize="true"
-                            onChange={this.handleChange}
+                            onChangeText={empresa=> this.setState({empresa: empresa})}
                             defaultValue={filterToken[0].empresa}
-                            id='empresa'
+                            autoCapitalize="words"
+                            //onChange={this.handleChange}
+                            //defaultValue={filterToken[0].empresa}
+                            //id='empresa'
                         ></TextInput>
                     </View>
                     <View style={{ marginTop: 20 }}>
                         <Text style={styles.inputTitle}>Cargo</Text>
                         <TextInput
                             style={styles.input}
-                            
-                            autoCapitalize="true"
-                            onChange={this.handleChange}
+                            onChangeText={cargo=> this.setState({cargo: cargo})}
                             defaultValue={filterToken[0].cargo}
-                            id='cargo'
+                            autoCapitalize="words"
+                           // onChange={this.handleChange}
+                            //defaultValue={filterToken[0].cargo}
+                            //id='cargo'
                         ></TextInput>
                     </View>
                 </View>

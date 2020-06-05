@@ -53,8 +53,10 @@ class RegisterScreen extends Component {
                         <TextInput
                             style={styles.input}
                             autoCapitalize="none"
-                            onChange={this.handleChange}
-                            id='cpf'
+                            //onChange={this.handleChange}
+                            //id='cpf'
+                            onChangeText={value=> this.setState({cpf: value})}
+                            value={this.state.cpf}
                         ></TextInput>
                     </View>
 
@@ -63,8 +65,10 @@ class RegisterScreen extends Component {
                         <TextInput
                             style={styles.input}
                             autoCapitalize="none"
-                            onChange={this.handleChange}
-                            id='email'
+                            //onChange={this.handleChange}
+                            //id='email'
+                            onChangeText={value=> this.setState({email: value})}
+                            value={this.state.email}
                         ></TextInput>
                     </View>
 
@@ -74,8 +78,10 @@ class RegisterScreen extends Component {
                             style={styles.input}
                             secureTextEntry
                             autoCapitalize="none"
-                            onChange={this.handleChange}
-                            id='password'
+                            //onChange={this.handleChange}
+                            //id='password'
+                            onChangeText={value=> this.setState({password: value})}
+                            value={this.state.password}
                         ></TextInput>
                     </View>
                 </View>

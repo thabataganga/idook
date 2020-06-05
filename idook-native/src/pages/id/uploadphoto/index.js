@@ -157,7 +157,8 @@ class EditID extends React.Component {
                 </View>
 
                 <View style={{ justifyContent: 'space-between', marginVertical:50, alignItems: 'center', justifyContent: 'center' }}>
-                <Image source={this.state.image || filterToken[0].url} style={{ width: 200, height: 200 }} />
+               
+                <Image source={{uri: this.state.image || filterToken[0].url}} style={{ width: 200, height: 200 }} />
                 </View>
 
                 <View style={{marginTop: 20}}>

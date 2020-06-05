@@ -132,8 +132,10 @@ import logoCliente from '../../assets/sindpd.png';
                                 <TextInput
                                     style={styles.input}
                                     autoCapitalize="none"
-                                    onChange={this.handleChange}
-                                    id='token'
+                                    //onChange={this.handleChange}
+                                    //id='token'
+                                    onChangeText={value=> this.setState({token: value})}
+                                    value={this.state.token}
                                 ></TextInput>
                             </View>
         
@@ -175,8 +177,10 @@ import logoCliente from '../../assets/sindpd.png';
                                     style={styles.input}
                                     autoCapitalize="none"
                                     defaultValue={profile.cpf}
-                                    onChange={this.handleChange}
-                                    id='token'
+                                    //onChange={this.handleChange}
+                                    //id='token'
+                                    onChangeText={token=> this.setState({token: token})}
+                                    //value={this.state.token}
                                 ></TextInput>
                             </View>
         

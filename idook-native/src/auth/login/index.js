@@ -13,7 +13,7 @@ class LoginScreen extends Component {
     state = {
         email: "",
         password: "",
-        errorMessage: null
+        errorMessage: null,
     };
 
     handleChange = (e) => {
@@ -25,12 +25,15 @@ class LoginScreen extends Component {
         e.preventDefault();
         this.props.signIn(this.state)
         //this.props.history.push('/');
-        //console.log(this.state);
+        console.log(this.state);
     };
+
 
     
 
     render() {
+
+        //console.log(this.state.email)
         //console.log(this.state)
         return (
             <View style={styles.container}>
@@ -46,12 +49,13 @@ class LoginScreen extends Component {
 
                 <View style={styles.form}>
                     <View  style={{ marginTop: 32 }}>
-                        <Text style={styles.inputTitle}>Email Address</Text>
+                        <Text style={styles.inputTitle}>Email</Text>
                         <TextInput
                             style={styles.input}
                             autoCapitalize="none"
-                            onChange={this.handleChange}
-                            id='email'
+                            onChangeText={value=> this.setState({email: value})}
+                            value={this.state.email}
+                            //id='email'
                         ></TextInput>
                     </View>
 
@@ -61,8 +65,9 @@ class LoginScreen extends Component {
                             style={styles.input}
                             secureTextEntry
                             autoCapitalize="none"
-                            onChange={this.handleChange}
-                            id='password'
+                            onChangeText={value=> this.setState({password: value})}
+                            value={this.state.password}
+                            //id='password'
                         ></TextInput>
                     </View>
                 </View>

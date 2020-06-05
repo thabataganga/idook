@@ -19,7 +19,12 @@ import * as moment from 'moment'; import 'moment/locale/pt-br'
 class Detail extends React.Component {
 
     render() {
-        moment.locale('pt-br')
+        //moment.locale('pt-br')
+
+        let moment = require("moment");
+if ("default" in moment) {
+    moment = moment["default"];
+}
 
         const { auth, profile, ids, users } = this.props
         const token = profile.token
@@ -55,7 +60,7 @@ class Detail extends React.Component {
             if (filterUser.length != 0) {
                 const company = filterUser[0]
 
-                //console.log(company)
+                console.log(company.url)
 
                 if(expira<1){
                     return (
@@ -105,12 +110,17 @@ class Detail extends React.Component {
     
                                             </View>
                                             <View style={styles.Foto}>
-                                                <Image source={company.url} />
-                                                <Image
-                                                    style={{ width: 130, height: 130, borderRadius: 8 }}
-                                                    source={filterToken[0].url}
-                                                    resizeMode="cover"
-                                                />
+                                            <Image
+                                                style={{ width: 130, height: 130, borderRadius: 8 }}
+                                                source={{uri: filterToken[0].url }}
+                                                resizeMode="cover"
+                                            />
+
+                                            <Image
+                                                style={{ marginTop:5, width: 130, height: 50, borderRadius: 8 }}
+                                                source={{uri: company.url }}
+                                                resizeMode="cover"
+                                            />  
                                             </View>
                                         </View>
     
@@ -198,12 +208,19 @@ class Detail extends React.Component {
 
                                         </View>
                                         <View style={styles.Foto}>
-                                            <Image source={company.url} />
+                                            
+                                       
                                             <Image
                                                 style={{ width: 130, height: 130, borderRadius: 8 }}
-                                                source={filterToken[0].url}
+                                                source={{uri: filterToken[0].url }}
                                                 resizeMode="cover"
                                             />
+
+                                            <Image
+                                                style={{ marginTop:5, width: 130, height: 50, borderRadius: 8 }}
+                                                source={{uri: company.url }}
+                                                resizeMode="cover"
+                                            />  
                                         </View>
                                     </View>
 
