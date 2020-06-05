@@ -1,7 +1,7 @@
 import React from 'react';
 import { Feather, FontAwesome } from '@expo/vector-icons';
 import { View, Image, ScrollView, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+
 
 
 import { firestoreConnect } from 'react-redux-firebase';
@@ -20,8 +20,6 @@ class Detail extends React.Component {
 
     render() {
         moment.locale('pt-br')
-
-        
 
         const { auth, profile, ids, users } = this.props
         const token = profile.token
@@ -56,7 +54,7 @@ class Detail extends React.Component {
             if (filterUser.length != 0) {
                 const company = filterUser[0]
 
-                console.log(company)
+                //console.log(company)
 
                 if(expira<1){
                     return (

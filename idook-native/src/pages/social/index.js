@@ -1,115 +1,169 @@
 import React from 'react';
 import { FontAwesome, Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { View, ScrollView, Image, Text, TouchableOpacity, Linking } from 'react-native';
+import { View, ScrollView, Image, Text, TouchableOpacity, Linking, ActivityIndicator } from 'react-native';
+
+import { firestoreConnect } from 'react-redux-firebase';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 
 
 
 import logoImg from '../../assets/logo2.png';
 import styles from './styles';
 
-export default function Incidents() {
-    const navigation = useNavigation();
+class Social extends React.Component{
 
-    function navigateToDetail() {
-        navigation.navigate('Inicial');
-    }
 
-    function navigateToFeed() {
-        navigation.navigate('Feed');
-    }
+    render(){
 
-    function navigateToEvents() {
-        navigation.navigate('Events');
-    }
+        const { auth, profile, ids, users } = this.props
+        const token = profile.token
 
-    function navigateToPoll() {
-        navigation.navigate('Poll');
-    }
+        const filterToken = ids.filter(id => id.id === token);
 
-    return (
-        <View style={styles.container}>
-            <View style={styles.header}>
-                <Image source={logoImg} />
-                <TouchableOpacity style={styles.headerText} onPress={navigateToDetail}>
-                    <Feather name="arrow-left" size={20} color="#91bd36"
-                    />
-                </TouchableOpacity> 
+        const IDauthorId = filterToken[0].authorId
+
+        if (users) {
+
+            const filterUser = users.filter(id => id.id === IDauthorId);
+            console.log(filterUser)
+
+            if (filterUser.length != 0) {
+
+                const company = filterUser[0]
+
+                var whatsapplink = 'https://api.whatsapp.com/send?l=pt-BR&phone=' + company.whatsapp;
+                var facebooklink = 'https://' + company.facebook;
+                var twitterlink = 'https://' + company.twitter;
+                var linkedinlink = 'https://' + company.linkedin;
+                var websitelink = 'https://' + company.website;
+                var instagramlink = 'https://' + company.instagram;
+
+                console.log(facebooklink)
+
+                return (
+                    <View style={styles.container}>
+                        <View style={styles.header}>
+                            <Image source={logoImg} />
+                            <TouchableOpacity style={styles.headerText} onPress={() => this.props.navigation.navigate("Inicial")} >
+                                <Feather name="arrow-left" size={20} color="#91bd36"
+                                />
+                            </TouchableOpacity> 
+                        </View>
+                        <Text style={styles.title}>Rede Sociais,</Text>
+                        <Text style={styles.description}>Converse com o Sindpd!</Text>
+            
+                        <ScrollView 
+                        showsVerticalScrollIndicator = {false}>
+            
+                        <View style={styles.containerMenu}>
+                            <View style={styles.menuBox}>
+                                <TouchableOpacity
+                                    style={styles.detailButton}
+                                    onPress={()=> Linking.openURL(whatsapplink)}
+                                >
+                                    <FontAwesome name="whatsapp" style={styles.icon} />
+                                    <Text style={styles.detailButtonText}>WhatsApp</Text>
+                                </TouchableOpacity>
+                            </View>
+            
+                            <View style={styles.menuBox}>
+                                <TouchableOpacity
+                                    style={styles.detailButton}
+                                    onPress={()=> Linking.openURL(facebooklink)}
+                                >
+                                    <FontAwesome name="facebook" style={styles.icon} />
+                                    <Text style={styles.detailButtonText}>Facebook</Text>
+                                </TouchableOpacity>
+                            </View>
+            
+                            <View style={styles.menuBox}>
+                                <TouchableOpacity
+                                    style={styles.detailButton}
+                                    onPress={()=> Linking.openURL(instagramlink)}                                >
+                                    <FontAwesome name="instagram" style={styles.icon} />
+                                    <Text style={styles.detailButtonText}>Instagram</Text>
+                                </TouchableOpacity>
+                            </View>
+            
+                            <View style={styles.menuBox}>
+                                <TouchableOpacity
+                                    style={styles.detailButton}
+                                    onPress={()=> Linking.openURL(twitterlink)}                                >
+                                    <FontAwesome name="twitter" style={styles.icon} />
+                                    <Text style={styles.detailButtonText}>Twitter</Text>
+                                </TouchableOpacity>
+                            </View>
+            
+                            <View style={styles.menuBox}>
+                                <TouchableOpacity
+                                    style={styles.detailButton}
+                                    onPress={()=> Linking.openURL(linkedinlink)}                                >
+                                    <FontAwesome name="linkedin" style={styles.icon}/>
+                                    <Text style={styles.detailButtonText}>Linkedin</Text>
+                                </TouchableOpacity>
+                            </View>
+            
+                            <View style={styles.menuBox}>
+                                <TouchableOpacity
+                                    style={styles.detailButton}
+                                    onPress={()=> Linking.openURL(websitelink)}                                >
+                                    <FontAwesome name="desktop" style={styles.icon} />
+                                    <Text style={styles.detailButtonText}>Site</Text>
+                                </TouchableOpacity>
+                            </View>
+            
+                        </View>
+            
+                        </ScrollView>
+            
+                       
+                    </View>
+                );
+
+            }
+
+        }
+
+        return (
+            <View style={styles.container}>
+                <Text>Carregando...</Text>
+                <ActivityIndicator size='large'></ActivityIndicator>
             </View>
-            <Text style={styles.title}>Rede Sociais,</Text>
-            <Text style={styles.description}>Converse com o Sindpd!</Text>
 
-            <ScrollView 
-            showsVerticalScrollIndicator = {false}>
+        )
 
-            <View style={styles.containerMenu}>
-                <View style={styles.menuBox}>
-                    <TouchableOpacity
-                        style={styles.detailButton}
-                        onPress={()=> Linking.openURL('https://google.com')}
-                    >
-                        <FontAwesome name="whatsapp" style={styles.icon} />
-                        <Text style={styles.detailButtonText}>WhatsApp</Text>
-                    </TouchableOpacity>
-                </View>
+        
 
-                <View style={styles.menuBox}>
-                    <TouchableOpacity
-                        style={styles.detailButton}
-                        onPress={()=> Linking.openURL('https://google.com')}
-                    >
-                        <FontAwesome name="facebook" style={styles.icon} />
-                        <Text style={styles.detailButtonText}>Facebook</Text>
-                    </TouchableOpacity>
-                </View>
+    }
 
-                <View style={styles.menuBox}>
-                    <TouchableOpacity
-                        style={styles.detailButton}
-                        onPress={()=> Linking.openURL('https://google.com')}
-                    >
-                        <FontAwesome name="instagram" style={styles.icon} />
-                        <Text style={styles.detailButtonText}>Instagram</Text>
-                    </TouchableOpacity>
-                </View>
+    
 
-                <View style={styles.menuBox}>
-                    <TouchableOpacity
-                        style={styles.detailButton}
-                        onPress={()=> Linking.openURL('https://google.com')}
-                    >
-                        <FontAwesome name="twitter" style={styles.icon} />
-                        <Text style={styles.detailButtonText}>Twitter</Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.menuBox}>
-                    <TouchableOpacity
-                        style={styles.detailButton}
-                        onPress={()=> Linking.openURL('https://google.com')}
-                    >
-                        <FontAwesome name="linkedin" style={styles.icon}/>
-                        <Text style={styles.detailButtonText}>Linkedin</Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.menuBox}>
-                    <TouchableOpacity
-                        style={styles.detailButton}
-                        onPress={()=> Linking.openURL('https://google.com')}
-                    >
-                        <FontAwesome name="desktop" style={styles.icon} />
-                        <Text style={styles.detailButtonText}>Site</Text>
-                    </TouchableOpacity>
-                </View>
-
-            </View>
-
-
-
-            </ScrollView>
-
-           
-        </View>
-    );
+    
 }
+
+const mapStateToProps = (state) => {
+
+    console.log(state)
+    return {
+        auth: state.firebase.auth,
+        profile: state.firebase.profile,
+        ids: state.firestore.ordered.ids,
+        users: state.firestore.ordered.users,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        editId: (ids, id) => dispatch(editId(ids, id))
+    }
+}
+
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    firestoreConnect([
+        { collection: 'ids' },
+        { collection: 'users' }
+    ])
+)(Social)
