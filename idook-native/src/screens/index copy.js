@@ -6,7 +6,7 @@ import * as firebase from 'firebase'
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { firebaseConnect } from 'react-redux-firebase';
+import { firestoreConnect } from 'react-redux-firebase';
 
 class LoadingScreen extends Component{
 
@@ -36,22 +36,23 @@ class LoadingScreen extends Component{
         
     }
 
-    if(auth.uid){
-        if(profile.token){
-            if(confirm){
+    
+
+
+
+    if(!profile.token){
+        this.props.navigation.navigate("Login");
+    } else {
+        if(!profile.token){
+            this.props.navigation.navigate("Token");
+        } else{
+            if(!confirm){
+                this.props.navigation.navigate("NewID");
+            } else {
                 this.props.navigation.navigate("Inicial");
             }
-            else {
-                this.props.navigation.navigate("NewID");
-            }
-            
         }
-        else{
-            this.props.navigation.navigate("Token");
-        }
-        
-    } else {
-        this.props.navigation.navigate("Login");
+
     }
 
     return (
@@ -78,4 +79,10 @@ const mapStateToProps = (state) => {
   }
   
 
-  export default connect(mapStateToProps, null) (LoadingScreen)
+  export default compose(
+    connect(mapStateToProps, null),
+    firestoreConnect([
+        { collection: 'ids' }
+    ])
+) (LoadingScreen)
+

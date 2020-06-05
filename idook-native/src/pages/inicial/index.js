@@ -16,7 +16,7 @@ export default function Incidents() {
     
     const {email, displayName} = firebase.auth().currentUser;
 
-    console.log(email, displayName)
+    //console.log(email, displayName)
 
     
 

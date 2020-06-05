@@ -20,13 +20,6 @@ import logoCliente from '../../assets/sindpd.png';
         authorId: ""
     };
 
-    componentDidMount() {
-
-        console.log(this.props)
-        
-
-
-    }
 
     signOutUser() {
         firebase.auth().signOut();
