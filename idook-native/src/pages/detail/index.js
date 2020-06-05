@@ -28,7 +28,7 @@ class Detail extends React.Component {
 
         const IDauthorId = filterToken[0].authorId
 
-        const start = moment(filterToken[0].createdAt.toDate()).calendar();
+        const start = filterToken[0].createdAt.toDate();
 
         const now = new Date();
       
@@ -38,19 +38,20 @@ class Detail extends React.Component {
       
       
         let diff = moment(now, "DD/MM/YYYY").diff(moment(start, "DD/MM/YYYY"),'days');
-      
+        
+        var range = Math.abs(start-now)
+
         let duration = moment.duration(diff)
       
         var result = moment(duration)
         //duration.format("ddd")
       
-       const expira = validade - diff;
+       const expira = validade - diff - 1;
 
-        console.log(expira)
 
         if (users) {
             const filterUser = users.filter(id => id.id === IDauthorId);
-            console.log(filterUser)
+          //  console.log(filterUser)
             if (filterUser.length != 0) {
                 const company = filterUser[0]
 
@@ -203,7 +204,6 @@ class Detail extends React.Component {
                                                 source={filterToken[0].url}
                                                 resizeMode="cover"
                                             />
-                                            <Text style={styles.Titulo}>Profissional de T.I.</Text>
                                         </View>
                                     </View>
 
@@ -267,7 +267,7 @@ class Detail extends React.Component {
 
 const mapStateToProps = (state) => {
 
-    console.log(state)
+   // console.log(state)
     return {
         auth: state.firebase.auth,
         profile: state.firebase.profile,

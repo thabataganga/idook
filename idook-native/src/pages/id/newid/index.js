@@ -66,13 +66,19 @@ class NewId extends React.Component {
 
         this.props.editId(this.state, profile.token)
 
-        this.props.navigation.navigate("Loading");
+       // this.props.navigation.navigate("Loading");
         //this.props.history.push('/');
         //console.log(this.state);
     };
 
 
     render() {
+
+        const {auth, profile, ids} = this.props
+        const token = profile.token
+
+        const filterToken = ids.filter(id => id.id === token);
+
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
@@ -94,12 +100,14 @@ class NewId extends React.Component {
             showsVerticalScrollIndicator = {false}>
 
                 <View style={styles.form}>
+                
                     <View style={{ marginTop: 20 }}>
                         <Text style={styles.inputTitle}>Nome</Text>
                         <TextInput
                             style={styles.input}
                             autoCapitalize="true"
                             onChange={this.handleChange}
+                            defaultValue={filterToken[0].firstName}
                             id='firstName'
                         ></TextInput>
                     </View>
@@ -110,6 +118,7 @@ class NewId extends React.Component {
                             style={styles.input}
                             autoCapitalize="true"
                             onChange={this.handleChange}
+                            defaultValue={filterToken[0].lastName}
                             id='lastName'
                         ></TextInput>
                     </View>
@@ -185,7 +194,7 @@ class NewId extends React.Component {
 
 const mapStateToProps = (state) => {
 
-    console.log(state)
+  //  console.log(state)
     return{
         auth: state.firebase.auth,
         profile: state.firebase.profile,

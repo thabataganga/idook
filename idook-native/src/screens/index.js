@@ -23,9 +23,9 @@ class LoadingScreen extends Component{
         const filterToken = ids.filter(id => id.id === token);
 
         if(filterToken.length != 0){
-            console.log(filterToken[0])
+            //console.log(filterToken[0])
             if(filterToken[0].empresa != "Não configurado"){
-                console.log(filterToken[0].empresa)
+                //console.log(filterToken[0].empresa)
                 confirm = 1;
             }
     
@@ -69,7 +69,7 @@ class LoadingScreen extends Component{
 
 const mapStateToProps = (state) => {
 
-    console.log(state)
+   // console.log(state)
     return{
         auth: state.firebase.auth,
         profile: state.firebase.profile,

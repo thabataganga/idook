@@ -27,7 +27,7 @@ class Social extends React.Component{
         if (users) {
 
             const filterUser = users.filter(id => id.id === IDauthorId);
-            console.log(filterUser)
+           // console.log(filterUser)
 
             if (filterUser.length != 0) {
 
@@ -40,7 +40,7 @@ class Social extends React.Component{
                 var websitelink = 'https://' + company.website;
                 var instagramlink = 'https://' + company.instagram;
 
-                console.log(facebooklink)
+                //console.log(facebooklink)
 
                 return (
                     <View style={styles.container}>
@@ -145,7 +145,7 @@ class Social extends React.Component{
 
 const mapStateToProps = (state) => {
 
-    console.log(state)
+  //  console.log(state)
     return {
         auth: state.firebase.auth,
         profile: state.firebase.profile,

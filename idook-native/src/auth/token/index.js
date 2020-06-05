@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, ActivityIndicator } from "react-native";
 import * as firebase from "firebase";
 import styles from './styles';
 import { Feather } from '@expo/vector-icons';
@@ -9,6 +9,7 @@ import { editUser } from '../../store/actions/authActions'
 import { firestoreConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+
 
 import logoImg from '../../assets/idook.png';
 import logoCliente from '../../assets/sindpd.png';
@@ -47,12 +48,12 @@ import logoCliente from '../../assets/sindpd.png';
         //console.log(hascpf)
 
         if(hascpf != 0){
-            console.log("CPF Cadastrado")
+           // console.log("CPF Cadastrado")
             const filterToken = filterCPF.filter(id => id.id === uid);
             var hastoken = filterToken.length;
            // console.log(hastoken)
             if(hastoken > 0){
-                console.log(filterToken[0].authorId);
+                //console.log(filterToken[0].authorId);
                 this.state.authorId = filterToken[0].authorId
                 this.props.editUser(this.state, uid_user )
             } else console.log("Tente novamente")
@@ -64,60 +65,159 @@ import logoCliente from '../../assets/sindpd.png';
         //this.props.history.push('/');
        
     };
+
+    handleEdit = (e) => {
+        e.preventDefault();
+        const { profile, auth } = this.props;
+
+       // this.state.token = profile.state.cpf
+
+        if (!this.state.token) {
+            this.state.token = profile.cpf
+            var cpf = this.state.token
+            //console.log(cpf);
+
+        }
+
+        var cpf = this.state.token
+        //console.log(profile);
+        //console.log(cpf);
+        //console.log(this.state);
+        this.props.editUser({cpf}, auth.uid)
+       // this.props.history.push('/userdetail');
+    }
+
     
     
    
 
     render() {
 
-//        console.log(this.state);
+        const {profile, ids, auth} = this.props
+
+        const uid = this.state.token
+
+        const uid_user = auth.uid
+
+        //console.log(ids);
+        
+        if(ids){
+
+            const filterCPF = ids.filter(id => id.cpf === profile.cpf);
+
+            var hascpf = filterCPF.length;
+            //console.log(hascpf)
+
+            if(hascpf != 0){
+                return (
+                    <View style={styles.container}>
+                        <View style={styles.header}>
+                            <Image style={styles.logo} source={logoCliente} />
+        
+                            <TouchableOpacity style={styles.headerText} onPress={this.signOutUser}>
+                                <Feather name="arrow-left" size={20} color="#91bd36"
+                                />
+                            </TouchableOpacity>
+                        </View>
+        
+                        <View style={{ alignItems: 'flex-start' }}>
+                            <Text style={styles.title}>Token,</Text>
+                            <Text style={styles.description}>Digite o token enviado pelo Whatsapp</Text>
+        
+                        </View>
+        
+                        <View style={styles.form}>
+                            <View style={{ marginTop: 20 }}>
+                                <Text style={styles.inputTitle}>Token</Text>
+                                <TextInput
+                                    style={styles.input}
+                                    autoCapitalize="none"
+                                    onChange={this.handleChange}
+                                    id='token'
+                                ></TextInput>
+                            </View>
+        
+                        </View>
+        
+                        <TouchableOpacity onPress={this.handleSubmit} style={styles.button} >
+                            <Text style={{ color: "#FFF", fontWeight: "500" }}>Confirmar Token</Text>
+                        </TouchableOpacity>
+        
+                        
+        
+                        <View style={{ alignItems: 'flex-end' }}>
+                            <Image style={styles.logo2} source={logoImg} />
+                        </View>
+                    </View>
+                );
+            } else {
+                return (
+                    <View style={styles.container}>
+                        <View style={styles.header}>
+                            <Image style={styles.logo} source={logoCliente} />
+        
+                            <TouchableOpacity style={styles.headerText} onPress={this.signOutUser}>
+                                <Feather name="arrow-left" size={20} color="#91bd36"
+                                />
+                            </TouchableOpacity>
+                        </View>
+        
+                        <View style={{ alignItems: 'flex-start' }}>
+                            <Text style={styles.title}>Que pena :(</Text>
+                            <Text style={styles.description}>Infelizmente o seu CPF não foi habilitado na nossa base de dados</Text>
+        
+                        </View>  
+
+                        <View style={styles.form}>
+                            <View style={{ marginTop: 20 }}>
+                                <Text style={styles.inputTitle}>CPF</Text>
+                                <TextInput
+                                    style={styles.input}
+                                    autoCapitalize="none"
+                                    defaultValue={profile.cpf}
+                                    onChange={this.handleChange}
+                                    id='token'
+                                ></TextInput>
+                            </View>
+        
+                        </View>
+        
+                        <TouchableOpacity onPress={this.handleEdit} style={styles.button} >
+                            <Text style={{ color: "#FFF", fontWeight: "500" }}>Alterar CPF</Text>
+                        </TouchableOpacity>                      
+        
+                        <View style={{ alignItems: 'flex-end' }}>
+                            <Image style={styles.logo2} source={logoImg} />
+                        </View>
+                    </View>
+                );
+            }
+
+            
+
+        }
+
         return (
             <View style={styles.container}>
-                <View style={styles.header}>
-                    <Image style={styles.logo} source={logoCliente} />
-
-                    <TouchableOpacity style={styles.headerText} onPress={this.signOutUser}>
-                        <Feather name="arrow-left" size={20} color="#91bd36"
-                        />
-                    </TouchableOpacity>
-                </View>
-
-                <View style={{ alignItems: 'flex-start' }}>
-                    <Text style={styles.title}>Token,</Text>
-                    <Text style={styles.description}>Digite o token enviado pelo Whatsapp</Text>
-
-                </View>
-
-                <View style={styles.form}>
-                    <View style={{ marginTop: 20 }}>
-                        <Text style={styles.inputTitle}>Token</Text>
-                        <TextInput
-                            style={styles.input}
-                            autoCapitalize="none"
-                            onChange={this.handleChange}
-                            id='token'
-                        ></TextInput>
-                    </View>
-
-                </View>
-
-                <TouchableOpacity onPress={this.handleSubmit} style={styles.button} >
-                    <Text style={{ color: "#FFF", fontWeight: "500" }}>Confirmar Token</Text>
-                </TouchableOpacity>
-
-                
-
-                <View style={{ alignItems: 'flex-end' }}>
-                    <Image style={styles.logo2} source={logoImg} />
-                </View>
+                <Text>Carregando...</Text>
+                <ActivityIndicator size='large'></ActivityIndicator>
             </View>
-        );
+
+        )
+
+        
+
+
+
+//        console.log(this.state);
+        
     }
+    
 }
 
 const mapStateToProps = (state) => {
 
-    console.log(state)
+   // console.log(state)
     return{
         auth: state.firebase.auth,
         profile: state.firebase.profile,

@@ -4,27 +4,29 @@ import React from "react";
 import * as moment from 'moment'; import 'moment/locale/pt-br'
 
 const IDSummary = ({ ids }) => {
+        moment.locale('pt-br')
 
-  moment.locale('pt-br')
+        const start = ids.createdAt.toDate();
+      
+        //const start = "05/21/2020"
+      
+        const now = new Date();
+      
+        //const now = "06/02/2020"
+      
+        const validade = ids.validade;
+        
+       // const range = moment.range(start, now)
 
-  const start = moment(ids.createdAt.toDate()).calendar();
+        let diff = moment(now, "DD/MM/YYYY").diff(moment(start, "DD/MM/YYYY", 'days'));
+      
+        var range = Math.abs(start-now)
 
-  //const start = "05/21/2020"
-
-  const now = new Date();
-
-  //const now = "06/02/2020"
-
-  const validade = ids.validade;
-
-
-  let diff = moment(now, "DD/MM/YYYY").diff(moment(start, "DD/MM/YYYY"));
-
-  let duration = moment.duration(diff)
-
-  let result = duration.format("ddd")
-
-  const expira = validade - result+1;
+        let duration = moment.duration(diff)
+      
+        let result = duration.format("ddd")
+      
+        const expira = validade - result;
 
   if (expira<=0){
     //console.log(diff)

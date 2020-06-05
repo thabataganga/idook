@@ -49,7 +49,7 @@ const IdDetail = (props) => {
     if (sids) {
         moment.locale('pt-br')
 
-        const start = moment(sids.createdAt.toDate()).calendar();
+        const start = sids.createdAt.toDate();
       
         //const start = "05/21/2020"
       
@@ -58,15 +58,27 @@ const IdDetail = (props) => {
         //const now = "06/02/2020"
       
         const validade = sids.validade;
-      
-      
+        
+       // const range = moment.range(start, now)
+
         let diff = moment(now, "DD/MM/YYYY").diff(moment(start, "DD/MM/YYYY", 'days'));
       
+        var range = Math.abs(start-now)
+
         let duration = moment.duration(diff)
       
         let result = duration.format("ddd")
       
-        const expira = validade - result + 1;
+        const expira = validade - result;
+
+        console.log(start)
+        console.log(now)
+
+        console.log(diff)
+        console.log(range)
+        console.log(result)
+        console.log(expira)
+
 
         if (expira <= 0) {
             //console.log(expira)
