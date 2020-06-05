@@ -19,6 +19,10 @@ export default function Incidents() {
         navigation.navigate('EditID');
     }
 
+    function navigateToPhotoEdit() {
+        navigation.navigate('Photo');
+    }
+
     function navigateToFeed() {
         navigation.navigate('Feed');
     }
@@ -50,7 +54,7 @@ export default function Incidents() {
                 <View style={styles.menuBox}>
                     <TouchableOpacity
                         style={styles.detailButton}
-                        onPress={()=> {}}
+                        onPress={navigateToPhotoEdit}
                     >
                         <FontAwesome name="id-badge" style={styles.icon} />
                         <Text style={styles.detailButtonText}>Foto</Text>

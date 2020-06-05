@@ -45,8 +45,8 @@ export const editId = (ids,id) => {
     // make async call to database
     const firestore = getFirestore();
 
-    console.log(ids)
-    console.log(id)
+  //  console.log(ids)
+   // console.log(id)
 
     firestore.collection('ids').doc(id)
       .update({
