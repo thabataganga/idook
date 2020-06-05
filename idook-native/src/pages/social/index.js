@@ -9,7 +9,9 @@ import { compose } from 'redux';
 
 
 
-import logoImg from '../../assets/logo2.png';
+import logoImg from '../../assets/idook.png';
+import logoCliente from '../../assets/sindpd.png';
+
 import styles from './styles';
 
 class Social extends React.Component{
@@ -45,7 +47,7 @@ class Social extends React.Component{
                 return (
                     <View style={styles.container}>
                         <View style={styles.header}>
-                            <Image source={logoImg} />
+                        <Image style={styles.logo} source={logoCliente} />
                             <TouchableOpacity style={styles.headerText} onPress={() => this.props.navigation.navigate("Inicial")} >
                                 <Feather name="arrow-left" size={20} color="#91bd36"
                                 />
@@ -113,10 +115,18 @@ class Social extends React.Component{
                                     <Text style={styles.detailButtonText}>Site</Text>
                                 </TouchableOpacity>
                             </View>
+
+                            
             
                         </View>
+
+                        <View style={{alignItems:'flex-end'}}>
+                <Image style={styles.logo2} source={logoImg} />
+            </View>
             
                         </ScrollView>
+
+                        
             
                        
                     </View>

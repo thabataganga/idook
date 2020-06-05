@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { WebView } from 'react-native-webview';
 
-import logoImg from '../../assets/logo2.png';
+import logoImg from '../../assets/idook.png';
 import logoCliente from '../../assets/sindpd.png';
 import styles from './styles';
 
@@ -38,7 +38,7 @@ export default function Incidents() {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Image source={logoImg} />
+            <Image style={styles.logo} source={logoCliente} />
 
                 <TouchableOpacity style={styles.headerText} onPress={navigateToDetail}>
                     <Feather name="arrow-left" size={20} color="#91bd36"
@@ -59,10 +59,8 @@ export default function Incidents() {
                 />
             </View>
 
-            <View style={styles.DIV}>
-
-                <Image source={logoCliente} />
-
+            <View style={{alignItems:'flex-end'}}>
+                <Image style={styles.logo2} source={logoImg} />
             </View>
 
         </View>

@@ -30,9 +30,8 @@ export default StyleSheet.create({
       },
       logo2:{
         marginTop: 15,
-        
         height: 50,
-        resizeMode: 'contain'
+        resizeMode: 'contain',
 
       },
       title: {

@@ -76,7 +76,7 @@ export default StyleSheet.create({
         height:140,
         alignItems: 'center',
         justifyContent: 'center',
-        margin:15
+        margin:5
       },
       icon: {
         fontSize: 40,
@@ -85,5 +85,18 @@ export default StyleSheet.create({
       info:{
         fontSize:22,
         color: "#696969",
-      }
+      },
+      logo:{
+        marginTop: 15,
+        marginStart: 15,
+        height: 50,
+        resizeMode: 'contain'
+
+      },
+      logo2:{
+        marginTop: 15,
+        height: 50,
+        resizeMode: 'contain',
+
+      },
 });

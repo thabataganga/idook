@@ -29,6 +29,21 @@ export default StyleSheet.create({
         borderRadius: 8,
     },
 
+    logo:{
+        marginTop: 15,
+        marginStart: 15,
+        height: 50,
+        resizeMode: 'contain'
+
+      },
+      logo2:{
+        marginTop: 15,
+        
+        height: 50,
+        resizeMode: 'contain'
+
+      },
+
     nomedocliente: {
         //color: '#FFF',
         margin: 10,

@@ -4,8 +4,8 @@ import { useNavigation } from '@react-navigation/native';
 import { View, ScrollView, Image, Text, TouchableOpacity, Linking } from 'react-native';
 
 
-import logoImg from '../../assets/idook.png';
-import logoCliente from '../../assets/sindpd.png';
+
+import logoImg from '../../assets/logo2.png';
 import styles from './styles';
 
 export default function Incidents() {
@@ -38,7 +38,7 @@ export default function Incidents() {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-            <Image style={styles.logo} source={logoCliente} />
+                <Image source={logoImg} />
                 <TouchableOpacity style={styles.headerText} onPress={navigateToDetail}>
                     <Feather name="arrow-left" size={20} color="#91bd36"
                     />
@@ -74,12 +74,6 @@ export default function Incidents() {
 
 
             </View>
-
-
-            <View style={{alignItems:'flex-end'}}>
-                <Image style={styles.logo2} source={logoImg} />
-            </View>
-            
 
 
 

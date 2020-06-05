@@ -26,6 +26,19 @@ export default StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#FFF'
     },
+    logo:{
+        marginTop: 15,
+        marginStart: 15,
+        height: 50,
+        resizeMode: 'contain'
+
+      },
+      logo2:{
+        marginTop: 15,
+        height: 50,
+        resizeMode: 'contain',
+
+      },
 
 
 

@@ -10,7 +10,7 @@ import { compose } from 'redux';
 
 import QRCode from 'react-native-qrcode-svg';
 
-import logoImg from '../../assets/logo2.png';
+import logoImg from '../../assets/idook.png';
 import logoCliente from '../../assets/sindpd.png';
 import styles from './styles';
 
@@ -60,14 +60,14 @@ if ("default" in moment) {
             if (filterUser.length != 0) {
                 const company = filterUser[0]
 
-                console.log(company.url)
+               // console.log(company.url)
 
                 if(expira<1){
                     return (
                         <View style={styles.container}>
                             <View style={styles.header}>
-                                <Image source={logoImg} />
-                                <TouchableOpacity style={styles.headerText} onPress={() => this.props.navigation.navigate("Inicial")}>
+                            <Image style={styles.logo} source={logoCliente} />
+                                                            <TouchableOpacity style={styles.headerText} onPress={() => this.props.navigation.navigate("Inicial")}>
                                     <Feather name="arrow-left" size={20} color="#91bd36"
                                     />
                                 </TouchableOpacity>
@@ -77,7 +77,7 @@ if ("default" in moment) {
                                 <View 
                                     style={{
                                         backgroundColor: `rgba(${company.color.r}, ${company.color.g}, ${company.color.b}, ${company.color.a})`,
-                                        marginVertical: 30,
+                                        marginTop: 30,
                                         borderRadius: 8,
                                         color: 'white',
                                     }}
@@ -152,10 +152,19 @@ if ("default" in moment) {
                                         <Text style={[styles.Site, {color: `rgba(${company.color3.r}, ${company.color3.g}, ${company.color3.b}, ${company.color3.a})`}]}> {company.website} </Text>
     
                                     </View>
+
+
+    
     
                                 </View>
-                            </ScrollView>
+
+
+                            <View style={{alignItems:'center'}}>
+                <Image style={styles.logo2} source={logoImg} />
+            </View>
     
+                            </ScrollView>
+
                         </View>
                     );
 
@@ -164,7 +173,7 @@ if ("default" in moment) {
                 return (
                     <View style={styles.container}>
                         <View style={styles.header}>
-                            <Image source={logoImg} />
+                        <Image style={styles.logo} source={logoCliente} />
                             <TouchableOpacity style={styles.headerText} onPress={() => this.props.navigation.navigate("Inicial")}>
                                 <Feather name="arrow-left" size={20} color="#91bd36"
                                 />
@@ -175,7 +184,7 @@ if ("default" in moment) {
                             <View 
                                 style={{
                                     backgroundColor: `rgba(${company.color.r}, ${company.color.g}, ${company.color.b}, ${company.color.a})`,
-                                    marginVertical: 30,
+                                    marginTop: 30,
                                     borderRadius: 8,
                                     color: 'white',
                                 }}
@@ -258,8 +267,18 @@ if ("default" in moment) {
 
                                 </View>
 
+                                
+
                             </View>
+
+
+                            <View style={{ alignItems: 'center' }}>
+                                <Image style={styles.logo2} source={logoImg} />
+                            </View>
+    
                         </ScrollView>
+
+                        
 
                     </View>
                 );

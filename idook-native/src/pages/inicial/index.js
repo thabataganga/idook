@@ -61,11 +61,10 @@ export default function Incidents() {
 
             
 
-            <View style={{alignItems:'flex-start'}}>
+       
             <Text style={styles.title}>Bem-vindo,</Text>
             <Text style={styles.description}>Fique por dentro do Sindpd!</Text>
 
-            </View>
             
 
             <ScrollView 
