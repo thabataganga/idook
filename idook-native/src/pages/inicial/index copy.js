@@ -1,15 +1,26 @@
-import React from 'react';
-import { FontAwesome } from '@expo/vector-icons';
+import React, {setState} from 'react';
+import { Feather, FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { View, ScrollView, Image, Text, TouchableOpacity } from 'react-native';
+import * as firebase from "firebase";
 
 
-
-import logoImg from '../../assets/logo2.png';
+import logoImg from '../../assets/idook.png';
+import logoClient from '../../assets/sindpd.png'
 import styles from './styles';
 
+
+
 export default function Incidents() {
-    const navigation = useNavigation();
+    
+
+    //console.log(email, displayName)
+
+    
+
+    function signOutUser() {
+        firebase.auth().signOut();
+    };
 
     function navigateToDetail() {
         navigation.navigate('Detail');
@@ -38,13 +49,21 @@ export default function Incidents() {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Image source={logoImg} />
-               <Text style={styles.headerText}>
-                    <Text style={styles.headerTextBold}>21/04/2020</Text>
-                </Text> 
+            <Image style={styles.logo} source={logoClient} />
+            <TouchableOpacity style={styles.headerText} onPress={signOutUser}>
+            <Feather name="log-out" size={20} color="#91bd36"
+                    />
+                    <Text>Sair</Text>
+                </TouchableOpacity>
             </View>
+
+            
+
+       
             <Text style={styles.title}>Bem-vindo,</Text>
             <Text style={styles.description}>Fique por dentro do Sindpd!</Text>
+
+            
 
             <ScrollView 
             showsVerticalScrollIndicator = {false}>
@@ -70,25 +89,6 @@ export default function Incidents() {
                     </TouchableOpacity>
                 </View>
 
-                <View style={styles.menuBox}>
-                    <TouchableOpacity
-                        style={styles.detailButton}
-                        onPress={navigateToEvents}
-                    >
-                        <FontAwesome name="qrcode" style={styles.icon} />
-                        <Text style={styles.detailButtonText}>Eventos</Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.menuBox}>
-                    <TouchableOpacity
-                        style={styles.detailButton}
-                        onPress={navigateToPoll}
-                    >
-                        <FontAwesome name="comments-o" style={styles.icon} />
-                        <Text style={styles.detailButtonText}>Pesquisas</Text>
-                    </TouchableOpacity>
-                </View>
 
                 <View style={styles.menuBox}>
                     <TouchableOpacity
@@ -110,7 +110,15 @@ export default function Incidents() {
                     </TouchableOpacity>
                 </View>
 
+                
+
             </View>
+
+            <View style={{alignItems:'flex-end'}}>
+                <Image style={styles.logo2} source={logoImg} />
+            </View>
+
+            
 
 
 

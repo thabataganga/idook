@@ -4,6 +4,8 @@ import * as firebase from "firebase";
 import styles from './styles';
 import { Feather } from '@expo/vector-icons';
 
+import Constants from 'expo-constants';
+
 import { editUser } from '../../store/actions/authActions'
 
 import { firestoreConnect } from 'react-redux-firebase';
@@ -87,7 +89,10 @@ import logoCliente from '../../assets/sindpd.png';
        // this.props.history.push('/userdetail');
     }
 
-    
+    componentDidMount() {
+        //console.log(firebase.auth())
+        
+    }
     
    
 
@@ -100,6 +105,15 @@ import logoCliente from '../../assets/sindpd.png';
         const uid_user = auth.uid
 
         //console.log(ids);
+
+        if (profile.token) {
+        
+            this.props.navigation.navigate("Inicial")
+        }
+
+               if (!auth.uid) {
+        this.props.navigation.navigate("Login")
+      } 
         
         if(ids){
 
@@ -202,10 +216,15 @@ import logoCliente from '../../assets/sindpd.png';
         }
 
         return (
-            <View style={styles.container}>
-                <Text>Carregando...</Text>
-                <ActivityIndicator size='large'></ActivityIndicator>
-            </View>
+            <View style={{
+                flex: 1,
+                justifyContent:'center',
+                alignItems: 'center',
+                paddingTop: Constants.statusBarHeight + 20,
+            }}>
+                    <Text>Carregando...</Text>
+                    <ActivityIndicator size='large'></ActivityIndicator>
+                </View>
 
         )
 

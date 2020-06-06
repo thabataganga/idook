@@ -121,8 +121,8 @@ class EditID extends React.Component {
                             //onChange={this.handleChange}
                             //defaultValue={filterToken[0].lastName}
                             //id='lastName'
-                            onChangeText={firstName=> this.setState({firstName: firstName})}
-                            defaultValue={filterToken[0].firstName}
+                            onChangeText={lastName=> this.setState({lastName: lastName})}
+                            defaultValue={filterToken[0].lastName}
                         ></TextInput>
                     </View>
 

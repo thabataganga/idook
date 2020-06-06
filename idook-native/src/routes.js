@@ -15,21 +15,55 @@ import Poll from './pages/poll';
 import Social from './pages/social';
 import Settings from './pages/settings';
 import LoadingScreen from './screens'
+import HomeScreen from './home';
 import RegisterScreen from './auth/register'
 import LoginScreen from './auth/login'
 import Token from './auth/token'
 import EditID from './pages/id/editid'
 import NewID from './pages/id/newid'
 import Photo from './pages/id/uploadphoto'
+import { useSelector } from 'react-redux'
+import { isLoaded } from 'react-redux-firebase'
+import { View, Text, ActivityIndicator } from "react-native"
+import Constants from 'expo-constants';
+
+
+function AuthIsLoaded({ children }) {
+  const auth = useSelector(state => state.firebase.auth)
+  if (!isLoaded(auth)) return (
+    <View style={{
+        flex: 1,
+        justifyContent:'center',
+        alignItems: 'center',
+        paddingTop: Constants.statusBarHeight + 20,
+    }}>
+            <Text>Carregando...</Text>
+            <ActivityIndicator size='large'></ActivityIndicator>
+        </View>
+
+)
+  return children
+}
+
 
 
 
 export default function Routes() {
     return (
         <NavigationContainer>
+            <AuthIsLoaded>
             <AppStack.Navigator screenOptions={{ headerShown: false }}>
+     
             <AppStack.Screen name="Loading" component={LoadingScreen} />
-                <AppStack.Screen name="Login" component={LoginScreen} />
+
+           
+            <AppStack.Screen name="Login" component={LoginScreen} />
+
+
+                <AppStack.Screen name="Inicial" component={Inicial} />
+
+               
+               
                 <AppStack.Screen name="Register" component={RegisterScreen} />
                 <AppStack.Screen name="Token" component={Token} />
                 <AppStack.Screen name="EditID" component={EditID} />
@@ -37,7 +71,7 @@ export default function Routes() {
 
                 <AppStack.Screen name="NewID" component={NewID} />
                 
-                <AppStack.Screen name="Inicial" component={Inicial} />
+                
                 <AppStack.Screen name="Detail" component={Detail} />
                 <AppStack.Screen name="Feed" component={Feed} />
                 <AppStack.Screen name="Events" component={Events} />
@@ -48,6 +82,7 @@ export default function Routes() {
                 <AppStack.Screen name="Social" component={Social} />
                 <AppStack.Screen name="Settings" component={Settings} />
             </AppStack.Navigator>
+            </AuthIsLoaded>
         </NavigationContainer>
     );
 }

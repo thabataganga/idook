@@ -25,13 +25,36 @@ class LoginScreen extends Component {
         e.preventDefault();
         this.props.signIn(this.state)
         //this.props.history.push('/');
-        console.log(this.state);
+      //  console.log(this.state);
     };
 
+    componentDidMount(){
+        //console.log(this.props)
+        const {auth, profile} = this.props;
 
-    
+   // console.log(auth.uid)
+
+    //console(profile.token)
+
+    if (auth.isLoaded && auth.uid) {
+        
+        this.props.navigation.navigate("Loading")
+    }
+    }
 
     render() {
+
+
+    const {auth, profile} = this.props;
+
+   // console.log(auth.uid)
+
+    //console(profile.token)
+
+    if (auth.isLoaded && auth.uid) {
+        
+        this.props.navigation.navigate("Loading")
+    }
 
         //console.log(this.state.email)
         //console.log(this.state)

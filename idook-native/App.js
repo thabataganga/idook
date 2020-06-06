@@ -7,7 +7,9 @@ import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk'
 
+import UserProvider from './src/config/UserProvider.'
 
+import "./yellowtime"
 
 import rootReducer from './src/store/reducers/rootReducer';
 
@@ -40,11 +42,13 @@ const rrfProps = {
 
 export default function App() {
   return (
+    <UserProvider>
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
         <Routes />
       </ReactReduxFirebaseProvider>
     </Provider>
+    </UserProvider>
 
   );
 }
