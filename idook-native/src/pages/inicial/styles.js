@@ -69,6 +69,7 @@ export default StyleSheet.create({
         padding: 15,
         justifyContent: 'center',
       },
+      
       menuBox:{
         borderRadius: 8,
         backgroundColor: "#fff",

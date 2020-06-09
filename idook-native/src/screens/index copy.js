@@ -22,11 +22,30 @@ class Inicial extends React.Component{
 
     render(){
 
-        const {auth, profile} = this.props;
+            const {auth, profile, ids} = this.props;
+
+            console.log(ids)
+
+    var confirm = '';
+
+    if(ids  && profile){
+        const token = profile.token
+
+        const filterToken = ids.filter(id => id.id === token);
+
+        if(filterToken.length != 0){
+            console.log(filterToken[0])
+            if(filterToken[0].empresa != "Não configurado"){
+                console.log(filterToken[0].empresa)
+                confirm = 1;
+            }
+    
+        }
+        
+        
+    }
         
        //var token = 1;
-
-     if(profile.isLoaded != false){
 
 
        if (!auth.uid && !profile.token) {
@@ -38,10 +57,6 @@ class Inicial extends React.Component{
       if (auth.uid && profile.token) {
         this.props.navigation.navigate("Inicial")
       }
-
-     }
-
-
 
    //   console.log(profile)
 

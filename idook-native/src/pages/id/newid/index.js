@@ -66,7 +66,7 @@ class NewId extends React.Component {
 
         this.props.editId(this.state, profile.token)
 
-       // this.props.navigation.navigate("Loading");
+        this.props.navigation.navigate("Inicial");
         //this.props.history.push('/');
         //console.log(this.state);
     };
@@ -78,6 +78,26 @@ class NewId extends React.Component {
         const token = profile.token
 
         const filterToken = ids.filter(id => id.id === token);
+
+        if (ids && profile) {
+            const token = profile.token
+
+            const filterToken = ids.filter(id => id.id === token);
+
+            if (filterToken.length != 0) {
+                console.log(filterToken[0])
+                if (filterToken[0].empresa != "Não configurado") {
+                    console.log(filterToken[0].empresa)
+                    this.props.navigation.navigate("NewID")
+                }
+
+            }
+
+
+
+
+        }
+
 
         return (
             <View style={styles.container}>
@@ -127,7 +147,7 @@ class NewId extends React.Component {
                         <Text style={styles.inputTitle}>Telefone</Text>
                         <TextInput
                             style={styles.input}
-                            
+                            defaultValue={filterToken[0].phone}
                             autoCapitalize="none"
                             onChange={this.handleChange}
                             id='phone'

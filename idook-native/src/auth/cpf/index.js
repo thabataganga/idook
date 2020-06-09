@@ -115,14 +115,12 @@ import logoCliente from '../../assets/sindpd.png';
         this.props.navigation.navigate("Login")
       } 
         
-        if(ids && profile.isLoaded != false){
+        if(ids){
 
             const filterCPF = ids.filter(id => id.cpf === profile.cpf);
 
-            console.log(this.props.profile)
-
             var hascpf = filterCPF.length;
-           console.log(hascpf)
+            //console.log(hascpf)
 
             if(hascpf != 0){
                 return (

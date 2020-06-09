@@ -70,14 +70,17 @@ const IdDetail = (props) => {
         let result = duration.format("ddd")
       
         const expira = validade - result;
+        var siteappAndroid = "www.google.com"
+        var siteappIOS = 'www.apple.com'
 
+        var whatsapplink = 'https://web.whatsapp.com/send?l=pt-BR&phone=' + '55' + sids.phone + '&text=' + sids.firstName +', bem%20vindo%20ao%20IDook%20do%20Sindpd.%20Voc%C3%AA%20pode%20fazer%20o%20download%20do%20aplicativo%20em%20' + siteappAndroid + ' ou ' + siteappIOS + '.%20Para%20acessar%20a%20sua%20carteirinha%20digital%20use%20o%20seu%20CPF%20e%20o%20c%C3%B3digo%20token%3A ' + id ;
         console.log(start)
         console.log(now)
 
-        console.log(diff)
-        console.log(range)
-        console.log(result)
-        console.log(expira)
+       // console.log(diff)
+        //console.log(range)
+        //console.log(result)
+        console.log(whatsapplink)
 
 
         if (expira <= 0) {
@@ -102,8 +105,7 @@ const IdDetail = (props) => {
 
                                     <div className='row'>
                                         <div className='col s12 m7'>
-                                            <img src={sids.url} object-fit='cover' class="circle center" />
-                                        </div>
+                                        <img src={sids.url} object-fit='cover' class="center circular--portraitM" />                                        </div>
                                         <div className='col s12 m5 center2'>
                                             <p>Matricula: {sids.matricula} </p>
                                             <p>Cargo: {sids.cargo} </p>
@@ -156,7 +158,6 @@ const IdDetail = (props) => {
                                 <div className='card-action'>
                                     <button onClick={handleDelete} className="btn z-depth-0">Deletar</button>
                                     <Link to={'/editid/' + id} key={id}><button className="btn z-depth-0">Editar</button></Link>
-                                    
                                 </div>
 
                             </div>
@@ -208,6 +209,10 @@ const IdDetail = (props) => {
                                 <p>Email: {sids.email}  </p>
                                 <p>Telefone: {sids.phone}  </p>
                             </div>
+
+                            <div className='card-action'>
+                                <a  target="_blank" href={whatsapplink} className="btn z-depth-0">Reenviar Token</a>
+                                </div>
 
 
                         </div>
