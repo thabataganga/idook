@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import M from "materialize-css/dist/js/materialize.min.js";
 import { NavLink } from 'react-router-dom'
 
 import "./css/Navbar.css"
 
-import ClientLogo from '../../assets/sindpd.png'
 
 class SignedOutLinks extends Component {
   render() {

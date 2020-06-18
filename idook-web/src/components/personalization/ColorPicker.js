@@ -1,12 +1,9 @@
-'use strict'
 
 import React from 'react'
 import reactCSS from 'reactcss'
 import { SketchPicker } from 'react-color'
 import { connect } from 'react-redux'
 import { editUser } from '../../store/actions/authActions'
-import { compose } from 'redux';
-import { firebaseConnect, firestoreConnect } from 'react-redux-firebase';
 import { Redirect } from 'react-router-dom';
 
 class SketchExample extends React.Component {
@@ -93,7 +90,7 @@ class SketchExample extends React.Component {
 
     handleEdit = (e) => {
         e.preventDefault();
-        const { profile, auth } = this.props;
+        const { auth } = this.props;
     
         //console.log(url);
     
@@ -116,7 +113,7 @@ class SketchExample extends React.Component {
     render() {
 
 
-        const { authError, auth, profile } = this.props;
+        const { auth, profile } = this.props;
         if (!auth.uid) {
             return <Redirect to="/signin" />;
         }
@@ -189,7 +186,7 @@ class SketchExample extends React.Component {
                 <div className="dashboard section container">
     
                     <div className='row'>
-                        <div className='col s6 m4'>
+                        <div className='col s12 m5'>
                             
                             <div className='card z-depht-0'>
                                 <div className='card-content'>
@@ -261,7 +258,7 @@ class SketchExample extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className='col s6 m5 offset-m2'>
+                        <div className='col s12 m7'>
                         <div className='card z-depht-0'>
                                 <div className='card-content'>
                                     <span className='card-title'>Preview</span>
@@ -323,10 +320,10 @@ class SketchExample extends React.Component {
                 <div className="dashboard section container">
     
                     <div className='row'>
-                        <div className='col s12 m4'>
+                        <div className='col s12 m5'>
                             <div className='card z-depht-0'>
                                 <div className='card-content'>
-                                    <span className='card-title'>Paleta de cores do Idook </span>
+                                    <span className='card-title'>Paleta </span>
                                 </div>
     
                                 <div className='card-action'>
@@ -394,7 +391,7 @@ class SketchExample extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className='col s12 m5 offset-m2'>
+                        <div className='col s12 m7'>
     
                         <div className='card z-depht-0'>
                                 <div className='card-content'>

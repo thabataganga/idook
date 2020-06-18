@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { editId } from '../../store/actions/idActions'
-import { Redirect } from 'react-router-dom';
 import { compose } from 'redux';
-import { firebaseConnect, firestoreConnect } from 'react-redux-firebase';
+import {  firestoreConnect } from 'react-redux-firebase';
+import M from "materialize-css";
 
 import {storage} from '../../config/fbConfig';
 
-import M from "materialize-css";
 
 export class ImageUpload extends Component {
   constructor(props) {
@@ -26,20 +25,21 @@ export class ImageUpload extends Component {
   handleEdit = (e) => {
     e.preventDefault();
     const { sids } = this.props;
-    const {url} = this.state;
+  
 
     //console.log(url);
 
    // console.log(sids);
 
-    this.state.image = 'false';
+  this.state.image = 'false';
+
+ //   this.setState({image: 'false'})
 
     const ids = this.state;
 
     const key = sids.id;
 
     //console.log(key)
-
     this.props.editId(ids, key)
     //this.props.history.push('/');
 }
@@ -52,35 +52,47 @@ export class ImageUpload extends Component {
   }
   handleUpload = () => {
       const {image} = this.state;
-      const uploadTask = storage.ref(`images/${image.name}`).put(image);
-      uploadTask.on('state_changed', 
-      (snapshot) => {
-        // progrss function ....
-        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-        this.setState({progress});
-      }, 
-      (error) => {
-           // error function ....
-        console.log(error);
-      }, 
-    () => {
-        // complete function ....
-        storage.ref('images').child(image.name).getDownloadURL().then(url => {
-            //console.log(url);
-            this.setState({url});
-        })
-    });
+      if(image){
+
+        const uploadTask = storage.ref(`images/${image.name}`).put(image);
+        uploadTask.on('state_changed', 
+        (snapshot) => {
+          // progrss function ....
+          const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+          this.setState({progress});
+        }, 
+        (error) => {
+             // error function ....
+             M.toast({html: 'Erro: tente novamente mais tarde', classes: 'rounded'});
+         // console.log(error);
+        }, 
+      () => {
+          // complete function ....
+          storage.ref('images').child(image.name).getDownloadURL().then(url => {
+              //console.log(url);
+              M.toast({html: 'Foto carregada', classes: 'rounded'});
+  
+              this.setState({url});
+          })
+      });
+
+      }
+
+      else{
+        M.toast({html: 'Erro: nenhuma imagem selecionada', classes: 'rounded'});
+      }
+    
     
   }
   render() {
 
-    const {sids, vids} = this.props
+    const {vids} = this.props
 
     //console.log(sids.url)
 
     return (
       <div>
-          <img src={this.state.url || vids.url} object-fit='cover' class="circular--portraitM" />
+          <img alt="Foto de perfil" src={this.state.url || vids.url} object-fit='cover' class="circular--portraitM" />
       <progress value={this.state.progress} max="100"/>
       <br/>
         <input 
@@ -89,7 +101,7 @@ export class ImageUpload extends Component {
         onChange={this.handleChange}
         ref={image => this.image = image}/>
         <button className="btn z-depth-0" onClick={() => this.image.click()}>Selecionar</button>
-        <button className="btn z-depth-0" onClick={this.handleUpload}>Upload</button>
+        <button className="btn z-depth-0" onClick={this.handleUpload}>Enviar</button>
         <button className="btn z-depth-0" onClick={this.handleEdit}>Salvar</button>
         <br/>
         

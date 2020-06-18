@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 
 import "./css/Navbar.css"
 
-import ClientLogo from '../../assets/sindpd.png'
+
 
 class SignedInItens extends Component {
   componentDidMount() {

@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { editUser } from '../../store/actions/authActions'
-import { Redirect } from 'react-router-dom';
-import { compose } from 'redux';
-import { firebaseConnect, firestoreConnect } from 'react-redux-firebase';
+import M from "materialize-css";
 
 import {storage} from '../../config/fbConfig';
 
-import M from "materialize-css";
 
 export class ImageUpload extends Component {
   constructor(props) {
@@ -25,11 +22,13 @@ export class ImageUpload extends Component {
 
   handleEdit = (e) => {
     e.preventDefault();
-    const { profile, auth } = this.props;
+    const { auth } = this.props;
 
     //console.log(url);
 
    // console.log(sids);
+
+  // this.setState({image: 'false'})
 
     this.state.image = 'false';
 
@@ -58,11 +57,13 @@ export class ImageUpload extends Component {
       }, 
       (error) => {
            // error function ....
-        console.log(error);
+           M.toast({html: 'Erro: tente novamente mais tarde', classes: 'rounded'});
+      //  console.log(error);
       }, 
     () => {
         // complete function ....
         storage.ref('images').child(image.name).getDownloadURL().then(url => {
+          M.toast({html: 'Foto carregada', classes: 'rounded'});
             //console.log(url);
             this.setState({url});
         })
@@ -71,13 +72,13 @@ export class ImageUpload extends Component {
   }
   render() {
 
-    const {auth, profile} = this.props
+    const {profile} = this.props
 
     //console.log(profile)
 
     return (
       <div>
-          <img src={this.state.url || profile.url} object-fit='cover' class="circular--portraitM" />
+          <img alt="perfil" src={this.state.url || profile.url} object-fit='cover' class="circular--portraitM" />
       <progress value={this.state.progress} max="100"/>
       <br/>
         <input 
@@ -86,7 +87,7 @@ export class ImageUpload extends Component {
         onChange={this.handleChange}
         ref={image => this.image = image}/>
         <button className="btn z-depth-0" onClick={() => this.image.click()}>Selecionar</button>
-        <button className="btn z-depth-0" onClick={this.handleUpload}>Upload</button>
+        <button className="btn z-depth-0" onClick={this.handleUpload}>Enviar</button>
         <button className="btn z-depth-0" onClick={this.handleEdit}>Salvar</button>
         <br/>
         

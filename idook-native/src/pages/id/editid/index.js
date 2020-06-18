@@ -64,9 +64,9 @@ class EditID extends React.Component {
             this.state.cargo = filterToken[0].cargo
         }
 
-        //this.props.editId(this.state, profile.token)
+        this.props.editId(this.state, profile.token)
 
-        //this.props.navigation.navigate("Settings");
+        this.props.navigation.navigate("Settings");
         //this.props.history.push('/');
         console.log(this.state);
     };

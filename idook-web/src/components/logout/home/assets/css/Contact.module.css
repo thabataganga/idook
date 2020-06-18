@@ -1,0 +1,143 @@
+ 
+.Container {
+  position: relative;
+  height: 100%;
+  
+  
+}
+
+
+@media only screen and (max-width: 1145px) {
+.Container {
+  position: relative;
+  height: 100%;
+  
+} 
+}
+
+
+@media only screen and (max-width: 600px) {
+.Container {
+  position: relative;
+  height: 100%;
+  
+} 
+}
+
+/* Add some content at the bottom of the video/page */
+.Content {
+  position: relative;
+  top: 0;
+  color:#f1f1f1;
+ 
+  background-color: #702F88;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.SubContent {
+    align-content: flex-start;
+    padding-left:24vh;
+    padding-right:4vh;
+    padding-top: 10vh;
+    padding-bottom:10vh;
+    width: 40%;
+  }
+  .SubContent2 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+
+  }
+.SubContent p {
+    color: #eeeeeead;
+    font-size: 1.6rem;
+}
+
+.iphone{
+  width: 80vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+ 
+ 
+}
+
+.iphone:last-of-type {
+  padding-top: 5vh;
+}
+
+
+@media only screen and (max-width: 1354px) {
+  .SubContent {
+    align-content: flex-start;
+    padding-left:24vh;
+    padding-right:24vh;
+    padding-top: 10vh;
+    padding-bottom:10vh;
+    width: 100%;
+  }
+.SubContent p {
+    font-size: 1.4rem;
+}
+.SubContent h1 {
+ 
+  font-size: 3.5rem;
+}
+.iphone{
+  width: 70vh;
+  padding-top: 0vh;
+  padding-bottom: 10vh;
+}
+}
+
+@media only screen and (max-width: 1040px) {
+.SubContent {
+  align-content: flex-start;
+  padding-left:18vh;
+  padding-right:18vh;
+  padding-top: 8vh;
+  padding-bottom:8vh;
+  width: 100%;
+}
+.SubContent p {
+  font-size: 1.4rem;
+}
+.SubContent h1 {
+
+font-size: 3.5rem;
+}
+.iphone{
+width: 60;
+padding-top: 0vh;
+padding-bottom: 10vh;
+}
+}
+
+@media only screen and (max-width: 600px) {
+.SubContent {
+  align-content: flex-start;
+  padding-left:5vh;
+  padding-right:5vh;
+  padding-top: 5vh;
+  padding-bottom:5vh;
+  width: 100%;
+}
+.SubContent p {
+  font-size: 1.4rem;
+}
+.SubContent h1 {
+
+font-size: 3.5rem;
+}
+.iphone{
+width: 42vh;
+padding-bottom: 10vh;
+padding-top: 0vh;
+
+}
+}
+

@@ -22,9 +22,11 @@ class Inicial extends React.Component{
 
     render(){
 
-        const {auth, profile} = this.props;
+      const {auth, profile, ids} = this.props;
         
-       //var token = 1;
+      //var token = 1;
+
+     
 
      if(profile.isLoaded != false){
 
@@ -38,6 +40,7 @@ class Inicial extends React.Component{
       if (auth.uid && profile.token) {
         this.props.navigation.navigate("Inicial")
       }
+      
 
      }
 

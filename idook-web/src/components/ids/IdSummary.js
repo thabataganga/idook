@@ -20,7 +20,7 @@ const IDSummary = ({ ids }) => {
 
         let diff = moment(now, "DD/MM/YYYY").diff(moment(start, "DD/MM/YYYY", 'days'));
       
-        var range = Math.abs(start-now)
+      //  var range = Math.abs(start-now)
 
         let duration = moment.duration(diff)
       
@@ -39,7 +39,7 @@ const IDSummary = ({ ids }) => {
           <div className='row'>
             <div className='col s12 m6'>
   
-            <img src={ids.url} object-fit= 'cover' class="circular--portrait"/>
+            <img alt="perfil" src={ids.url} object-fit= 'cover' class="circular--portrait"/>
   
             
   
@@ -49,12 +49,13 @@ const IDSummary = ({ ids }) => {
               <span className='black-text card-title'>{ids.firstName} {ids.lastName}</span>
               <p className='black-text'>Empresa: {ids.empresa}</p>
               <p className='black-text'>Local: {ids.city}/{ids.uf}</p>
-              <p><a className="red-text">Expirou</a></p>
-  
+              <p className="red-text">Expirou</p>
               
             </div>
           </div>
         </div>
+
+
       </div>
     );
     
@@ -72,7 +73,7 @@ const IDSummary = ({ ids }) => {
         <div className='row'>
           <div className='col s12 m6'>
 
-          <img src={ids.url} object-fit= 'cover' class="circular--portrait"/>
+          <img alt="perfil" src={ids.url} object-fit= 'cover' class="circular--portrait"/>
 
           
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { editId } from '../../store/actions/idActions'
 import { Redirect } from 'react-router-dom';
 import { compose } from 'redux';
-import { firebaseConnect, firestoreConnect } from 'react-redux-firebase';
+import { firestoreConnect } from 'react-redux-firebase';
 
 import ImageUpload from "./ImageUpload"
 
@@ -43,40 +43,52 @@ export class EditId extends Component {
         //console.log(id);
 
         if (this.state.firstName === '') {
-            this.state.firstName = sids.firstName
+          //  this.setState = ({firstName:sids.firstName })
+           this.state.firstName = sids.firstName
         }
         if (this.state.lastName === '') {
-            this.state.lastName = sids.lastName
+          //  this.setState = ({lastName:sids.lastName })
+           this.state.lastName = sids.lastName
         }
         if (this.state.cpf === '') {
-            this.state.cpf = sids.cpf
+           // this.setState = ({cpf:sids.cpf })
+           this.state.cpf = sids.cpf
         }
         if (this.state.email === '') {
-            this.state.email = sids.email
+          //  this.setState = ({email:sids.email })
+          this.state.email = sids.email
         }
         if (this.state.phone === '') {
-            this.state.phone = sids.phone
+          //  this.setState = ({phone:sids.phone })
+           this.state.phone = sids.phone
         }
         if (this.state.matricula === '') {
-            this.state.matricula = sids.matricula
+          //  this.setState = ({matricula:sids.matricula })
+           this.state.matricula = sids.matricula
         }
         if (this.state.validade === '') {
-            this.state.validade = sids.validade
+          //  this.setState = ({validade:sids.validade })
+           this.state.validade = sids.validade
         }
         if (this.state.url === '') {
-            this.state.url = sids.url
+          //  this.setState = ({url:sids.url })
+           this.state.url = sids.url
         }
         if (this.state.city === '') {
-            this.state.city = sids.city
+         //   this.setState = ({city:sids.city })
+           this.state.city = sids.city
         }
         if (this.state.uf === '') {
-            this.state.uf = sids.uf
+         //   this.setState = ({uf:sids.uf })
+           this.state.uf = sids.uf
         }
         if (this.state.empresa === '') {
+          //  this.setState = ({empresa:sids.empresa })
             this.state.empresa = sids.empresa
         }
         if (this.state.cargo === '') {
-            this.state.cargo = sids.cargo
+          //  this.setState = ({cargo:sids.cargo })
+         this.state.cargo = sids.cargo
         }
 
 

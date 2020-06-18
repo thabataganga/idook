@@ -1,0 +1,51 @@
+
+
+
+
+  .icons{
+  text-align: center;
+  padding-bottom: 20px;
+  }
+  .icons .fa{
+  font-size: 26px;
+  padding: 10px 5px;
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  }
+  .icons .fa:hover{
+  background: #b78c33;
+  }
+  .col.l3 .fa{
+  padding-right: 10px;
+  }
+  .bottomcontent{
+    padding-left: 50px;
+  }
+  @media(max-width:991px){
+  .s12{
+  text-align: center;
+  display: block;
+  margin:  0 auto;
+  }
+  h5,.icons{
+    margin-top: 40px;
+
+  }
+  }
+  @media(max-width: 475px){
+    h5{
+      margin-top: 30px;
+    }
+    .row{
+      padding: 20px;
+    }
+
+  }
+
+  .brand-logo2{
+    width: 110px;
+  }

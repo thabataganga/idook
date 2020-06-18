@@ -1,3 +1,5 @@
+
+
 export const createId = (ids) => {
   return (dispatch, getState, { getFirestore }) => {
     // make async call to database
@@ -45,8 +47,8 @@ export const editId = (ids,id) => {
     // make async call to database
     const firestore = getFirestore();
 
-    console.log(ids)
-    console.log(id)
+  //  console.log(ids)
+  //  console.log(id)
 
     firestore.collection('ids').doc(id)
       .update({

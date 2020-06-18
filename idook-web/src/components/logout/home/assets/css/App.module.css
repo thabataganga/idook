@@ -1,0 +1,232 @@
+ .Container {
+   position: relative;
+   height: 100% !important;
+
+
+ }
+
+
+ @media only screen and (max-width: 1145px) {
+   .Container {
+     position: relative;
+     height: 100% !important;
+
+   }
+ }
+
+
+ @media only screen and (max-width: 600px) {
+   .Container {
+     position: relative;
+     height: 100% !important;
+
+   }
+ }
+
+ /* Add some content at the bottom of the video/page */
+ .Content {
+   position: relative;
+   top: 0;
+   color: #000000;
+   min-height: 100vh !important;
+   background-color: #8EBC35;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+ }
+
+ .SubContent {
+   align-content: flex-start;
+   padding-left: 24vh;
+   padding-right: 4vh;
+   padding-top: 10vh;
+   padding-bottom: 10vh;
+   width: 50%;
+ }
+
+ .SubContent p {
+   color: #424242;
+   font-size: 1.6rem !important;
+   ;
+ }
+
+ .iphone {
+   height: 80vh;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: auto;
+   margin-bottom: auto;
+
+
+
+ }
+
+
+
+ @media only screen and (max-width: 1354px) {
+   .SubContent {
+     align-content: flex-start;
+     padding-left: 24vh;
+     padding-right: 24vh;
+     padding-top: 0vh;
+     padding-bottom: 0vh;
+     width: 100%;
+   }
+
+   .SubContent p {
+     font-size: 1.2rem !important;
+   }
+
+   .SubContent h1 {
+
+     font-size: 3.2rem !important;
+   }
+
+   .iphone {
+     height: 90vh;
+     padding-bottom: 0vh;
+
+   }
+ }
+
+ @media only screen and (max-width: 1040px) {
+   .SubContent {
+     align-content: flex-start;
+     padding-left: 18vh;
+     padding-right: 18vh;
+     padding-top: 2vh;
+     padding-bottom: 8vh;
+     width: 100%;
+   }
+
+   .SubContent p {
+     font-size: 1.4rem !important;
+   }
+
+   .SubContent h1 {
+
+     font-size: 3.5rem !important;
+   }
+
+   .iphone {
+     height: 90vh;
+     padding-bottom: 0vh;
+   }
+ }
+
+ @media only screen and (max-width: 789px) {
+  .SubContent {
+    align-content: flex-start;
+    padding-left: 18vh;
+    padding-right: 18vh;
+    padding-top: 0vh;
+    padding-bottom: 8vh;
+    width: 100%;
+    
+  }
+
+  .SubContent p {
+    font-size: 1.4rem !important;
+  }
+
+  .SubContent h1 {
+
+    font-size: 3rem !important;
+  }
+
+  .iphone {
+    height: 90vh;
+    padding-bottom: 0vh;
+
+
+  }
+}
+
+ @media only screen and (max-width: 768px) {
+   .SubContent {
+    align-content: flex-start;
+    padding-left: 5vh;
+    padding-right: 5vh;
+    padding-top: 0vh;
+    margin-top: 2vh;
+    padding-bottom: 5vh;
+    width: 100% !important;
+   }
+
+   .SubContent p {
+     font-size: 1em !important;
+   }
+
+   .SubContent h1 {
+
+     font-size: 2rem !important;
+   }
+
+   .iphone {
+     height: 90vh;
+     padding-bottom: 0vh;
+   }
+ }
+
+ 
+
+ @media only screen and (max-width: 375px) {
+   .SubContent {
+     align-content: flex-start;
+     padding-left: 5vh;
+     padding-right: 5vh;
+     padding-top: 0vh;
+     margin-top: -2vh;
+     padding-bottom: 5vh;
+     width: 100% !important;
+   }
+
+   .SubContent p {
+     font-size: 1rem !important;
+   }
+
+   .SubContent h1 {
+
+     font-size: 2rem !important;
+   }
+
+   .iphone {
+
+     height: 90vh;
+     padding-bottom: 5vh;
+     
+
+
+   }
+ }
+
+
+
+ @media only screen and (max-width: 320px) {
+   .SubContent {
+     align-content: flex-start;
+     padding-left: 3vh;
+     padding-right: 3vh;
+     padding-top: 0vh;
+     margin-top: -3vh;
+     padding-bottom: 3vh;
+     width: 100% !important;
+   }
+
+   .SubContent p {
+     font-size: 0.9rem !important;
+   }
+
+   .SubContent h1 {
+
+     font-size: 1.6rem !important;
+   }
+
+   .iphone {
+    height: 90vh;
+    padding-bottom: 5vh;
+
+
+   }
+ }

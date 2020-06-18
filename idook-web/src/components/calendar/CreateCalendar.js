@@ -1,18 +1,9 @@
 import React, { Component } from 'react'
-import M from "materialize-css/dist/js/materialize.min.js";
 import { connect } from 'react-redux'
 import { createCalendar } from '../../store/actions/calendarActions'
 
 export class CreateCalendar extends Component {
 
-    componentDidMount() {
-        const M = window.M;
-        document.addEventListener("DOMContentLoaded", function () {
-          var elems = document.querySelectorAll(".timepicker");
-          var instances = M.Timepicker.init(elems, {});
-        });
-        
-      }
 
     state = {
         title:'',

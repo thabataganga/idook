@@ -29,24 +29,32 @@ class Inicial extends React.Component {
 
         var confirm = '';
 
-        if (ids && profile) {
-            const token = profile.token
+     //   if(profile.isLoaded != false){
 
-            const filterToken = ids.filter(id => id.id === token);
+            if (ids && profile) {
+                const token = profile.token
+    
+                const filterToken = ids.filter(id => id.id === token);
 
-            if (filterToken.length != 0) {
-               // console.log(filterToken[0])
-                if (filterToken[0].empresa == "Não configurado") {
-                    console.log(filterToken[0].empresa)
-                   // this.props.navigation.navigate("NewID")
+                console.log(filterToken)
+    
+                if (filterToken.length != 0) {
+                   // console.log(filterToken[0])
+                    if (filterToken[0].empresa == "Não configurado") {
+                        console.log(filterToken[0].empresa)
+                       this.props.navigation.navigate("NewID")
+                    }
+    
                 }
-
+    
+    
+    
+    
             }
 
+      //  }
 
-
-
-        }
+       
 
 
         if (profile.token) {

@@ -106,12 +106,14 @@ import logoCliente from '../../assets/sindpd.png';
 
         //console.log(ids);
 
-        if (profile.token) {
+        if (profile.isLoaded != false && profile.token) {
+
+            console.log('tese')
         
             this.props.navigation.navigate("Inicial")
         }
 
-               if (!auth.uid) {
+    if (!auth.uid) {
         this.props.navigation.navigate("Login")
       } 
         

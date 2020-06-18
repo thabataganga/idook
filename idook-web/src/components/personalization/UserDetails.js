@@ -1,26 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { firebaseConnect, firestoreConnect } from 'react-redux-firebase';
-import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
 import QRCode from 'qrcode.react';
 import { Link } from 'react-router-dom'
 
-import { deleteId } from "../../store/actions/idActions"
 //import {editId} from "../../store/actions/idActions"
 
-import * as moment from 'moment'; import 'moment/locale/pt-br'
 
 const IdDetail = (props) => {
-
-    const handleDelete = (e) => {
-        const { id } = props;
-        e.preventDefault();
-        //console.log(e)
-        props.deleteId(id);
-        props.history.push('/');
-        // you can push to dashboard after deleting...
-    }
 
     const downloadQR = () => {
         const canvas = document.getElementById("QrCode");
@@ -65,7 +52,7 @@ const IdDetail = (props) => {
 
                                 <div className='row'>
                                     <div className='col s12 m7'>
-                                        <img src={profile.url} object-fit='cover' class="circular--portraitM" />
+                                        <img alt="perfil" src={profile.url} object-fit='cover' class="circular--portraitM" />
                                     </div>
                                     <div className='col s12 m5  center2'>
                                         <p>Segmento: {profile.setor}  </p>
@@ -90,16 +77,16 @@ const IdDetail = (props) => {
                                 <div className='row'>
                                     <div className='col s12 m6'>
 
-                                        <p><img src="https://img.icons8.com/material/24/000000/domain--v1.png"/> Website: {profile.website}</p>
-                                        <p><img src="https://img.icons8.com/material/24/000000/facebook--v1.png"/> Facebook: {profile.facebook}</p>
-                                        <p><img src="https://img.icons8.com/material/24/000000/whatsapp--v1.png"/> Whatsapp: {profile.whatsapp}</p>
+                                        <p><img alt="website" src="https://img.icons8.com/material/24/000000/domain--v1.png"/> Website: {profile.website}</p>
+                                        <p><img alt="facebook" src="https://img.icons8.com/material/24/000000/facebook--v1.png"/> Facebook: {profile.facebook}</p>
+                                        <p><img  alt="whatsapp" src="https://img.icons8.com/material/24/000000/whatsapp--v1.png"/> Whatsapp: {profile.whatsapp}</p>
 
                                     </div>
 
                                     <div className='col s12 m6'>
-                                        <p><img src="https://img.icons8.com/material/24/000000/linkedin.png"/> Lindkedin: {profile.linkedin}</p>
-                                        <p><img src="https://img.icons8.com/material/24/000000/instagram-new--v1.png"/> Instagram: {profile.instagram}</p>
-                                        <p><img src="https://img.icons8.com/material/24/000000/twitter-squared.png"/> Twitter: {profile.twitter}</p>
+                                        <p><img alt="linkedin" src="https://img.icons8.com/material/24/000000/linkedin.png"/> Lindkedin: {profile.linkedin}</p>
+                                        <p><img alt="instagram" src="https://img.icons8.com/material/24/000000/instagram-new--v1.png"/> Instagram: {profile.instagram}</p>
+                                        <p><img alt="twitter" src="https://img.icons8.com/material/24/000000/twitter-squared.png"/> Twitter: {profile.twitter}</p>
                                     </div>
 
                                 </div>
@@ -180,10 +167,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-
-    }
-}
 
 export default connect(mapStateToProps, null)(IdDetail)

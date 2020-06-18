@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import M from "materialize-css/dist/js/materialize.min.js";
 import { NavLink } from 'react-router-dom'
 
 import "./css/Navbar.css"
 
-import ClientLogo from '../../assets/sindpd.png'
 
 class SignedOutMenu extends Component {
   render() {
@@ -13,7 +11,7 @@ class SignedOutMenu extends Component {
           <li>
           <div className="user-view">
             <div className="background">
-              <img src="https://elements-cover-images-0.imgix.net/386f6039-5d38-4f48-ace5-16145e58d20f?auto=compress%2Cformat&fit=max&w=710&s=da4f8cfd9edba101af54c0d33aa1217a" />
+              <img alt="cover" src="https://elements-cover-images-0.imgix.net/386f6039-5d38-4f48-ace5-16145e58d20f?auto=compress%2Cformat&fit=max&w=710&s=da4f8cfd9edba101af54c0d33aa1217a" />
             </div>
             
             <a href="#name">

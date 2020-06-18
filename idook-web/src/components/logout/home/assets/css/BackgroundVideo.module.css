@@ -1,0 +1,114 @@
+ 
+.Container {
+    position: relative;
+    height: 95vh;
+    overflow: hidden;
+    
+}
+
+.Container2 {
+  
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+  
+}
+
+
+@media only screen and (max-width: 1145px) {
+  .Container {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+    
+} 
+}
+
+
+@media only screen and (max-width: 600px) {
+  .Container {
+    position: relative;
+    height: 90vh;
+    overflow: hidden;
+    
+} 
+}
+
+
+/* Style the video: 100% width and height to cover the entire window */
+.Video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Add some content at the bottom of the video/page */
+  .Content {
+    position: absolute;
+    top: 0;
+    color:#f1f1f1;
+    background-color: rgba(101, 17, 127, 0.7);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+  .SubContent {
+      align-content: flex-start;
+      padding-left:24vh;
+      width: 50%;
+    }
+  .SubContent p {
+      color: #eeeeeead;
+      font-size: 1.6rem;
+  }
+
+  @media only screen and (max-width: 1354px) {
+    .SubContent {
+      align-content: flex-start;
+      padding-left:24vh;
+      width: 50%;
+    }
+  .SubContent p {
+      color: #eeeeeead;
+      font-size: 1.4rem;
+  }
+  .SubContent h1 {
+   
+    font-size: 3.5rem;
+  }
+  }
+
+@media only screen and (max-width: 1145px) {
+  .SubContent {
+    align-content: flex-start;
+    padding:18vh;
+    width: 100%;
+  }
+.SubContent p {
+    color: #eeeeeead;
+    font-size: 1.4rem;
+}
+.SubContent h1 {
+ 
+  font-size: 3.5rem;
+}
+}
+
+@media only screen and (max-width: 600px) {
+  .SubContent {
+    align-content: flex-start;
+    padding:5vh;
+    width: 100%;
+  }
+.SubContent p {
+    color: #eeeeeead;
+    font-size: 1.4rem;
+}
+.SubContent h1 {
+ 
+  font-size: 3.5rem;
+}
+}
+

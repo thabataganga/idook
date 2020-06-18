@@ -1,12 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { firebaseConnect, firestoreConnect } from 'react-redux-firebase';
+import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 
 import Moment from 'react-moment';
 
-
-import * as moment from 'moment'; import 'moment/locale/pt-br'
 
 const CalendarDetail = (props) => {
     const { scalendar } = props;
@@ -16,7 +14,7 @@ const CalendarDetail = (props) => {
             <div className='container section id-details'>
             <div className='card z-depht-0'>
                 <div className='card-content'>
-                    <img src={scalendar.photo} object-fit= 'cover' class="center"/>
+                    <img alt="foto" src={scalendar.photo} object-fit= 'cover' class="center"/>
                     <span className='card-title'>{ scalendar.title } </span>
                     <p>{ scalendar.subtitle } </p>
                 </div>

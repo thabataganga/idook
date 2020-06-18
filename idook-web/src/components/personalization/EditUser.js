@@ -21,12 +21,13 @@ export class EditUser extends Component {
         numero: '',
         complemento: '',
         cep: '',
-        website:'',
-        facebook:'',
-        whatsapp:'',
+        website: '',
+        facebook: '',
+        whatsapp: '',
         linkedin: '',
-        instagram:'',
-        twitter:''
+        instagram: '',
+        twitter: '',
+        setor: ''
     }
 
     handleChange = (e) => {
@@ -83,6 +84,9 @@ export class EditUser extends Component {
         if (this.state.twitter === '') {
             this.state.twitter = profile.twitter
         }
+        if (this.state.twitter === '') {
+            this.state.setor = profile.setor
+        }
 
         //console.log(profile);
         //console.log(auth.uid);
@@ -115,6 +119,24 @@ export class EditUser extends Component {
                     <div className='col s12 m7 '>
                         <form onSubmit={this.handleEdit} className='white form2'>
                             <h5 className="grey-text text-darken-3">Editar usuário</h5>
+                            
+                            <div class="input-field">
+                                <select id='setor' defaultValue={profile.setor} onChange={this.handleChange}>
+                                    <option value="0" selected disabled hidden>Segmento</option>
+                                    <option value="3º. Setor">3º. Setor</option>
+                                    <option value="Comércio">Comércio</option>
+                                    <option value="Educação">Educação</option>
+                                    <option value="Eventos Coorporativos">Eventos Coorporativos</option>
+                                    <option value="Eventos Sociais">Eventos Sociais</option>
+                                    <option value="Indústria">Indústria</option>
+                                    <option value="Serviços">Serviços</option>
+                                    <option value="T.I.">T.I.</option>
+                                    <option value="Turismo/Lazer">Turismo/Lazer</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                                <label htmlFor='setor'>Segmento</label>
+                            </div>
+
                             <div className="input-field">
                                 <label class="active" htmlFor='contact'>Nome do Responsável</label>
                                 <input defaultValue={profile.contact} type='text' id="contact" onChange={this.handleChange} />
@@ -144,22 +166,16 @@ export class EditUser extends Component {
                                 <input defaultValue={profile.complemento} type='text' id="complemento" onChange={this.handleChange} />
                             </div>
                             <h5 className="grey-text text-darken-3">Redes Sociais</h5>
-                            <div className="input-field">
-                                <label class="active" htmlFor='complemento'>Website</label>
-                                <input defaultValue={profile.website} type='text' id="website" onChange={this.handleChange} />
-                            </div>
-                            <div className="input-field">
-                                <label class="active" htmlFor='complemento'>Facebook</label>
-                                <input defaultValue={profile.facebook} type='text' id="facebook" onChange={this.handleChange} />
-                            </div>
+
                             <div className="input-field">
                                 <label class="active" htmlFor='complemento'>Whatsapp</label>
                                 <input defaultValue={profile.whatsapp} type='text' id="whatsapp" onChange={this.handleChange} />
                             </div>
                             <div className="input-field">
-                                <label class="active" htmlFor='complemento'>Linkedin</label>
-                                <input defaultValue={profile.linkedin} type='text' id="linkedin" onChange={this.handleChange} />
+                                <label class="active" htmlFor='complemento'>Facebook</label>
+                                <input defaultValue={profile.facebook} type='text' id="facebook" onChange={this.handleChange} />
                             </div>
+
                             <div className="input-field">
                                 <label class="active" htmlFor='complemento'>Instagram</label>
                                 <input defaultValue={profile.instagram} type='text' id="instagram" onChange={this.handleChange} />
@@ -167,6 +183,16 @@ export class EditUser extends Component {
                             <div className="input-field">
                                 <label class="active" htmlFor='complemento'>Twitter</label>
                                 <input defaultValue={profile.twitter} type='text' id="twitter" onChange={this.handleChange} />
+                            </div>
+
+                            <div className="input-field">
+                                <label class="active" htmlFor='complemento'>Linkedin</label>
+                                <input defaultValue={profile.linkedin} type='text' id="linkedin" onChange={this.handleChange} />
+                            </div>
+
+                            <div className="input-field">
+                                <label class="active" htmlFor='complemento'>Website</label>
+                                <input defaultValue={profile.website} type='text' id="website" onChange={this.handleChange} />
                             </div>
 
                             <div className="input-field">
@@ -193,7 +219,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        editUser: (ids,id) => dispatch(editUser(ids,id))
+        editUser: (ids, id) => dispatch(editUser(ids, id))
     }
 }
 

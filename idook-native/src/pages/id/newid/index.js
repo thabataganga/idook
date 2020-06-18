@@ -14,8 +14,11 @@ import styles from './styles';
 
 import { editId } from '../../../store/actions/idActions'
 
+import { signOut } from '../../../store/actions/authActions'
 
-class NewId extends React.Component {
+
+
+class EditID extends React.Component {
     state = {
         firstName: '',
         lastName: '',
@@ -68,40 +71,24 @@ class NewId extends React.Component {
 
         this.props.navigation.navigate("Inicial");
         //this.props.history.push('/');
-        //console.log(this.state);
+       // console.log(this.state);
     };
 
 
-    render() {
 
+    render() {
         const {auth, profile, ids} = this.props
         const token = profile.token
 
         const filterToken = ids.filter(id => id.id === token);
 
-        if (ids && profile) {
-            const token = profile.token
-
-            const filterToken = ids.filter(id => id.id === token);
-
-            if (filterToken.length != 0) {
-                console.log(filterToken[0])
-                if (filterToken[0].empresa != "Não configurado") {
-                    console.log(filterToken[0].empresa)
-                    this.props.navigation.navigate("NewID")
-                }
-
-            }
-
-
-
-
+        if(!auth && profile.isLoaded != false){
+            this.props.navigation.navigate("Login");
         }
-
 
         return (
             <View style={styles.container}>
-                <View style={styles.header}>
+                 <View style={styles.header}>
                     <Image style={styles.logo} source={logoCliente} />
 
                     <TouchableOpacity style={styles.headerText} onPress={this.signOutUser}>
@@ -120,15 +107,16 @@ class NewId extends React.Component {
             showsVerticalScrollIndicator = {false}>
 
                 <View style={styles.form}>
-                
                     <View style={{ marginTop: 20 }}>
                         <Text style={styles.inputTitle}>Nome</Text>
                         <TextInput
                             style={styles.input}
-                            autoCapitalize="true"
-                            onChange={this.handleChange}
-                            defaultValue={filterToken[0].firstName}
-                            id='firstName'
+                            autoCapitalize="words"
+                            //onChange={this.handleChange}
+                            //defaultValue={filterToken[0].firstName}
+                            //id='firstName'
+                            onChangeText={firstName=> this.setState({firstName: firstName})}
+                        //    defaultValue={filterToken[0].firstName}
                         ></TextInput>
                     </View>
 
@@ -136,10 +124,12 @@ class NewId extends React.Component {
                         <Text style={styles.inputTitle}>Sobrenome</Text>
                         <TextInput
                             style={styles.input}
-                            autoCapitalize="true"
-                            onChange={this.handleChange}
-                            defaultValue={filterToken[0].lastName}
-                            id='lastName'
+                            autoCapitalize="words"
+                            //onChange={this.handleChange}
+                            //defaultValue={filterToken[0].lastName}
+                            //id='lastName'
+                            onChangeText={lastName=> this.setState({lastName: lastName})}
+                        //    defaultValue={filterToken[0].lastName}
                         ></TextInput>
                     </View>
 
@@ -147,50 +137,61 @@ class NewId extends React.Component {
                         <Text style={styles.inputTitle}>Telefone</Text>
                         <TextInput
                             style={styles.input}
-                            defaultValue={filterToken[0].phone}
-                            autoCapitalize="none"
-                            onChange={this.handleChange}
-                            id='phone'
+                            onChangeText={phone=> this.setState({phone: phone})}
+                         //   defaultValue={filterToken[0].phone}
+                            
+                            //autoCapitalize="none"
+                            //onChange={this.handleChange}
+                            //defaultValue={filterToken[0].phone}
+                            //id='phone'
                         ></TextInput>
                     </View>
                     <View style={{ marginTop: 20 }}>
                         <Text style={styles.inputTitle}>Cidade</Text>
                         <TextInput
                             style={styles.input}
-                            
-                            autoCapitalize="true"
-                            onChange={this.handleChange}
-                            id='city'
+                            onChangeText={city=> this.setState({city: city})}
+                          //  defaultValue={filterToken[0].city}
+                            autoCapitalize="words"
+                            //onChange={this.handleChange}
+                            //defaultValue={filterToken[0].city}
+                            //id='city'
                         ></TextInput>
                     </View>
                     <View style={{ marginTop: 20 }}>
                         <Text style={styles.inputTitle}>Estado/Sigla</Text>
                         <TextInput
                             style={styles.input}
-                            
-                            autoCapitalize="true"
-                            onChange={this.handleChange}
-                            id='uf'
+                            onChangeText={uf=> this.setState({uf: uf})}
+                           // defaultValue={filterToken[0].uf}
+                            autoCapitalize="words"
+                            //onChange={this.handleChange}
+                            //defaultValue={filterToken[0].uf}
+                            //id='uf'
                         ></TextInput>
                     </View>
                     <View style={{ marginTop: 20 }}>
                         <Text style={styles.inputTitle}>Empresa</Text>
                         <TextInput
                             style={styles.input}
-                            
-                            autoCapitalize="true"
-                            onChange={this.handleChange}
-                            id='empresa'
+                            onChangeText={empresa=> this.setState({empresa: empresa})}
+                          //  defaultValue={filterToken[0].empresa}
+                            autoCapitalize="words"
+                            //onChange={this.handleChange}
+                            //defaultValue={filterToken[0].empresa}
+                            //id='empresa'
                         ></TextInput>
                     </View>
                     <View style={{ marginTop: 20 }}>
                         <Text style={styles.inputTitle}>Cargo</Text>
                         <TextInput
                             style={styles.input}
-                            
-                            autoCapitalize="true"
-                            onChange={this.handleChange}
-                            id='cargo'
+                            onChangeText={cargo=> this.setState({cargo: cargo})}
+                          //  defaultValue={filterToken[0].cargo}
+                            autoCapitalize="words"
+                           // onChange={this.handleChange}
+                            //defaultValue={filterToken[0].cargo}
+                            //id='cargo'
                         ></TextInput>
                     </View>
                 </View>
@@ -233,4 +234,4 @@ const mapStateToProps = (state) => {
     firestoreConnect([
         { collection: 'ids' }
     ])
-)(NewId)
+)(EditID)

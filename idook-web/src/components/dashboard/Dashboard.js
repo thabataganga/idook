@@ -1,4 +1,4 @@
-import React, {Component, Profiler} from 'react';
+import React, {Component} from 'react';
 //import Notification from './Notifications';
 //import NewsList from '../news/NewsList';
 //import CalendarList from '../calendar/CalendarList';
@@ -12,14 +12,12 @@ import { Redirect } from 'react-router-dom';
 class Dashboard extends Component {
     render (){
        //console.log(this.props)
-       const {news} = this.props;
-       const {calendar} = this.props;
        const {ids} = this.props;
 
        const {auth, profile} = this.props;
 
        if (!auth.uid) {
-        return <Redirect to="/signin" />;
+        return <Redirect to="/home" />;
       }
 
       if(ids){
@@ -34,9 +32,13 @@ class Dashboard extends Component {
                         <IdData ids={filteredId} profile={profile}/>
                     </div>
                     <div className='col s12 m7'>
-                        <IdList ids={filteredId}/>
+                        <IdList ids={filteredId} profile={profile}/>
                     </div>
                 </div>
+
+                
+
+                
             </div>
         )
       }

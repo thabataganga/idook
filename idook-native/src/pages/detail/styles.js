@@ -104,12 +104,16 @@ export default StyleSheet.create({
         paddingTop: 13,
     },
 
-    description: {
-        fontSize: 16,
-        lineHeight: 17,
-        color: '#fff',
-        marginBottom: 5,
+    title: {
+        fontSize: 35,
+        marginBottom: 10,
+        paddingHorizontal: 20,
+        marginTop: 30,
+        fontWeight: 'bold',
+        color: '#13131a'
     },
+
+
 
     descriptionB: {
         fontWeight: 'bold',

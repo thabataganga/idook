@@ -6,8 +6,6 @@ import { signOut } from '../../store/actions/authActions'
 
 import "./css/Navbar.css"
 
-import ClientLogo from '../../assets/sindpd.png'
-
 
 class SignedInLinks extends Component {
     
@@ -21,6 +19,9 @@ class SignedInLinks extends Component {
       <div>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
                   <li><NavLink to='/' className='dropdown-trigger black-text' data-target='ids'>IDs<i class="material-icons right">arrow_drop_down</i></NavLink></li>
+                  <li><NavLink to='/' className='dropdown-trigger black-text' data-target='ids'>Notificações<i class="material-icons right">arrow_drop_down</i></NavLink></li>
+                  <li><NavLink to='/' className='dropdown-trigger black-text' data-target='ids'>Calendário<i class="material-icons right">arrow_drop_down</i></NavLink></li>
+                 
                   <li><NavLink to='/' className='dropdown-trigger black-text' data-target='config'>Configurações<i class="material-icons right">arrow_drop_down</i></NavLink></li>
               
                   <li><a className='black-text' onClick={this.props.signOut}>Log Out</a></li>

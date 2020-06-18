@@ -19,6 +19,7 @@ export class SignUp extends Component {
         setor: '',
         contact: '',
         phone: '',
+        whatsapp: '',
         cnpj: '',
         socialreason: '',
         numero: '',
@@ -32,7 +33,7 @@ export class SignUp extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        //  console.log(this.state);
+        //console.log(this.state);
         this.props.signUp(this.state);
     }
     render() {
@@ -53,14 +54,18 @@ export class SignUp extends Component {
 
 
                     <div class="input-field">
-                        <select id='setor'>
-                            <option value="" disabled selected>Segmento</option>
-                            <option value="1">3º. Setor</option>
-                            <option value="2">Educação</option>
-                            <option value="3">Turismo/Lazer</option>
-                            <option value="4">Empresa</option>
-                            <option value="5">Eventos Coorporativos</option>
-                            <option value="6">Eventos Sociais</option>
+                        <select id='setor' onChange={this.handleChange}>
+                            <option value="0" selected disabled hidden>Segmento</option>
+                            <option value="3º. Setor">3º. Setor</option>
+                            <option value="Comércio">Comércio</option>
+                            <option value="Educação">Educação</option>
+                            <option value="Eventos Coorporativos">Eventos Coorporativos</option>
+                            <option value="Eventos Sociais">Eventos Sociais</option>
+                            <option value="Indústria">Indústria</option>
+                            <option value="Serviços">Serviços</option>
+                            <option value="T.I.">T.I.</option>
+                            <option value="Turismo/Lazer">Turismo/Lazer</option>
+                            <option value="Outros">Outros</option>
                         </select>
                         <label htmlFor='setor'>Segmento</label>
                     </div>
@@ -72,6 +77,10 @@ export class SignUp extends Component {
                     <div className="input-field">
                         <label htmlFor='phone'>Telefone</label>
                         <input type='tel' id="phone" onChange={this.handleChange} />
+                    </div>
+                    <div className="input-field">
+                        <label htmlFor='whatsapp'>Whatsapp</label>
+                        <input type='tel' id="whatsapp" onChange={this.handleChange} />
                     </div>
                     <div className="input-field">
                         <label htmlFor='cnpj'>CNPJ</label>
@@ -108,9 +117,6 @@ export class SignUp extends Component {
                     <div className="center red-text">
                         {authError ? <p>{authError}</p> : null}
                     </div>
-
-
-
 
                 </form>
 

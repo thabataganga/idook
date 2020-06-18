@@ -80,7 +80,7 @@ class EditID extends React.Component {
 
         this.props.editId(idss, token)
 
-        this.props.navigation.navigate("Detail");
+       // this.props.navigation.navigate("Detail");
         //this.props.history.push('/');
         //console.log(this.state);
     };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { firebaseConnect, firestoreConnect } from 'react-redux-firebase';
+import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
 import QRCode from 'qrcode.react';
@@ -63,7 +63,6 @@ const IdDetail = (props) => {
 
         let diff = moment(now, "DD/MM/YYYY").diff(moment(start, "DD/MM/YYYY", 'days'));
       
-        var range = Math.abs(start-now)
 
         let duration = moment.duration(diff)
       
@@ -73,14 +72,14 @@ const IdDetail = (props) => {
         var siteappAndroid = "www.google.com"
         var siteappIOS = 'www.apple.com'
 
-        var whatsapplink = 'https://web.whatsapp.com/send?l=pt-BR&phone=' + '55' + sids.phone + '&text=' + sids.firstName +', bem%20vindo%20ao%20IDook%20do%20Sindpd.%20Voc%C3%AA%20pode%20fazer%20o%20download%20do%20aplicativo%20em%20' + siteappAndroid + ' ou ' + siteappIOS + '.%20Para%20acessar%20a%20sua%20carteirinha%20digital%20use%20o%20seu%20CPF%20e%20o%20c%C3%B3digo%20token%3A ' + id ;
-        console.log(start)
-        console.log(now)
+        var whatsapplink = 'https://web.whatsapp.com/send?l=pt-BR&phone=55'+ sids.phone + '&text=' + sids.firstName +', bem%20vindo%20ao%20IDook%20do%20Sindpd.%20Voc%C3%AA%20pode%20fazer%20o%20download%20do%20aplicativo%20em%20' + siteappAndroid + ' ou ' + siteappIOS + '.%20Para%20acessar%20a%20sua%20carteirinha%20digital%20use%20o%20seu%20CPF%20e%20o%20c%C3%B3digo%20token%3A ' + id ;
+       // console.log(start)
+       // console.log(now)
 
        // console.log(diff)
         //console.log(range)
         //console.log(result)
-        console.log(whatsapplink)
+        //console.log(whatsapplink)
 
 
         if (expira <= 0) {
@@ -105,7 +104,7 @@ const IdDetail = (props) => {
 
                                     <div className='row'>
                                         <div className='col s12 m7'>
-                                        <img src={sids.url} object-fit='cover' class="center circular--portraitM" />                                        </div>
+                                        <img alt="peril" src={sids.url} object-fit='cover' class="center circular--portraitM" />                                        </div>
                                         <div className='col s12 m5 center2'>
                                             <p>Matricula: {sids.matricula} </p>
                                             <p>Cargo: {sids.cargo} </p>
@@ -152,7 +151,7 @@ const IdDetail = (props) => {
                                 <div className='card-action'>
                                     <p className='black-text'>Criado em: {moment(sids.createdAt.toDate()).calendar()}</p>
                                     <p className='black-text'>Validade: {validade} dias</p>
-                                    <p><a className="red-text">Expirou</a></p>
+                                    <p className="red-text">Expirou</p>
                                 </div>
 
                                 <div className='card-action'>
@@ -190,7 +189,7 @@ const IdDetail = (props) => {
                                 <div className='row'>
                                     <div className='col s12 m7'>
                                         <br/>
-                                        <img src={sids.url} object-fit='cover' class="center circular--portraitM" />
+                                        <img alt="perfil" src={sids.url} object-fit='cover' class="center circular--portraitM" />
                                     </div>
                                     <div className='col s12 m5 center2'>
                                         <p>Matricula: {sids.matricula} </p>
@@ -211,7 +210,7 @@ const IdDetail = (props) => {
                             </div>
 
                             <div className='card-action'>
-                                <a  target="_blank" href={whatsapplink} className="btn z-depth-0">Reenviar Token</a>
+                                <a  target="_blank" rel="noopener noreferrer"  href={whatsapplink} className="btn z-depth-0">Reenviar Token</a>
                                 </div>
 
 
@@ -229,7 +228,7 @@ const IdDetail = (props) => {
                                 <div object-fit='contain' class="center">
                                     <QRCode
                                         class="center3"
-                                        value={"MECARD: N:" + sids.firstName + sids.lastName + "; TEL:" + sids.phone + "; EMAIL: " + sids.email + "; ORG: " + sids.empresa + ";"}
+                                        value={"MECARD: N:" + sids.firstName + " " + sids.lastName + "; TEL:" + sids.phone + "; EMAIL: " + sids.email + "; ORG: " + sids.empresa + ";"}
                                         responsive={true}
                                         id="QrCode"
                                         renderAs="png"

@@ -3,6 +3,10 @@ import { connect } from 'react-redux'
 import { createId } from '../../store/actions/idActions'
 import { Redirect } from 'react-router-dom';
 
+import MultiplesID from './MultiplesID';
+
+import exemple from './modelo-idook.csv'
+
 export class CreateId extends Component {
 
     state = {
@@ -39,9 +43,35 @@ export class CreateId extends Component {
 
 
         return (
-            <div className="container center">                             
-                <form onSubmit={this.handleSubmit} className='white'>                
-                <h5 className="grey-text text-darken-3">Cadastrar ID</h5>
+            <div className="container section center">    
+            
+
+                <div className='row'>
+                    <div className='col s12 m5'>
+
+                    <div className='card z-depht-0'>
+                                <div className='card-content'>
+
+                                    <span className='card-title'>Cadastrar IDooks Multiplos</span>
+
+                                </div>
+                                <div className='card-action'>
+                                    <p>Para inserir vários usuários de uma vez, você deve preparar um arquivo do tipo .CSV conforme descrito no tutorial: </p>
+                                    <br/>
+                                    <a href={exemple}>www.idook.com/tutorial</a>
+                                    <br/><br/><br/>
+                                    <MultiplesID></MultiplesID>
+
+                                </div>
+
+                            </div>
+                            
+                       
+                    </div>
+                    <div className='col s12 m7'>
+
+                    <form onSubmit={this.handleSubmit} className='white form2'>                
+                <h5 className="grey-text text-darken-3">Cadastrar IDook Unitário</h5>
                         <div className="input-field">
                             <label htmlFor='firstName'>Nome</label>
                             <input type='text' id="firstName" onChange={this.handleChange}/>
@@ -76,7 +106,12 @@ export class CreateId extends Component {
                         <div className="input-field">
                             <button className="btn z-depth-0">Emitir ID</button>
                         </div>                                      
-                </form>                  
+                </form>   
+                       
+                    </div>
+                </div>
+
+                              
             </div>
         )
     }
