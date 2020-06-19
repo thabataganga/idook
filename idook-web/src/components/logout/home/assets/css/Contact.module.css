@@ -1,143 +1,55 @@
  
 .Container {
-  position: relative;
-  height: 100%;
-  
-  
-}
-
-
-@media only screen and (max-width: 1145px) {
-.Container {
-  position: relative;
-  height: 100%;
-  
-} 
-}
-
-
-@media only screen and (max-width: 600px) {
-.Container {
-  position: relative;
-  height: 100%;
-  
-} 
+  position: relative;  
 }
 
 /* Add some content at the bottom of the video/page */
 .Content {
-  position: relative;
-  top: 0;
   color:#f1f1f1;
- 
   background-color: #702F88;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
 }
 .SubContent {
-    align-content: flex-start;
-    padding-left:24vh;
-    padding-right:4vh;
-    padding-top: 10vh;
-    padding-bottom:10vh;
-    width: 40%;
+    padding: 5vw;
   }
-  .SubContent2 {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
 
-  }
 .SubContent p {
     color: #eeeeeead;
-    font-size: 1.6rem;
+    font-size: 1.6rem !important;
+}
+.SubContent h1 {
+
+  font-size: 3.0rem !important;
 }
 
 .iphone{
-  width: 80vh;
+  width: 80%;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
- 
- 
-}
-
-.iphone:last-of-type {
-  padding-top: 5vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
 }
 
 
-@media only screen and (max-width: 1354px) {
+
+@media only screen and (max-width: 1145px) {
   .SubContent {
-    align-content: flex-start;
-    padding-left:24vh;
-    padding-right:24vh;
-    padding-top: 10vh;
-    padding-bottom:10vh;
-    width: 100%;
+    padding: 10vh;
   }
-.SubContent p {
-    font-size: 1.4rem;
-}
-.SubContent h1 {
- 
-  font-size: 3.5rem;
-}
-.iphone{
-  width: 70vh;
-  padding-top: 0vh;
-  padding-bottom: 10vh;
-}
+
+  .iphone{
+    width: 100%;
+    display: block;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+    margin-left: 0vw;
+    margin-right: 0vw;
+  }
 }
 
-@media only screen and (max-width: 1040px) {
-.SubContent {
-  align-content: flex-start;
-  padding-left:18vh;
-  padding-right:18vh;
-  padding-top: 8vh;
-  padding-bottom:8vh;
-  width: 100%;
-}
-.SubContent p {
-  font-size: 1.4rem;
-}
-.SubContent h1 {
-
-font-size: 3.5rem;
-}
-.iphone{
-width: 60;
-padding-top: 0vh;
-padding-bottom: 10vh;
-}
-}
 
 @media only screen and (max-width: 600px) {
-.SubContent {
-  align-content: flex-start;
-  padding-left:5vh;
-  padding-right:5vh;
-  padding-top: 5vh;
-  padding-bottom:5vh;
-  width: 100%;
+  .SubContent {
+    padding: 4vh;
+  }
 }
-.SubContent p {
-  font-size: 1.4rem;
-}
-.SubContent h1 {
-
-font-size: 3.5rem;
-}
-.iphone{
-width: 42vh;
-padding-bottom: 10vh;
-padding-top: 0vh;
-
-}
-}
-

@@ -1,39 +1,33 @@
 import React, { Component } from 'react';
-import M from "materialize-css";
-
 import classes from './assets/css/Contact.module.css';
+import Ipad from "./assets/img/ipad_pro_land_gold_2.png"
 
-import Ipad from "./assets/img/ipad_pro_land_gold.png"
 
 
 
 class Home extends Component {
-    componentDidMount() {
-        // Auto initialize all the things!
-        M.AutoInit();
-    }
+
     render() {
 
         return (
             <div className={classes.Container} >
-
-
                 <div className={classes.Content}>
-               
-                <div className={classes.SubContent} >
-                        <h1>Conheça o IDook</h1>
-                        <p class="white-text ">Entre em contato com o nosso time e marque uma demonstração</p>                
+                    <div className={classes.SubContent} >
+                        <div class="row">
+                            <div class="col s12 m6">
+                                
+                                    <img alt="Ipad" src={Ipad} className={classes.iphone} />
+                               
+                            </div>
+                            <div class="col s12 offset-m1 m4">
+                                <h1>Conheça o IDook</h1>
+                                <p class="white-text ">Entre em contato com o nosso time e marque uma demonstração</p>
+                                <button className="btn z-depth-0">Contato</button>
+                            </div>
+                        </div>
                     </div>
-
-                    
-
                 </div>
             </div>
-
-            
-
-
-
         );
     };
 
