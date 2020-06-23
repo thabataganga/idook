@@ -18,6 +18,10 @@ import CreateCalendar from './components/calendar/CreateCalendar';
 import CalendarDetail from './components/calendar/CalendarDetails';
 
 import Home from './components/logout/home/home'
+import Contact from './components/logout/contact/contacts'
+
+import Rodape from './components/logout/home/rodape'
+
 
 import 'materialize-css/dist/css/materialize.min.css';
 import { useSelector } from 'react-redux'
@@ -43,6 +47,8 @@ function App() {
           <Navbar />
           <Switch>
             <Route exact path='/home' component={Home} />
+            <Route exact path='/contato' component={Contact} />
+
             <Route exact path='/' component={Dashboard} />
             <Route exact path='/signin' component={SignIn} />
             <Route exact path='/signup' component={SignUp} />
@@ -61,6 +67,8 @@ function App() {
 
 
           </Switch>
+
+         <Rodape/>
 
     
         </div>

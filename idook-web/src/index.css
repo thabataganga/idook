@@ -1,12 +1,45 @@
 body {
   margin: 0;
  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #702f8a;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
   
 }
+
+main {
+  flex: 1 0 auto;
+}
+
+.fundoverde {
+  background-color: #8EBC35 !important;
+  height: 100vh;
+ }
+
+ .fundoverde p{
+  font-size: 1.2rem;
+  flex-wrap: wrap;
+  color: #424242
+ }
+ .fundoverde span{
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+ }
+ .fundoverde img{
+   height: 80vh;
+  padding: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+ }
+
 
 form{
   padding: 20px;
@@ -195,6 +228,10 @@ code {
   display: flex;
   height: 100vh !important;
  
+  }
+
+  .IDsec{
+    background-color: green;
   }
 
 

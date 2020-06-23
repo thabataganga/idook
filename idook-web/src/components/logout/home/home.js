@@ -14,11 +14,15 @@ class Home extends Component {
         return (
             <div>
                 <BackgroundVideo />
+             
                 <Beneficios />
                 <Carousel/>
                 <Mercados />
                 <Contato/>
-                <Rodape/>
+
+               
+               
+             
             </div>
         );
     };

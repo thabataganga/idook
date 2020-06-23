@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './assets/css/rodape.css';
+import { Link } from 'react-router-dom'
 
 import Logo from '../../layout/logo.png'
 
@@ -24,13 +25,14 @@ class Rodape extends Component {
                 <div className="row container">
 
                     <div className="col l3 s12 ">
-                        <img alt="logo" class="brand-logo2" src={Logo} />
-                        <p>ID da Era Digital</p>
+                    <Link to="/home"className="brand-logo black-text text-darken-2">  <img alt="logo" class="brand-logo2" src={Logo} />
+                        <p>ID da Era Digital</p></Link>
                     </div>
                     <div className="col l3 s12">
                         <h5 className="black-text">Institucional</h5>
                         <ul>
                             <li><a className="grey-text text-darken-3" href="#!"><i className="fa fa-angle-double-right"></i>Sobre nós</a></li>
+                            <li><a className="grey-text text-darken-3" href="/contato"><i className="fa fa-angle-double-right"></i>Contato comercial</a></li>
 
                         </ul>
                     </div>
