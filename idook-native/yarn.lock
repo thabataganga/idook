@@ -2842,6 +2842,14 @@ expo-barcode-scanner@~8.1.0:
     lodash "^4.6.0"
     prop-types "^15.6.0"
 
+expo-camera@~8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/expo-camera/-/expo-camera-8.2.0.tgz#9c849f0dc409e1fe6ee886f479e0ee0050b6d386"
+  integrity sha512-wGVqQVVR4YCkHuI7u+qloI1p2UbYwpU8hs0IEM+1Th4JQekAPUEfOmJI6ZHGj36El8f87ghRed2MXzOssn4hHg==
+  dependencies:
+    lodash "^4.6.0"
+    prop-types "^15.6.0"
+
 expo-constants@~9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/expo-constants/-/expo-constants-9.0.0.tgz#35c600079ee91d38fe4f56375caae6e90f122fdd"
@@ -2872,7 +2880,7 @@ expo-image-loader@~1.0.0:
   resolved "https://registry.yarnpkg.com/expo-image-loader/-/expo-image-loader-1.0.1.tgz#a83e336768df4dfcb8909aebb6d8152e256d7a72"
   integrity sha512-v7ziP+UGj+LArEmP//XTaqi9iFWRa8LAShNoFwwnpPS9huM8q3I+P16xK+GTo+4bQa1pPSIFBUZ8KqwAc+k8mQ==
 
-expo-image-picker@^8.1.0:
+expo-image-picker@~8.1.0:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-8.1.0.tgz#014e4f4aaef4c1daf56d13de27a41ef78660aa15"
   integrity sha512-UMHiDGiflg47A/nfnmJ1gYdB/sEoxB4STVGgMeLNYpUkVR59kUWqsGTyVEtSywNCLPuXPZVB9NaRUd81Rbs7lA==

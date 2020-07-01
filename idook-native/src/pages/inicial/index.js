@@ -32,6 +32,8 @@ class Inicial extends React.Component {
      //   if(profile.isLoaded != false){
 
             if (ids && profile) {
+
+                console.log(profile)
                 const token = profile.token
     
                 const filterToken = ids.filter(id => id.id === token);

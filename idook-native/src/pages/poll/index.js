@@ -5,7 +5,7 @@ import { View, ScrollView, Image, Text, TouchableOpacity } from 'react-native';
 
 
 
-import logoImg from '../../assets/logo2.png';
+import logoImg from '../../assets/idook.png';
 import styles from './styles';
 import { FlatList } from 'react-native-gesture-handler';
 

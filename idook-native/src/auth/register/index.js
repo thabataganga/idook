@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux'
 import { signUp } from '../../store/actions/authActions'
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, Linking } from "react-native";
 import * as firebase from "firebase";
 import styles from './styles';
 import { Feather } from '@expo/vector-icons';
@@ -94,7 +94,16 @@ class RegisterScreen extends Component {
 
                 <TouchableOpacity
                     style={{ alignSelf: "center", marginTop: 32 }}
-                    onPress={() => this.props.navigation.navigate("Register")}
+                    onPress={() => this.props.navigation.navigate("Termo")}
+                >
+                    <Text style={{ color: "#414959", fontSize: 13 }}>
+                        Ao se cadastrar você aceita os <Text style={{ fontWeight: "700", color: "#000000" }}>Termos e Condições.</Text>
+                    </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    style={{ alignSelf: "center", marginTop: 32 }}
+                    onPress={()=> Linking.openURL('http://socios.sindpd.org.br/')}
                 >
                     <Text style={{ color: "#414959", fontSize: 13 }}>
                         Ainda não tem um ID de acesso? <Text style={{ fontWeight: "700", color: "#000000" }}>Solicite</Text>

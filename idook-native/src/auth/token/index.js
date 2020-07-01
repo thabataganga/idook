@@ -20,6 +20,7 @@ import logoCliente from '../../assets/sindpd.png';
  class Token extends React.Component {
     state = {
         token: "",
+        uid: "",
         authorId: ""
     };
 
@@ -38,7 +39,7 @@ import logoCliente from '../../assets/sindpd.png';
         e.preventDefault();
         const {profile, ids, auth} = this.props
 
-        const uid = this.state.token
+        const token = this.state.token
 
         const uid_user = auth.uid
 
@@ -51,11 +52,15 @@ import logoCliente from '../../assets/sindpd.png';
 
         if(hascpf != 0){
            // console.log("CPF Cadastrado")
-            const filterToken = filterCPF.filter(id => id.id === uid);
+            const filterToken = filterCPF.filter(id => id.tokenapp === token);
             var hastoken = filterToken.length;
            // console.log(hastoken)
             if(hastoken > 0){
-                //console.log(filterToken[0].authorId);
+               
+                console.log(token);
+                const uid = filterToken[0].id
+                console.log(uid)
+                this.state.token = uid
                 this.state.authorId = filterToken[0].authorId
                 this.props.editUser(this.state, uid_user )
             } else console.log("Tente novamente")
@@ -108,7 +113,7 @@ import logoCliente from '../../assets/sindpd.png';
 
         if (profile.isLoaded != false && profile.token) {
 
-            console.log('tese')
+        //    console.log('tese')
         
             this.props.navigation.navigate("Inicial")
         }

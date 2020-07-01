@@ -5,7 +5,7 @@ import { View, ScrollView, Image, Text, TouchableOpacity, Linking } from 'react-
 
 
 
-import logoImg from '../../assets/logo2.png';
+import logoImg from '../../assets/idook.png';
 import styles from './styles';
 
 export default function Incidents() {

@@ -119,7 +119,7 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16,
         lineHeight: 17,
-        marginBottom: 5,
+      
         color: '#fff'
     },
 

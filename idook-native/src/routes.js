@@ -17,6 +17,7 @@ import Settings from './pages/settings';
 import LoadingScreen from './screens'
 import HomeScreen from './home';
 import RegisterScreen from './auth/register'
+import Termo from './auth/termo'
 import LoginScreen from './auth/login'
 import Token from './auth/token'
 import EditID from './pages/id/editid'
@@ -65,6 +66,8 @@ export default function Routes() {
                
                
                 <AppStack.Screen name="Register" component={RegisterScreen} />
+                <AppStack.Screen name="Termo" component={Termo} />
+
                 <AppStack.Screen name="Token" component={Token} />
                 <AppStack.Screen name="EditID" component={EditID} />
                 <AppStack.Screen name="Photo" component={Photo} />

@@ -65,9 +65,7 @@ class Detail extends React.Component {
                 if (expira < 1) {
                     return (
                         <View style={styles.container}>
-                            <View style={{ alignItems: 'flex-start' }}>
-                    <Text style={styles.title}>Cartão Digital</Text>
-                </View>
+                            
                             <View style={{ alignItems: 'flex-end' }}>
                                 <TouchableOpacity style={styles.headerText} onPress={() => this.props.navigation.navigate("Inicial")}>
                                     <Feather name="arrow-left" size={20} color="#91bd36"
@@ -173,9 +171,6 @@ class Detail extends React.Component {
                 return (
                     <View style={styles.container}>
 
-<View style={{ alignItems: 'flex-start' }}>
-                    <Text style={styles.title}>Cartão Digital</Text>
-                </View>
                         <View style={{ alignItems: 'flex-end' }}>
 
 

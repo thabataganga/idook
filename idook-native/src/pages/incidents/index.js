@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { WebView } from 'react-native-webview';
 
-import logoImg from '../../assets/logo2.png';
+import logoImg from '../../assets/idook.png';
 import styles from './styles';
 
 export default function Incidents() {

@@ -5,7 +5,7 @@ import { View, ScrollView, Image, Text, TouchableOpacity } from 'react-native';
 
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
-import logoImg from '../../../assets/logo2.png';
+import logoImg from '../../../assets/idook.png';
 import logoCliente from '../../../assets/sindpd.png';
 import styles from '../styles';
 

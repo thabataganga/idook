@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "IDook",
+    "name": "Sindpd Digital",
     "slug": "IDDook",
     "platforms": [
       "ios",
@@ -9,11 +9,11 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/idook.png",
+    "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash-idook.png",
+      "image": "./assets/splash-sindpd.png",
       "resizeMode": "contain",
-      "backgroundColor": "#702f8a"
+      "backgroundColor": "#108ac6"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
