@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux'
 import { signUp } from '../../store/actions/authActions'
-import { View, Text, Image, TextInput, TouchableOpacity, Linking, Alert } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, Linking, Alert,ScrollView } from "react-native";
 import * as firebase from "firebase";
 import styles from './styles';
 import { Feather } from '@expo/vector-icons';
@@ -55,6 +55,9 @@ class RegisterScreen extends Component {
                         />
                     </TouchableOpacity>
                 </View>
+
+                <ScrollView showsVerticalScrollIndicator={false}>
+
 
                 <View style={{ alignItems: 'flex-start' }}>
                     <Text style={styles.title}>Registrar,</Text>
@@ -126,6 +129,9 @@ class RegisterScreen extends Component {
                 <View style={{ alignItems: 'flex-end' }}>
                     <Image style={styles.logo2} source={logoImg} />
                 </View>
+
+                </ScrollView>
+
             </View>
         );
     }

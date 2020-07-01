@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text,  Image, TouchableOpacity } from "react-native";
+import { View, Text,  Image, TouchableOpacity, ScrollView } from "react-native";
 import * as firebase from "firebase";
 
 import * as ImagePicker from 'expo-image-picker';
@@ -185,6 +185,8 @@ class EditID extends React.Component {
                     </TouchableOpacity>
                 </View>
 
+                <ScrollView showsVerticalScrollIndicator={false}>
+
 
                 <View style={{ alignItems: 'flex-start' }}>
                     <Text style={styles.title}>Foto</Text>
@@ -207,6 +209,9 @@ class EditID extends React.Component {
                     <Text style={{ color: "#FFF", fontWeight: "500" }}>Salvar</Text>
                 </TouchableOpacity>
                 </View>
+
+                </ScrollView>
+
 
             </View>
         );

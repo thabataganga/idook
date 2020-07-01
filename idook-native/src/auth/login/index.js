@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, ScrollView } from "react-native";
 import * as firebase from "firebase";
 
 import { connect } from 'react-redux'
@@ -70,6 +70,8 @@ class LoginScreen extends Component {
 
             </View>
 
+            <ScrollView showsVerticalScrollIndicator={false}>
+
                 <View style={styles.form}>
                     <View  style={{ marginTop: 32 }}>
                         <Text style={styles.inputTitle}>Email</Text>
@@ -111,6 +113,8 @@ class LoginScreen extends Component {
             <View style={{alignItems:'flex-end'}}>
                 <Image style={styles.logo2} source={logoImg} />
             </View>
+
+            </ScrollView>
             </View>
         );
     }
