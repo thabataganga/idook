@@ -62,12 +62,15 @@ class EditID extends React.Component {
                 quality: 1,
               });
               if (!result.cancelled) {
-                this.setState({ image: result.uri });
+                const image = result.uri 
+            this.setState(() => ({image}))
+
+            this.uploadImage(image, this.props.profile.cpf)
               }
         
-              console.log(result);
+             // console.log(result);
             } catch (E) {
-              console.log(E);
+             // console.log(E);
             }
           };
 

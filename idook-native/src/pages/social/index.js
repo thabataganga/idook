@@ -38,7 +38,7 @@ class Social extends React.Component{
                 var whatsapplink = 'https://api.whatsapp.com/send?l=pt-BR&phone=' + company.whatsapp;
                 var facebooklink = 'https://' + company.facebook;
                 var twitterlink = 'https://' + company.twitter;
-                var linkedinlink = 'https://' + company.linkedin;
+                var youtubelink = 'https://' + company.youtube;
                 var websitelink = 'https://' + company.website;
                 var instagramlink = 'https://' + company.instagram;
 
@@ -101,9 +101,9 @@ class Social extends React.Component{
                             <View style={styles.menuBox}>
                                 <TouchableOpacity
                                     style={styles.detailButton}
-                                    onPress={()=> Linking.openURL(linkedinlink)}                                >
-                                    <FontAwesome name="linkedin" style={styles.icon}/>
-                                    <Text style={styles.detailButtonText}>Linkedin</Text>
+                                    onPress={()=> Linking.openURL(youtubelink)}                                >
+                                    <FontAwesome name="youtube" style={styles.icon}/>
+                                    <Text style={styles.detailButtonText}>youtube</Text>
                                 </TouchableOpacity>
                             </View>
             

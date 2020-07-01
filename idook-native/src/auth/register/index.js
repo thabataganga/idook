@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux'
 import { signUp } from '../../store/actions/authActions'
-import { View, Text, Image, TextInput, TouchableOpacity, Linking } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, Linking, Alert } from "react-native";
 import * as firebase from "firebase";
 import styles from './styles';
 import { Feather } from '@expo/vector-icons';
@@ -26,8 +26,21 @@ class RegisterScreen extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         //  console.log(this.state);
+        if(this.state.cpf){
         this.props.signUp(this.state);
         this.props.navigation.navigate("Loading")
+        } else {
+            Alert.alert(
+                "Erro",
+                "Verifique os dados",
+                [
+                  { text: "OK"}
+                ],
+                { cancelable: false }
+              );
+        }
+
+       
 
     }
 

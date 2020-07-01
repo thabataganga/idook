@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7841d7d9.chunk.css",
+    "main.js": "/static/js/main.937fbf5e.chunk.js",
+    "main.js.map": "/static/js/main.937fbf5e.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.b94548d6.js",
+    "runtime-main.js.map": "/static/js/runtime-main.b94548d6.js.map",
+    "static/css/2.5a510433.chunk.css": "/static/css/2.5a510433.chunk.css",
+    "static/js/2.f8406167.chunk.js": "/static/js/2.f8406167.chunk.js",
+    "static/js/2.f8406167.chunk.js.map": "/static/js/2.f8406167.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.b02eaf8c841a88b2969119c8584d6d25.js": "/precache-manifest.b02eaf8c841a88b2969119c8584d6d25.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.5a510433.chunk.css.map": "/static/css/2.5a510433.chunk.css.map",
+    "static/css/main.7841d7d9.chunk.css.map": "/static/css/main.7841d7d9.chunk.css.map",
+    "static/js/2.f8406167.chunk.js.LICENSE.txt": "/static/js/2.f8406167.chunk.js.LICENSE.txt",
+    "static/media/aprendizagem-online.png": "/static/media/aprendizagem-online.2f75e9b2.png",
+    "static/media/bilhetes.png": "/static/media/bilhetes.34cbd587.png",
+    "static/media/consulting.png": "/static/media/consulting.506058b3.png",
+    "static/media/fabrica.png": "/static/media/fabrica.5b31e270.png",
+    "static/media/globo.png": "/static/media/globo.8146c1f9.png",
+    "static/media/ipad_pro_land_gold.png": "/static/media/ipad_pro_land_gold.338ecbc1.png",
+    "static/media/ipad_pro_land_gold_2.png": "/static/media/ipad_pro_land_gold_2.a44f65cf.png",
+    "static/media/iphone_6_port_gold.png": "/static/media/iphone_6_port_gold.6a11ec46.png",
+    "static/media/logo.png": "/static/media/logo.359e9188.png",
+    "static/media/modelo-idook.csv": "/static/media/modelo-idook.af00d40d.csv",
+    "static/media/movie.mp4": "/static/media/movie.5e565bf7.mp4",
+    "static/media/result.png": "/static/media/result.993d9406.png",
+    "static/media/seguranca.png": "/static/media/seguranca.b33f5eef.png",
+    "static/media/sindpd.png": "/static/media/sindpd.1c8dab21.png",
+    "static/media/sistema-de-gerenciamento-de-conteudo.png": "/static/media/sistema-de-gerenciamento-de-conteudo.02962b4d.png",
+    "static/media/smartphone.png": "/static/media/smartphone.ec90bcd5.png",
+    "static/media/tourism.png": "/static/media/tourism.a97bc264.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b94548d6.js",
+    "static/css/2.5a510433.chunk.css",
+    "static/js/2.f8406167.chunk.js",
+    "static/css/main.7841d7d9.chunk.css",
+    "static/js/main.937fbf5e.chunk.js"
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Sindpd Digital",
-    "slug": "IDDook",
+    "slug": "IDook",
     "platforms": [
       "ios",
       "android",
@@ -22,7 +22,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.idook.sindpddigital",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.idook.sindpddigital",
+      "versionCode": 1
     }
   }
 }

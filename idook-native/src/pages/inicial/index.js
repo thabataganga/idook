@@ -33,17 +33,17 @@ class Inicial extends React.Component {
 
             if (ids && profile) {
 
-                console.log(profile)
+              //  console.log(profile)
                 const token = profile.token
     
                 const filterToken = ids.filter(id => id.id === token);
 
-                console.log(filterToken)
+              //  console.log(filterToken)
     
                 if (filterToken.length != 0) {
                    // console.log(filterToken[0])
                     if (filterToken[0].empresa == "Não configurado") {
-                        console.log(filterToken[0].empresa)
+                      //  console.log(filterToken[0].empresa)
                        this.props.navigation.navigate("NewID")
                     }
     
