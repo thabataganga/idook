@@ -26,7 +26,7 @@ class SignedOutMenu extends Component {
         <li><NavLink to='/'><i className="material-icons">cloud</i>Institucional</NavLink></li>
         <li><NavLink to='/'><i className="material-icons">cloud</i>Produtos</NavLink></li>
         <li><NavLink to='/'><i className="material-icons">cloud</i>Segmentos</NavLink></li>
-        <li><NavLink to='/'><i className="material-icons">cloud</i>Contato</NavLink></li>
+        <li><NavLink to='/contato'><i className="material-icons">cloud</i>Contato</NavLink></li>
 
         <li>
           <div className="divider"></div>
