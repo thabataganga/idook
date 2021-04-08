@@ -50,7 +50,7 @@ const IdDetail = (props) => {
         moment.locale('pt-br')
 
         const start = sids.createdAt.toDate();
-      
+        
         //const start = "05/21/2020"
       
         const now = new Date();
@@ -60,15 +60,11 @@ const IdDetail = (props) => {
         const validade = sids.validade;
         
        // const range = moment.range(start, now)
+      
+        let result = new Date(start.setDate(start.getDate() + 180));
 
-        let diff = moment(now, "DD/MM/YYYY").diff(moment(start, "DD/MM/YYYY", 'days'));
-      
+        const expira = ((result.getDate() )) + "/" + ((result.getMonth() + 1)) + "/" + result.getFullYear();
 
-        let duration = moment.duration(diff)
-      
-        let result = duration.format("ddd")
-      
-        const expira = validade - result;
         var siteappAndroid = "www.google.com"
         var siteappIOS = 'www.apple.com'
 
